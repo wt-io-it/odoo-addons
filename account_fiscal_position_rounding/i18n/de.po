@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_fiscal_position_rounding
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-10 08:44+0000\n"
+"PO-Revision-Date: 2015-09-10 10:47+0100\n"
+"Last-Translator: Wolfgang Taferner\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: account_fiscal_position_rounding
+#: model:ir.model,name:account_fiscal_position_rounding.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Steuerzuordnung"
+
+#. module: account_fiscal_position_rounding
+#: model:ir.model,name:account_fiscal_position_rounding.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: account_fiscal_position_rounding
+#: model:ir.model,name:account_fiscal_position_rounding.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Rechungsposition"
+
+#. module: account_fiscal_position_rounding
+#: model:ir.model,name:account_fiscal_position_rounding.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "Umsatzsteuer"
+
+#. module: account_fiscal_position_rounding
+#: field:account.tax,reverse_charge:0
+msgid "Reverse Charge"
+msgstr "Reverse Charge"
+
+#. module: account_fiscal_position_rounding
+#: field:account.fiscal.position,reverse_charge_sentence:0
+msgid "Reverse Charge Sentence"
+msgstr "Hinweissatz/Referenzsatz für Steuerlastumkehr"
+
+#. module: account_fiscal_position_rounding
+#: model:ir.model,name:account_fiscal_position_rounding.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: account_fiscal_position_rounding
+#: model:ir.model,name:account_fiscal_position_rounding.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: account_fiscal_position_rounding
+#: model:ir.model,name:account_fiscal_position_rounding.model_account_tax
+msgid "Tax"
+msgstr "Steuer"
+
+#. module: account_fiscal_position_rounding
+#: view:account.fiscal.position:account_fiscal_position_rounding.rc_account_fiscal_position_form_view
+msgid "Taxes Mapping"
+msgstr "Steuerzuordnung"

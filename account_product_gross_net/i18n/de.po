@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_product_gross_net
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-10 08:45+0000\n"
+"PO-Revision-Date: 2015-09-10 10:48+0100\n"
+"Last-Translator: Wolfgang Taferner\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: account_product_gross_net
+#: field:account.fiscal.position,b2c_fiscal_position:0
+msgid "B2C"
+msgstr "B2C"
+
+#. module: account_product_gross_net
+#: model:ir.model,name:account_product_gross_net.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Steuerzuordnung"
+
+#. module: account_product_gross_net
+#: field:product.attribute.value,lst_price_brut:0
+#: field:product.template,lst_price_brut:0
+msgid "Gross selling price"
+msgstr "Bruttoverkaufspreis"
+
+#. module: account_product_gross_net
+#: field:product.category,brut_net_factor:0
+#: field:product.template,brut_net_factor:0
+msgid "Gross/Net Ratio"
+msgstr "Brutto/Netto Faktor"
+
+#. module: account_product_gross_net
+#: model:ir.model,name:account_product_gross_net.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: account_product_gross_net
+#: model:ir.model,name:account_product_gross_net.model_product_category
+msgid "Product Category"
+msgstr "Produktkategorie"
+
+#. module: account_product_gross_net
+#: model:ir.model,name:account_product_gross_net.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: account_product_gross_net
+#: view:product.category:account_product_gross_net.product_category_brut_net_form_view
+msgid "Sale"
+msgstr "Verkauf"
+
+#. module: account_product_gross_net
+#: view:account.fiscal.position:account_product_gross_net.account_fiscal_position_b2c_form_view
+msgid "Taxes Mapping"
+msgstr "Steuerzuordnung"

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record
+            id="website_sale.products_add_to_cart"
+            model="ir.ui.view">
+            <field name="priority">200</field>
+        </record>
+        <!-- Layout and common templates -->
+        <template
+            id="assets_frontend"
+            priority="100"
+            inherit_id="website.assets_frontend"
+            name="Shop">
+            <xpath
+                expr="."
+                position="inside">
+                <script
+                    type="text/javascript"
+                    src="/product_brut_net/static/src/js/website_sale_brut.js"></script>
+            </xpath>
+        </template>
+        <template
+            id="product"
+            priority="100"
+            inherit_id="website_sale.product"
+            name="Product">
+            <xpath
+                expr="//section[@id='product_detail']"
+                position="attributes">
+                <attribute name="t-attf-class">container oe_website_sale #{(compute_currency(product.with_context(request=request).web_list_price) - product.price) &gt; 0.004 and 'discount'}</attribute>
+            </xpath>
+        </template>
+        <template
+            id="products_item"
+            priority="100"
+            inherit_id="website_sale.products_item"
+            name="Product item">
+            <xpath
+                expr="//div[@itemprop='offers']"
+                position="replace">
+                <div
+                    itemprop="offers"
+                    itemscope="itemscope"
+                    itemtype="http://schema.org/Offer"
+                    class="product_price"
+                    t-if="product.product_variant_ids">
+                    <b>
+                        <t
+                            t-if="(compute_currency(product.with_context(request=request).web_list_price) - product.price) &gt; 0.004">
+                            <del
+                                class="text-danger"
+                                style="white-space: nowrap;"
+                                t-field="product.with_context(request=request).web_list_price"
+                                t-field-options="{
+                                    &quot;widget&quot;: &quot;monetary&quot;,
+                                    &quot;from_currency&quot;: &quot;product.company_id.currency_id&quot;,
+                                    &quot;display_currency&quot;: &quot;user_id.partner_id.property_product_pricelist.currency_id&quot;
+                                }" />
+                            &amp;nbsp; 
+                        </t>
+                        <span
+                            t-field="product.price"
+                            style="white-space: nowrap;"
+                            t-field-options="{
+                                &quot;widget&quot;: &quot;monetary&quot;,
+                                &quot;display_currency&quot;: &quot;user_id.partner_id.property_product_pricelist.currency_id&quot;
+                            }">
+                        </span>
+                        <span
+                            itemprop="price"
+                            style="display:none;"
+                            t-esc="product.price" />
+                        <span
+                            itemprop="priceCurrency"
+                            style="display:none;"
+                            t-esc="user_id.partner_id.property_product_pricelist.currency_id.name" />
+                    </b>
+                </div>
+            </xpath>
+        </template>
+        <template
+            id="product_price"
+            priority="100"
+            inherit_id="website_sale.product_price"
+            name="Product Price">
+            <xpath
+                expr="//span[@t-field='product.lst_price']"
+                position="attributes">
+                <attribute name="t-field">product.with_context(request=request).web_list_price</attribute>
+            </xpath>
+        </template>
+        <template
+            id="cart"
+            priority="100"
+            inherit_id="website_sale.cart"
+            name="Shopping Cart">
+            <xpath
+                expr="//span[@t-field='line.product_id.image_small']"
+                position="attributes">
+                <attribute name="t-field">line.product_id.image_medium</attribute>
+            </xpath>
+            
+            <xpath
+                expr="//th[@width]"
+                position="attributes">
+                <attribute name="width">120</attribute>
+            </xpath>
+            <xpath
+                expr="//th[@width]"
+                position="attributes">
+                <attribute name="width"></attribute>
+            </xpath>
+            <xpath
+                expr="//th[@width]"
+                position="attributes">
+                <attribute name="width"></attribute>
+            </xpath>
+            <xpath
+                expr="//td[@align='center']"
+                position="attributes">
+                <attribute name="align"></attribute>
+            </xpath>
+            <xpath
+                expr="//td[@name='price']"
+                position="attributes">
+                <attribute name="class"></attribute>
+            </xpath>
+            <xpath
+                expr="//del[@t-field='line.product_id.lst_price']"
+                position="replace">
+                <t t-if="(compute_currency(line.with_context(order=order).product_id.web_list_price) - line.price_unit) &gt; 0.004">
+                    <del class="text-danger" style="white-space: nowrap;"
+                      t-field="line.with_context(order=order).product_id.web_list_price" 
+                      t-field-options='{
+                            "widget": "monetary",
+                            "from_currency": "line.company_id.currency_id",
+                            "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+                      }'/>&amp;nbsp;
+                </t>
+            </xpath>
+        </template>
+        <template
+            id="suggested_products_list"
+            priority="100"
+            inherit_id="website_sale.suggested_products_list"
+            name="Suggested Products in my cart">
+            <xpath
+                expr="//col[@width]"
+                position="attributes">
+                <attribute name="width"></attribute>
+            </xpath>
+            <xpath
+                expr="//col[@width]"
+                position="attributes">
+                <attribute name="width"></attribute>
+            </xpath>
+            <xpath
+                expr="//col[@width]"
+                position="attributes">
+                <attribute name="width"></attribute>
+            </xpath>
+            <xpath
+                expr="//span[@t-field='product.image_small']"
+                position="attributes">
+                <attribute name="t-field">product.image_medium</attribute>
+            </xpath>
+            
+            <xpath
+                expr="//strong[@t-field='product.display_name']"
+                position="attributes">
+                <attribute name="t-field">product.with_context(display_default_code=False).display_name</attribute>
+            </xpath>
+            
+            
+            <xpath
+                expr="//t[@t-if='(compute_currency(product.lst_price) - product.price) &gt; 0.1']"
+                position="attributes">
+                <attribute name="t-if">(compute_currency(product.with_context(request=request).web_list_price) - product.price) &gt; 0.004</attribute>
+            </xpath>
+            <xpath
+                expr="//del[@t-field='product.lst_price']"
+                position="attributes">
+                <attribute name="t-field">product.with_context(request=request).web_list_price</attribute>
+            </xpath>
+        </template>
+        <template 
+            id="modal" 
+            name="Optional Products"
+            inherit_id="website_sale_options.modal"
+            priority="100">
+            <xpath
+                expr="//th[@width]"
+                position="attributes">
+                <attribute name="width"></attribute>
+            </xpath>
+            <xpath
+                expr="//th[@width]"
+                position="attributes">
+                <attribute name="width"></attribute>
+            </xpath>
+
+             <xpath
+                expr="//strong[@t-field='product.display_name']"
+                position="attributes">
+                <attribute name="t-field">product.with_context(display_default_code=False).display_name</attribute>
+            </xpath>
+
+            <!-- 
+                BUG: attributes does only replace or inherit one element with the inherited fields
+                WORKAROUND: Use the same expression twice
+             -->
+             
+            <xpath
+                expr="//span[@t-field='product.lst_price']"
+                position="replace">
+                <t t-if="(compute_currency(product.with_context(request=request).web_list_price) - product.price) &gt; 0.004">
+                    <del t-attf-class="text-danger oe_default_price" style="white-space: nowrap;"
+                        t-field="product.with_context(request=request).web_list_price"
+                        t-field-options='{
+                          "widget": "monetary",
+                          "from_currency": "website.currency_id",
+                          "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+                        }'/>
+                </t>
+            </xpath>
+            <xpath
+                expr="//span[@t-field='product.lst_price']"
+                position="replace">
+                <t t-if="(compute_currency(product.with_context(request=request).web_list_price) - product.price) &gt; 0.004">
+                    <del t-attf-class="text-danger oe_default_price" style="white-space: nowrap;"
+                        t-field="product.with_context(request=request).web_list_price"
+                        t-field-options='{
+                          "widget": "monetary",
+                          "from_currency": "website.currency_id",
+                          "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+                        }'/>
+                </t>
+            </xpath>
+        </template>
+        <template 
+            id="variants" 
+            name="Variants"
+            inherit_id="website_sale.variants"
+            priority="100">
+            <xpath
+                expr="//span[@class='badge']"
+                position="replace">
+            </xpath>
+            <xpath
+                expr="//span[@t-if='value_id.price_extra']"
+                position="replace">
+            </xpath>
+        </template>
+    </data>
+</openerp>

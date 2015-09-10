@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record
+            id="view_product_template_form_inherit"
+            model="ir.ui.view">
+            <field name="name">product.template.form.inherit
+            </field>
+            <field name="model">product.template</field>
+            <field
+                name="inherit_id"
+                ref="product.product_template_only_form_view" />
+            <field
+                name="arch"
+                type="xml">
+                <data>
+                    <field
+                        name="list_price"
+                        position="after">
+                        <field name="lst_price_brut" />
+                        <field name="brut_net_factor" />
+                    </field>
+                </data>
+            </field>
+        </record>
+        <record
+            id="view_product_product_form_inherit"
+            model="ir.ui.view">
+            <field name="name">product.product.form.inherit</field>
+            <field name="model">product.product</field>
+            <field
+                name="inherit_id"
+                ref="product.product_normal_form_view" />
+            <field
+                name="arch"
+                type="xml">
+                <data>
+                    <field
+                        name="lst_price"
+                        position="attributes">
+                        <attribute name="readonly">True</attribute>
+                    </field>
+                    <field
+                        name="lst_price"
+                        position="after">
+                        <field
+                            name="lst_price_brut"
+                            readonly="True" />
+                        <field
+                            name="brut_net_factor"
+                            readonly="True" />
+                    </field>
+                </data>
+            </field>
+        </record>
+        <record
+            id="variants_template_tree_view"
+            model="ir.ui.view">
+            <field name="name">variants.template.tree</field>
+            <field name="model">product.attribute.value</field>
+            <field
+                name="inherit_id"
+                ref="product.variants_template_tree_view" />
+            <field
+                name="arch"
+                type="xml">
+                <field
+                    name="price_extra"
+                    position="after">
+                    <field name="lst_price_brut" />
+                </field>
+            </field>
+        </record>
+        <record
+            id="product_category_brut_net_form_view"
+            model="ir.ui.view">
+            <field name="name">product.category.brut_net.form</field>
+            <field name="model">product.category</field>
+            <field name="priority">10</field>
+            <field
+                name="inherit_id"
+                ref="product.product_category_form_view" />
+            <field
+                name="arch"
+                type="xml">
+                <data>
+                    <xpath
+                        expr="//group[@name='parent']"
+                        position="inside">
+                        <group string="Sale" colspan="2">>
+                            <field name="brut_net_factor" />
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

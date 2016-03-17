@@ -1,0 +1,181 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_plan_wizard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-18 07:28+0000\n"
+"PO-Revision-Date: 2016-03-18 07:28+0000\n"
+"Last-Translator: Wolfgang Taferner\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Available"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Calculate dependent quantity"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,create_uid:0
+#: field:mrp.plan.wizard,create_uid:0
+#: field:mrp.plan.wizard.line,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,create_date:0
+#: field:mrp.plan.wizard,create_date:0
+#: field:mrp.plan.wizard.line,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Creator:"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Details about the raw materials and products needed"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Forecasted"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,id:0
+#: field:mrp.plan.wizard,id:0
+#: field:mrp.plan.wizard.line,id:0
+msgid "ID"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,write_uid:0
+#: field:mrp.plan.wizard,write_uid:0
+#: field:mrp.plan.wizard.line,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,write_date:0
+#: field:mrp.plan.wizard,write_date:0
+#: field:mrp.plan.wizard.line,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: model:ir.model,name:mrp_plan_wizard.model_mrp_production
+msgid "Manufacturing Order"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: model:ir.actions.act_window,name:mrp_plan_wizard.action_purchase_plan_wizard
+#: model:ir.ui.menu,name:mrp_plan_wizard.menu_purchase_plan_wizard
+#: field:mrp.need.wizard.line,wizard_id:0
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+#: field:mrp.plan.wizard.line,wizard_id:0
+msgid "Material Planning Wizard"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Minimum Need"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.plan.wizard,needed_items:0
+msgid "Needed Items"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,product_qty:0
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Needed Quantity"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.plan.wizard,planned_items:0
+msgid "Planned Items"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.plan.wizard,planning_time:0
+msgid "Planned Point"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.plan.wizard.line,product_qty:0
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Planned Quantity"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Planned point:"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Planned products"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: model:ir.actions.report.xml,name:mrp_plan_wizard.plan_purchase_list_test
+msgid "Planning List"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Pos."
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Print"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,product_id:0
+#: field:mrp.plan.wizard.line,product_id:0
+#: view:website:mrp_plan_wizard.mrp_plan_list_document
+msgid "Product"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Product with Bill of Material"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Product with more than one Bill of Material (without unique possibility to explode)"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Product without Bill of Material"
+msgstr ""
+
+#. module: mrp_plan_wizard
+#: field:mrp.need.wizard.line,product_uom_id:0
+#: view:mrp.plan.wizard:mrp_plan_wizard.purchase_plan_wizard_form_view
+#: field:mrp.plan.wizard.line,product_uom_id:0
+msgid "UoM"
+msgstr ""
+

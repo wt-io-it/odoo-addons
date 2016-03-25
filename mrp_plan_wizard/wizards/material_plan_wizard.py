@@ -31,6 +31,12 @@ class MaterialPlanWizardLine(models.TransientModel):
             line.qty_available = line.product_id.qty_available
             line.qty_forecasted = line.product_id.virtual_available
 
+            line.bom_avail = False
+            if line.product_id:
+                if line.product_id.bom_count > 0:
+                    line.bom_avail = True
+                line.stock_uom_id = line.product_id.uom_id
+
             quantity = line.product_qty
             if line.product_uom_id:
                 quantity = uom_obj._compute_qty(
@@ -42,12 +48,6 @@ class MaterialPlanWizardLine(models.TransientModel):
             if diff < 0:
                 diff = 0
             line.qty_needed = diff
-
-            line.bom_avail = False
-            if line.product_id:
-                if line.product_id.bom_count > 0:
-                    line.bom_avail = True
-                line.stock_uom_id = line.product_id.uom_id
 
     @api.one
     @api.onchange('product_id')
@@ -112,6 +112,12 @@ class MaterialNeedWizardLine(models.TransientModel):
             line.qty_available = line.product_id.qty_available
             line.qty_forecasted = line.product_id.virtual_available
 
+            line.bom_avail = False
+            if line.product_id:
+                if line.product_id.bom_count > 0:
+                    line.bom_avail = True
+                line.stock_uom_id = line.product_id.uom_id
+
             quantity = line.product_qty
             if line.product_uom_id:
                 quantity = uom_obj._compute_qty(
@@ -123,12 +129,6 @@ class MaterialNeedWizardLine(models.TransientModel):
             if diff < 0:
                 diff = 0
             line.qty_needed = diff
-
-            line.bom_avail = False
-            if line.product_id:
-                if line.product_id.bom_count > 0:
-                    line.bom_avail = True
-                line.stock_uom_id = line.product_id.uom_id
 
 
 class MaterialPlanWizard(models.TransientModel):

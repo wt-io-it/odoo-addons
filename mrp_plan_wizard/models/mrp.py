@@ -54,10 +54,11 @@ class MRPProduction(models.Model):
                     else:
                         _logger.info("No ingredients found!")
             else:
+                qty = self.env['product.uom']._compute_qty(line['product_uom'], line['product_qty'], product.uom_id.id)
                 if product in ingredients:
-                    ingredients[product] += line['product_qty']
+                    ingredients[product] += qty
                 else:
-                    ingredients[product] = line['product_qty']
+                    ingredients[product] = qty
         return ingredients
 
     def get_mrp_planned_list(self, product, product_qty, product_uom_id, purchase_list=None):
@@ -89,9 +90,10 @@ class MRPProduction(models.Model):
                 else:
                     _logger.info("No ingredients found!")
         else:
+            qty = self.env['product.uom']._compute_qty(product_uom_id, product_qty, product.uom_id.id)
             if product in purchase_list:
-                purchase_list[product] += product_qty
+                purchase_list[product] += qty
             else:
-                purchase_list[product] = product_qty
+                purchase_list[product] = qty
 
         return purchase_list

@@ -12,6 +12,10 @@ Usage
 
 This module adds a light-weighted material planning wizard and report to handle planning on demand for products with BoM easier.
 
+Bugs
+=======
+https://github.com/wt-io-it/odoo-addons/tree/8.0
+
 Credits
 =======
 

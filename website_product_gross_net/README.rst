@@ -1,5 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/Odoo-8.0-a24689.svg
+    :alt: Odoo Version: 8.0
 
 
 Odoo Website Product Gross/Net Price (B2B/B2C)
@@ -15,6 +17,9 @@ Usage
 - All prices are defined in net prices and will be prepared via pricelist settings for having the correct gross prices in pricelists
 - Your Website Public User needs to be assigned to the B2C fiscal position and the Public B2C pricelist.
 
+Bugs
+=======
+https://github.com/wt-io-it/odoo-addons/tree/8.0
 
 Credits
 =======

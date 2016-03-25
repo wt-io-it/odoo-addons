@@ -1,5 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/Odoo-8.0-a24689.svg
+    :alt: Odoo Version: 8.0
 
 
 Odoo Rounding based on configuration and fiscal position
@@ -12,6 +14,10 @@ Usage
 =====
 
 - Find more information in the module Odoo Website Product Gross/Net Price (B2B/B2C)
+
+Bugs
+=======
+https://github.com/wt-io-it/odoo-addons/tree/8.0
 
 Credits
 =======

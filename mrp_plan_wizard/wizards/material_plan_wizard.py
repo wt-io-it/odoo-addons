@@ -4,7 +4,7 @@ from datetime import datetime
 from openerp import models, fields, api, _
 from openerp.exceptions import except_orm
 from openerp.tools.float_utils import float_round
-import addons.decimal_precision as dp
+import openerp.addons.decimal_precision as dp
 import logging
 
 _logger = logging.getLogger(__name__)

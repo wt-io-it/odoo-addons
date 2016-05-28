@@ -42,10 +42,11 @@ class MRPProduction(models.Model):
                         ingredients[product] = qty
                     _logger.debug("More than one Bill of Material found, so we do not care about it by now and count it as a needed ingredient!")
                 else:
-                    if bom in production_list:
-                        production_list[product] += qty
-                    else:
-                        production_list[product] = qty
+                    if bom.type == 'normal':
+                        if bom in production_list:
+                            production_list[product] += qty
+                        else:
+                            production_list[product] = qty
 
                     res = self._get_bom_exploded(
                         line['product_uom'],
@@ -87,10 +88,11 @@ class MRPProduction(models.Model):
                     purchase_list[product] = qty
                 _logger.debug("More than one Bill of Material found, so we do not care about it by now and count it as a needed ingredient!")
             else:
-                if product in production_list:
-                    production_list[product] += qty
-                else:
-                    production_list[product] = qty
+                if bom.type == 'normal':
+                    if product in production_list:
+                        production_list[product] += qty
+                    else:
+                        production_list[product] = qty
 
                 res = prod_obj._get_bom_exploded(
                     product_uom_id, product_qty, bom

@@ -13,7 +13,8 @@
                             Planned products
                         </div>
                         <field name="planning_time" readonly="1" />
-                        <field name="planned_items" widget="one2many_list">
+                        <field name="orders_created" invisible="1" />
+                        <field name="planned_items" widget="one2many_list" attrs="{'readonly': [('orders_created', '=', True)]}">
                             <tree editable="bottom" colors="blue:bom_avail==True">
                                 <field name="product_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" />
                                 <field name="product_qty" />
@@ -48,9 +49,22 @@
                             <div style="color:red">Product with more than one Bill of Material (without unique possibility to explode)</div>
                         </div>
                     </div>
+                    <div attrs="{'invisible': ['|', ('mrp_production_items', '=', []), ('mrp_production_items', '=', False)]}">
+                        <div class="oe_horizontal_separator">Details about the production orders needed</div>
+                        <field name="mrp_production_items" widget="one2many_list" attrs="{'readonly': [('orders_created', '=', True)]}">
+                            <tree editable="bottom">
+                                <field name="product_id" />
+                                <field name="bom_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" />
+                                <field name="date_planned" />
+                                <field name="product_qty" />
+                                <field name="product_uom_id" />
+                            </tree>
+                        </field>
+                    </div>
                     <footer>
-                        <button name="action_calculate_ingredients" class="oe_highlight" type="object" string="Calculate dependent quantity " />
-                        <button name="report_print" class="oe_highlight" type="object" string="Print" />
+                        <button name="action_calculate_ingredients" class="oe_highlight" type="object" string="Calculate dependent quantity" attrs="{'invisible': ['|', '|', ('planned_items', '=', []), ('planned_items', '=', False), ('orders_created', '=', True)]}" />
+                        <button name="create_production_orders" class="oe_highlight" type="object" string="Create production orders" attrs="{'invisible': ['|', '|', ('mrp_production_items', '=', []), ('mrp_production_items', '=', False), ('orders_created', '=', True)]}" />
+                        <button name="report_print" class="oe_highlight" type="object" string="Print" attrs="{'invisible': ['|', ('needed_items', '=', []), ('needed_items', '=', False)]}" />
                         
                     </footer>
                 </form>

@@ -18,11 +18,12 @@ class MRPProduction(models.Model):
             properties, routing_id=self.routing_id.id
         )
 
-    def _get_ingredients_recursive(self, ilist, properties=None, ingredients=None):
+    def _get_ingredients_recursive(self, ilist, properties=None, ingredients=None, production_list=None):
         product_obj = self.env['product.product']
         bom_obj = self.env['mrp.bom']
 
         ingredients = ingredients or {}
+        production_list = production_list or {}
         properties = properties or []
         for line in ilist:
             product = product_obj.browse(line['product_id'])
@@ -31,16 +32,21 @@ class MRPProduction(models.Model):
                 ('product_tmpl_id', '=', product.product_tmpl_id.id),
                 ('product_id', '=', product.id)
             ])
-
+            qty = self.env['product.uom']._compute_qty(line['product_uom'], line['product_qty'], product.uom_id.id)
             if bom:
                 # There should only be a single BOM
                 if len(bom.ids) > 1:
                     if product in ingredients:
-                        ingredients[product] += line['product_qty']
+                        ingredients[product] += qty
                     else:
-                        ingredients[product] = line['product_qty']
+                        ingredients[product] = qty
                     _logger.debug("More than one Bill of Material found, so we do not care about it by now and count it as a needed ingredient!")
                 else:
+                    if bom in production_list:
+                        production_list[product] += qty
+                    else:
+                        production_list[product] = qty
+
                     res = self._get_bom_exploded(
                         line['product_uom'],
                         line['product_qty'],
@@ -48,52 +54,57 @@ class MRPProduction(models.Model):
                         properties=properties
                     )
                     if res:
-                        ingredients = self._get_ingredients_recursive(
-                            res[0], ingredients=ingredients
+                        ingredients, production_list = self._get_ingredients_recursive(
+                            res[0], ingredients=ingredients, production_list=production_list
                         )
                     else:
                         _logger.info("No ingredients found!")
             else:
-                qty = self.env['product.uom']._compute_qty(line['product_uom'], line['product_qty'], product.uom_id.id)
                 if product in ingredients:
                     ingredients[product] += qty
                 else:
                     ingredients[product] = qty
-        return ingredients
+        return ingredients, production_list
 
-    def get_mrp_planned_list(self, product, product_qty, product_uom_id, purchase_list=None):
+    def get_mrp_planned_list(self, product, product_qty, product_uom_id, purchase_list=None, production_list=None):
         bom_obj = self.env['mrp.bom']
         prod_obj = self.env['mrp.production']
         purchase_list = purchase_list or {}
+        production_list = production_list or {}
 
         bom = bom_obj.search([
             '|',
             ('product_tmpl_id', '=', product.product_tmpl_id.id),
             ('product_id', '=', product.id)
         ])
+        qty = self.env['product.uom']._compute_qty(product_uom_id, product_qty, product.uom_id.id)
         if bom:
             # We assume that there should be only one BoM per product as we do not handle a choice of BoM during the calculation
             if len(bom.ids) > 1:
                 if product in purchase_list:
-                    purchase_list[product] += product_qty
+                    purchase_list[product] += qty
                 else:
-                    purchase_list[product] = product_qty
+                    purchase_list[product] = qty
                 _logger.debug("More than one Bill of Material found, so we do not care about it by now and count it as a needed ingredient!")
             else:
+                if product in production_list:
+                    production_list[product] += qty
+                else:
+                    production_list[product] = qty
+
                 res = prod_obj._get_bom_exploded(
                     product_uom_id, product_qty, bom
                 )
                 if res:
-                    purchase_list = prod_obj._get_ingredients_recursive(
-                        res[0], ingredients=purchase_list
+                    purchase_list, production_list = prod_obj._get_ingredients_recursive(
+                        res[0], ingredients=purchase_list, production_list=production_list
                     )
                 else:
                     _logger.info("No ingredients found!")
         else:
-            qty = self.env['product.uom']._compute_qty(product_uom_id, product_qty, product.uom_id.id)
             if product in purchase_list:
                 purchase_list[product] += qty
             else:
                 purchase_list[product] = qty
 
-        return purchase_list
+        return purchase_list, production_list

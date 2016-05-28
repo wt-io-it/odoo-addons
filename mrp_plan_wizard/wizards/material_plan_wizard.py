@@ -131,11 +131,45 @@ class MaterialNeedWizardLine(models.TransientModel):
             line.qty_needed = diff
 
 
+class MaterialProductionPlanWizardLine(models.TransientModel):
+    _name = 'mrp.production.plan.wizard.line'
+
+    product_id = fields.Many2one(
+        'product.product',
+        string='Product', readonly=True
+    )
+    product_qty = fields.Float(
+        string='Quantity',
+        digits_compute=dp.get_precision('Product Unit of Measure'),
+        readonly=True
+    )
+    product_uom_id = fields.Many2one(
+        'product.uom',
+        string='UoM',
+        readonly=True
+    )
+    date_planned = fields.Datetime(
+        string='Planned Date',
+    )
+    bom_id = fields.Many2one(
+        'mrp.bom',
+        string='BoM',
+        domain="['|', ('product_id','=', product_id), '&', ('product_tmpl_id.product_variant_ids','=', product_id), ('product_id','=',False)]"
+    )
+    wizard_id = fields.Many2one(
+        'mrp.plan.wizard',
+        string='Material Planning Wizard'
+    )
+
+
 class MaterialPlanWizard(models.TransientModel):
     _name = 'mrp.plan.wizard'
 
     planning_time = fields.Datetime(
         string='Planned Point',
+    )
+    orders_created = fields.Boolean(
+        string='Production Orders created',
     )
 
     planned_items = fields.One2many(
@@ -148,6 +182,11 @@ class MaterialPlanWizard(models.TransientModel):
         'wizard_id',
         string='Needed Items',
     )
+    mrp_production_items = fields.One2many(
+        'mrp.production.plan.wizard.line',
+        'wizard_id',
+        string='Production Plan Items',
+    )
 
     @api.multi
     def report_print(self):
@@ -158,6 +197,33 @@ class MaterialPlanWizard(models.TransientModel):
         self.replace_needed_items()
         return self.env['report'].get_action(self, 'mrp_plan_wizard.mrp_plan_list')
 
+    @api.multi
+    def create_production_orders(self):
+        assert len(self) == 1, 'This option should only be used for a single id at a time.'
+
+        for order in self.mrp_production_items:
+            vals = {
+                'product_id': order.product_id.id,
+                'product_qty': order.product_qty,
+                'product_uom': order.product_uom_id.id,
+                'bom_id': order.bom_id and order.bom_id.id or False,
+            }
+            if order.date_planned:
+                vals.update({'date_planned': order.date_planned})
+
+            self.env['mrp.production'].create(vals)
+
+        self.orders_created = True
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'mrp.plan.wizard',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_id': self.id,
+            'target': 'new',
+            'context': self._context,
+        }
+
     # TODO: Improve code (ask for mode, etc.)
     @api.multi
     @api.onchange('planned_items')
@@ -165,12 +231,15 @@ class MaterialPlanWizard(models.TransientModel):
         if len(self.needed_items) > 0:
             values = self._action_calculate_ingredients()
             self.needed_items = [(6, 0, {})]
+            self.mrp_production_items = [(6, 0, {})]
             self.planning_time = values['planning_time']
             self.needed_items = values['needed_items']
+            self.mrp_production_items = values['mrp_production_items']
 
     @api.multi
     def replace_needed_items(self):
         self.write({'needed_items': [(6, 0, {})]})
+        self.write({'mrp_production_items': [(6, 0, {})]})
         values = self._action_calculate_ingredients()
         self.write(values)
 
@@ -192,6 +261,7 @@ class MaterialPlanWizard(models.TransientModel):
         prod_obj = self.env['mrp.production']
         uom_obj = self.env['product.uom']
         purchase_list = {}
+        production_list = {}
 
         _logger.debug("\n\nGeplante Produkte")
         for line in self.planned_items:
@@ -201,9 +271,9 @@ class MaterialPlanWizard(models.TransientModel):
                     line.product_uom_id.id, line.product_qty,
                     line.stock_uom_id.id
                 )
-            purchase_list = prod_obj.get_mrp_planned_list(
+            purchase_list, production_list = prod_obj.get_mrp_planned_list(
                 line.product_id, quantity, line.stock_uom_id.id,
-                purchase_list=purchase_list
+                purchase_list=purchase_list, production_list=production_list
             )
             _logger.debug(u"%s: %s %s (Lager: %s %s)", line.product_id.name, line.product_qty, line.product_uom_id.name, line.product_id.qty_available, line.product_uom_id.name)
 
@@ -216,7 +286,6 @@ class MaterialPlanWizard(models.TransientModel):
             if diff < 0:
                 diff = 0
             _logger.debug(u"%s: %s %s (Lager: %s %s | Einkaufsbedarf: %s %s)", product.name, float_round(qty, precision_digits=digits), product.uom_id.name, product.qty_available, product.uom_id.name, diff, product.uom_id.name)
-            # Create a new position
             record_list.append(
                 (0, 0, {
                     'product_id': product.id,
@@ -224,9 +293,25 @@ class MaterialPlanWizard(models.TransientModel):
                     'product_qty': float_round(qty, precision_digits=digits)
                 })
             )
+        bom_product_list = []
+        for product, qty in production_list.iteritems():
+            bom = self.env['mrp.bom'].search([
+                '|',
+                ('product_tmpl_id', '=', product.product_tmpl_id.id),
+                ('product_id', '=', product.id)
+            ], limit=1)
+            bom_product_list.append(
+                (0, 0, {
+                    'product_id': product.id,
+                    'product_uom_id': product.uom_id.id,
+                    'product_qty': float_round(qty, precision_digits=digits),
+                    'bom_id': bom and bom.id or False,
+                })
+            )
 
         time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
         return {
             'planning_time': time,
-            'needed_items': record_list
+            'needed_items': record_list,
+            'mrp_production_items': bom_product_list
         }

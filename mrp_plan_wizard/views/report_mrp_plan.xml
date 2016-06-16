@@ -116,6 +116,53 @@
                             </t>
                         </tbody>
                     </table>
+                    <h2 t-if="o.orders_created">Details about the production orders needed</h2>
+                    <table class="table table-condensed" t-if="o.orders_created">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="text-right"
+                                    style="width: 15px;">Pos.</th>
+                                <th>Product</th>
+                                <th>Planned Quantity</th>
+                                <th>Planned Date</th>
+                                <th>BoM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-set="line_num"
+                                t-value="1" />
+                            <t
+                                t-foreach="o.mrp_production_items"
+                                t-as="l">
+                            <tr>
+                                <td class="text-right">
+                                    <span t-esc="line_num" />.
+                                </td>
+                                <td>
+                                    <t
+                                        t-set="line_name"
+                                        t-value="l.product_id and l.product_id.with_context(display_default_code=False).display_name"></t>
+                                    <span t-esc="line_name" />
+                                </td>
+                                <td>
+                                    <span t-field="l.product_qty" />
+                                    <span t-field="l.product_uom_id" />
+                                </td>
+                                <td>
+                                    <span t-field="l.date_planned" />
+                                </td>
+                                <td>
+                                    <span t-field="l.bom_id.name" />
+                                </td>
+                                <t
+                                    t-set="line_num"
+                                    t-value="line_num + 1" />
+                            </tr>
+                            </t>
+                        </tbody>
+                    </table>
                 </div>
             </t>
         </template>

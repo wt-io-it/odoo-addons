@@ -43,7 +43,7 @@ class MRPProduction(models.Model):
                     _logger.debug("More than one Bill of Material found, so we do not care about it by now and count it as a needed ingredient!")
                 else:
                     if bom.type == 'normal':
-                        if bom in production_list:
+                        if product in production_list:
                             production_list[product] += qty
                         else:
                             production_list[product] = qty

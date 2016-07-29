@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="l10n_at_state_1" model="res.country.state">
+            <field name="name">Burgenland</field>
+            <field name="code">1</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_2" model="res.country.state">
+            <field name="name">Kärnten</field>
+            <field name="code">2</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_3" model="res.country.state">
+            <field name="name">Niederösterreich</field>
+            <field name="code">3</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_4" model="res.country.state">
+            <field name="name">Oberösterreich</field>
+            <field name="code">4</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_5" model="res.country.state">
+            <field name="name">Salzburg</field>
+            <field name="code">5</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_6" model="res.country.state">
+            <field name="name">Steiermark</field>
+            <field name="code">6</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_7" model="res.country.state">
+            <field name="name">Tirol</field>
+            <field name="code">7</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_8" model="res.country.state">
+            <field name="name">Vorarlberg</field>
+            <field name="code">8</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="l10n_at_state_9" model="res.country.state">
+            <field name="name">Wien</field>
+            <field name="code">9</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+    </data>
+</openerp>

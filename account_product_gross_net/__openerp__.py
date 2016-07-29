@@ -17,5 +17,5 @@
         'views/product.xml',
     ],
     'images': ['static/description/main_screenshot.jpg'],
-    'installable': True,
+    'installable': False,
 }

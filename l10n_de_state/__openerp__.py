@@ -5,7 +5,7 @@
     "sequence": 18,
     "author": "WT-IO-IT GmbH, Wolfgang Taferner",
     "website": "https://www.wt-io-it.at",
-    "licence": 'AGPL-3',
+    "license": 'AGPL-3',
     "category": 'Localisation/Germany',
     'summary': 'German States',
     "depends": [

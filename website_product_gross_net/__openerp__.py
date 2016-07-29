@@ -8,7 +8,7 @@
     'depends': ['website_sale_options', 'account_product_gross_net'],
     'author': 'WT-IO-IT GmbH, Wolfgang Taferner',
     'website': 'https://wt-io-it.at',
-    "licence": 'AGPL-3',
+    "license": 'AGPL-3',
     'data': [
         'views/templates.xml',
     ],

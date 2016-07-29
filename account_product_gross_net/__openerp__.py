@@ -8,7 +8,7 @@
     'depends': ['product', 'account_fiscal_position_rounding'],
     'author': 'WT-IO-IT GmbH, Wolfgang Taferner',
     'website': 'https://wt-io-it.at',
-    "licence": 'AGPL-3',
+    "license": 'AGPL-3',
     "contributors": [
         "Wolfgang Taferner (WT-IO-IT GmbH)"
     ],

@@ -1,0 +1,237 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* tapoit_l10n_at_title
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-07 13:34+0000\n"
+"PO-Revision-Date: 2015-01-07 13:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_ag
+msgid "AG"
+msgstr "AG"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_ag
+msgid "Aktiengesellschaft"
+msgstr "Aktiengesellschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_dipl_ing
+msgid "Dipl. Ing."
+msgstr "Dipl. Ing."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_dipl_ing_fh
+msgid "Dipl. Ing. (FH)"
+msgstr "Dipl. Ing. (FH)"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_dipl_ing
+msgid "Diplom-Ingenieur "
+msgstr "Diplom-Ingenieur "
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_dipl_ing_fh
+msgid "Diplom-Ingenieur (FH)"
+msgstr "Diplom-Ingenieur (FH)"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_dr
+msgid "Doktor"
+msgstr "Doktor"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_dr
+msgid "Dr."
+msgstr "Dr."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_gt
+msgid "Einzelunternehmen"
+msgstr "Einzelunternehmen"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_mrs
+msgid "Fr."
+msgstr "Fr."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_mrs
+msgid "Frau"
+msgstr "Frau"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_miss
+msgid "Frl."
+msgstr "Frl."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_miss
+msgid "Fräulein"
+msgstr "Fräulein"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_gen
+msgid "Genossenschaft"
+msgstr "Genossenschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_gmbh
+msgid "Gesellschaft mit beschränkter Haftung"
+msgstr "Gesellschaft mit beschränkter Haftung"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_kg_gmbh
+msgid "Gesellschaft mit beschränkter Haftung & Compagnie Kommanditgesellschaft"
+msgstr "Gesellschaft mit beschränkter Haftung & Compagnie Kommanditgesellschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_gesnbr
+msgid "Gesellschaft nach bürgerlichem Recht"
+msgstr "Gesellschaft nach bürgerlichem Recht"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_gesnbr
+msgid "GesnbR"
+msgstr "GesnbR"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_gmbh
+msgid "GmbH"
+msgstr "GmbH"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_kg_gmbh
+msgid "GmbH & Co. KG"
+msgstr "GmbH & Co. KG"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_mr
+msgid "Herr"
+msgstr "Herr"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_mr
+msgid "Hr."
+msgstr "Hr."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_ing
+msgid "Ing."
+msgstr "Ing."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_ing
+msgid "Ingenieur"
+msgstr "Ingenieur"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_keg
+msgid "KEG"
+msgstr "KEG"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_kg
+msgid "KG"
+msgstr "KG"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_keg
+msgid "Kommanditerwerbsgesellschaft"
+msgstr "Kommanditerwerbsgesellschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_kg
+msgid "Kommanditgesellschaft"
+msgstr "Kommanditgesellschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_mag
+msgid "Mag."
+msgstr "Mag."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_mag_fh
+msgid "Mag. (FH)"
+msgstr "Mag. (FH)"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_mag
+msgid "Magister"
+msgstr "Magister"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_mag_fh
+msgid "Magister (FH)"
+msgstr "Magister (FH)"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_oeg
+msgid "OEG"
+msgstr "OEG"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_og
+msgid "OG"
+msgstr "OG"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_ohg
+msgid "OHG"
+msgstr "OHG"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_oeg
+msgid "Offene Erwerbsgesellschaft"
+msgstr "Offene Erwerbsgesellschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_og
+msgid "Offene Gesellschaft"
+msgstr "Offene Gesellschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_ohg
+msgid "Offene Handelsgesellschaft"
+msgstr "Offene Handelsgesellschaft"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_stift
+msgid "Stiftung"
+msgstr "Stiftung"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_zvr
+msgid "Verein"
+msgstr "Verein"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_gen
+msgid "e.G"
+msgstr "e.G"
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_eu
+msgid "e.U."
+msgstr "e.U."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,shortcut:tapoit_l10n_at_title.res_partner_title_at_zvr
+msgid "e.V."
+msgstr "e.V."
+
+#. module: tapoit_l10n_at_title
+#: model:res.partner.title,name:tapoit_l10n_at_title.res_partner_title_at_eu
+msgid "eingetragenes Einzelunternehmen"
+msgstr "eingetragenes Einzelunternehmen"
+

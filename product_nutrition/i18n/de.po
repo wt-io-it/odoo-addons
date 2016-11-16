@@ -1,0 +1,166 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_nutrition
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-26 07:12+0000\n"
+"PO-Revision-Date: 2016-04-26 07:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,carbohydrate:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Carbohydrate (g)"
+msgstr "Kohlenhydrate (g)"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,energy_joule:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Energy (kJ)"
+msgstr "Brennwert (kJ)"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,energy_calories:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Energy (kcal)"
+msgstr "Brennwert (kcal)"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,fat_saturated:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Fat saturated (g)"
+msgstr "Gesättigte Fettsäuren (g)"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,fat_total:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Fat total (g)"
+msgstr "Fett (g)"
+
+#. module: product_nutrition
+#: field:product.product,portion_grams:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Grams per Portion"
+msgstr "Portion in Gramm"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Normalization"
+msgstr "Normalisierung"
+
+#. module: product_nutrition
+#: field:product.product,nutrition:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Nutrition"
+msgstr "Nährwerte"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Nutrition Facts"
+msgstr "Nährwerttabelle"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Nutrition facts per 100g"
+msgstr "Nährwerte pro 100g"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Nutrition facts per UoM"
+msgstr "Nährwerte pro ME"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Nutrition facts per portion"
+msgstr "Nährwerte pro Portion"
+
+#. module: product_nutrition
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Please configure the nutrition facts on the corresponding variants!"
+msgstr "Bitte konfigurieren Sie die Nährwerte bei der jeweiligen Produktvariante!"
+
+#. module: product_nutrition
+#: field:product.product,portions:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Portions per UoM"
+msgstr "Portionen pro ME"
+
+#. module: product_nutrition
+#: field:product.product,use_portions:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Portions?"
+msgstr "Portionen?"
+
+#. module: product_nutrition
+#: model:ir.model,name:product_nutrition.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_nutrition
+#: model:ir.model,name:product_nutrition.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: product_nutrition
+#: help:product.product,norm_weight:0
+msgid "Product UoM to be converted to 100g"
+msgstr "Produkt ME, welche in 100g konvertiert wird"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,protein:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Protein (g)"
+msgstr "Eiweiß (g)"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,roughage:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Roughage (g)"
+msgstr "Ballaststoffe (g)"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,sodium:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Sodium (g)"
+msgstr "Salz (g)"
+
+#. module: product_nutrition
+#: view:product.product:product_nutrition.product_product_form_view
+#: field:product.product,carbo_sugars:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Sugars (g)"
+msgstr "Zucker (g)"
+
+#. module: product_nutrition
+#: field:product.product,norm_factor:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "UoM Factor"
+msgstr "ME Faktor"
+
+#. module: product_nutrition
+#: field:product.product,norm_weight:0
+#: view:product.template:product_nutrition.product_template_form_view
+msgid "Weight per UoM (g)"
+msgstr "Gewicht pro ME (g)"
+

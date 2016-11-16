@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record
+            model="ir.actions.server"
+            id="action_server_compute_nutrition_facts_product">
+            <field name="name">Compute Nutrition Facts (BoM)</field>
+            <field
+                name="model_id"
+                ref="product.model_product_product" />
+            <field name="state">code</field>
+            <field name="code">action = self.browse(cr, uid, context.get('active_ids', []), context).batch_compute_nutrition()</field>
+        </record>
+        <record
+            model="ir.actions.server"
+            id="action_server_compute_nutrition_facts_product_template">
+            <field name="name">Compute Nutrition Facts (BoM)</field>
+            <field
+                name="model_id"
+                ref="product.model_product_template" />
+            <field name="state">code</field>
+            <field name="code">action = self.browse(cr, uid, context.get('active_ids', []), context).batch_compute_nutrition()</field>
+        </record>
+        <record
+            model="ir.actions.server"
+            id="action_server_compute_all_product_template">
+            <field name="name">Compute Nutrition &amp; Costs (BoM)</field>
+            <field
+                name="model_id"
+                ref="product.model_product_template" />
+            <field name="state">code</field>
+            <field name="code">action = self.browse(cr, uid, context.get('active_ids', []), context).batch_compute_all()</field>
+        </record>
+        <record
+            model="ir.actions.server"
+            id="action_server_compute_all_product">
+            <field name="name">Compute Nutrition &amp; Costs (BoM)</field>
+            <field
+                name="model_id"
+                ref="product.model_product_product" />
+            <field name="state">code</field>
+            <field name="code">action = self.browse(cr, uid, context.get('active_ids', []), context).batch_compute_all()</field>
+        </record>
+    </data>
+</openerp>

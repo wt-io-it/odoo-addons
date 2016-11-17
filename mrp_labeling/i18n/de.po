@@ -1,0 +1,307 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_labeling
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-09 06:40+0000\n"
+"PO-Revision-Date: 2016-06-09 06:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_labeling
+#: field:mrp.production,alert_date:0
+msgid "Alert Date"
+msgstr "Alarmzeitpunkt"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Allergene fett gedruckt"
+msgstr "Allergene fett gedruckt"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Ballaststoffe"
+msgstr "Ballaststoffe"
+
+#. module: mrp_labeling
+#: field:mrp.production,use_date:0
+msgid "Best before Date"
+msgstr "Mindestens haltbar bis"
+
+#. module: mrp_labeling
+#: field:mrp.production,employee_id:0
+msgid "Chef"
+msgstr "Koch"
+
+#. module: mrp_labeling
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_labeling_facts_product
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_labeling_facts_product_template
+#: view:product.product:mrp_labeling.product_product_form_view
+#: view:product.template:mrp_labeling.product_template_form_view
+msgid "Compute Labeling Facts (BoM)"
+msgstr "Inhaltsstoffe berechnen (BoM)"
+
+#. module: mrp_labeling
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_price_product
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_price_product_template
+msgid "Compute Price (BoM)"
+msgstr "Standardpreis berechnen (BoM)"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Eiweiß"
+msgstr "Eiweiß"
+
+#. module: mrp_labeling
+#: field:mrp.production,life_date:0
+msgid "End of Life Date"
+msgstr "Verwendbar bis"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Energie"
+msgstr "Energie"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Fett"
+msgstr "Fett"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Für Dich gekocht von"
+msgstr "Für Dich gekocht von"
+
+#. module: mrp_labeling
+#: view:product.product:mrp_labeling.product_product_form_view
+#: field:product.product,ingredient_list:0
+#: view:product.template:mrp_labeling.product_template_form_view
+#: field:product.template,ingredient_list:0
+msgid "Ingredients List"
+msgstr "Zutatenliste"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Kohlenhydrate"
+msgstr "Kohlenhydrate"
+
+#. module: mrp_labeling
+#: model:ir.actions.report.xml,name:mrp_labeling.action_mrp_product_labels_38x155
+msgid "MRP Production Desserts"
+msgstr "Retail (Dessert)"
+
+#. module: mrp_labeling
+#: model:ir.actions.report.xml,name:mrp_labeling.action_mrp_product_labels_50x125
+msgid "MRP Production Salads"
+msgstr "Retail (Salat)"
+
+#. module: mrp_labeling
+#: model:ir.actions.report.xml,name:mrp_labeling.action_mrp_product_labels_50x165
+msgid "MRP Production Soup and Main Dishes"
+msgstr "Retail (Suppen und Hauptgerichte)"
+
+#. module: mrp_labeling
+#: model:ir.model,name:mrp_labeling.model_mrp_production
+msgid "Manufacturing Order"
+msgstr "Fertigungsauftrag"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Mindesthaltbarkeit:"
+msgstr "Mindesthaltbarkeit:"
+
+#. module: mrp_labeling
+#: code:addons/mrp_labeling/models/product.py:49
+#, python-format
+msgid "Norm weight for product %s must be greater than 0!"
+msgstr "Das Gewicht pro ME für das Produkt %s muss einen Wert größer als 0 haben!"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Nährwert pro 100 g"
+msgstr "Nährwert pro 100 g"
+
+#. module: mrp_labeling
+#: field:product.product,allow_standard_price_zero:0
+#: field:product.template,allow_standard_price_zero:0
+msgid "Price is zero"
+msgstr "Keine Kosten erlaubt"
+
+#. module: mrp_labeling
+#: model:ir.model,name:mrp_labeling.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: mrp_labeling
+#: code:addons/mrp_labeling/models/product.py:25
+#, python-format
+msgid "Product %s is not activated for nutrition!"
+msgstr "Produkt %s wurde noch nicht für Nährwerte aktiviert!"
+
+#. module: mrp_labeling
+#: field:product.product,alert_time:0
+msgid "Product Alert Time"
+msgstr "Tage bis Ablaufwarnung"
+
+#. module: mrp_labeling
+#: field:product.product,life_time:0
+msgid "Product Life Time"
+msgstr "Verfalldauer"
+
+#. module: mrp_labeling
+#: field:product.product,removal_time:0
+msgid "Product Removal Time"
+msgstr "Tage bis Vernichtung"
+
+#. module: mrp_labeling
+#: model:ir.model,name:mrp_labeling.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: mrp_labeling
+#: field:product.product,use_time:0
+msgid "Product Use Time"
+msgstr "Haltbarkeitsdauer"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Produziert in"
+msgstr "Produziert in"
+
+#. module: mrp_labeling
+#: help:hr.employee,user_id:0
+msgid "Related user name for the resource to manage its access."
+msgstr "Related user name for the resource to manage its access."
+
+#. module: mrp_labeling
+#: field:mrp.production,removal_date:0
+msgid "Removal Date"
+msgstr "Datum der Vernichtung"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Salz"
+msgstr "Salz"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "Speise kann Spuren von Getreidegluten, Erdnüssen, Lupine, Schalenfrüchten, SO"
+msgstr "Speise kann Spuren von Getreidegluten, Erdnüssen, Lupine, Schalenfrüchten, SO"
+
+#. module: mrp_labeling
+#: help:mrp.production,alert_date:0
+msgid "This is the date on which an alert should be notified about the goods with this Serial Number."
+msgstr "This is the date on which an alert should be notified about the goods with this Serial Number."
+
+#. module: mrp_labeling
+#: help:mrp.production,life_date:0
+msgid "This is the date on which the goods with this Serial Number may become dangerous and must not be consumed."
+msgstr "This is the date on which the goods with this Serial Number may become dangerous and must not be consumed."
+
+#. module: mrp_labeling
+#: help:mrp.production,removal_date:0
+msgid "This is the date on which the goods with this Serial Number should be removed from the stock."
+msgstr "This is the date on which the goods with this Serial Number should be removed from the stock."
+
+#. module: mrp_labeling
+#: help:mrp.production,use_date:0
+msgid "This is the date on which the goods with this Serial Number start deteriorating, without being dangerous yet."
+msgstr "This is the date on which the goods with this Serial Number start deteriorating, without being dangerous yet."
+
+#. module: mrp_labeling
+#: field:mrp.production,website_message_ids:0
+msgid "Website Messages"
+msgstr "Website Nachrichten"
+
+#. module: mrp_labeling
+#: help:mrp.production,website_message_ids:0
+msgid "Website communication history"
+msgstr "Website Kommunikationshistorie"
+
+#. module: mrp_labeling
+#: help:product.product,alert_time:0
+msgid "When a new a Serial Number is issued, this is the number of days before an alert should be notified."
+msgstr "When a new a Serial Number is issued, this is the number of days before an alert should be notified."
+
+#. module: mrp_labeling
+#: help:product.product,life_time:0
+msgid "When a new a Serial Number is issued, this is the number of days before the goods may become dangerous and must not be consumed."
+msgstr "When a new a Serial Number is issued, this is the number of days before the goods may become dangerous and must not be consumed."
+
+#. module: mrp_labeling
+#: help:product.product,removal_time:0
+msgid "When a new a Serial Number is issued, this is the number of days before the goods should be removed from the stock."
+msgstr "When a new a Serial Number is issued, this is the number of days before the goods should be removed from the stock."
+
+#. module: mrp_labeling
+#: help:product.product,use_time:0
+msgid "When a new a Serial Number is issued, this is the number of days before the goods starts deteriorating, without being dangerous yet."
+msgstr "When a new a Serial Number is issued, this is the number of days before the goods starts deteriorating, without being dangerous yet."
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "ZUTATEN"
+msgstr "ZUTATEN"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "davon Zucker"
+msgstr "davon Zucker"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "davon gesättigte Fettsäuren"
+msgstr "davon gesättigte Fettsäuren"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "glutenfrei"
+msgstr "glutenfrei"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "hefe- und glutenfrei"
+msgstr "hefe- und glutenfrei"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "hefefrei"
+msgstr "hefefrei"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "kcal"
+msgstr "kcal"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "lactose- und glutenfrei"
+msgstr "lactose- und glutenfrei"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "lactose- und hefefrei"
+msgstr "lactose- und hefefrei"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "lactose-, hefe- und glutenfrei"
+msgstr "lactose-, hefe- und glutenfrei"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "lactosefrei"
+msgstr "lactosefrei"
+
+#. module: mrp_labeling
+#: view:website:mrp_labeling.retail_product_label
+msgid "und Sulfiten, Senfsamen, Sellerie, Sesam und Soja enthalten."
+msgstr "und Sulfiten, Senfsamen, Sellerie, Sesam und Soja enthalten."
+

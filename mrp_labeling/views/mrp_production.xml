@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="mrp_production_form_view" model="ir.ui.view">
+            <field name="name">mrp.production.form</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <field name="date_planned" position="after">
+                    <field name="employee_id" required="True" />
+                </field>
+                <notebook position="before">
+                    <group>
+                        <group>
+                            <field name="life_date" />
+                            <field name="use_date" />
+                        </group>
+                        <group>
+                            <field name="removal_date" />
+                            <field name="alert_date" />
+                        </group>
+                    </group>
+                </notebook>
+            </field>
+        </record>
+  </data>
+</openerp>

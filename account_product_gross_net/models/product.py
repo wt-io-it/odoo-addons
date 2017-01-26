@@ -3,7 +3,7 @@
 from openerp import SUPERUSER_ID
 from openerp import models, fields, api
 from openerp.tools.float_utils import float_round
-import addons.decimal_precision as dp
+import openerp.addons.decimal_precision as dp
 import logging
 
 _logger = logging.getLogger(__name__)

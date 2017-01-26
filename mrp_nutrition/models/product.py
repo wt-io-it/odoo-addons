@@ -3,7 +3,7 @@
 from openerp import models, fields, api, _
 from openerp.tools.float_utils import float_round
 from openerp.exceptions import ValidationError
-import addons.decimal_precision as dp
+import openerp.addons.decimal_precision as dp
 import sys
 
 import logging

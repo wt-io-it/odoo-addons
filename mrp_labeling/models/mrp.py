@@ -4,7 +4,7 @@ from openerp import models, fields, api
 from datetime import datetime, timedelta
 from openerp.tools.float_utils import float_round
 from openerp.exceptions import ValidationError
-import addons.decimal_precision as dp
+from openerp.addons import decimal_precision as dp
 
 import logging
 

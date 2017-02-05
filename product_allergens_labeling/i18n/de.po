@@ -1,0 +1,234 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_allergens_labeling
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-11 07:26+0000\n"
+"PO-Revision-Date: 2017-02-11 07:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_name
+msgid "Allergen"
+msgstr "Allergene"
+
+#. module: product_allergens_labeling
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_product_form_view
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_template_form_view
+msgid "Allergens & Ingredients"
+msgstr "Allergene & Zutaten"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.celery
+#: model:product.food.allergen,name:product_allergens_labeling.celery
+msgid "Celery and products thereof"
+msgstr "Sellerie und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,name:product_allergens_labeling.cereals_containing_gluten
+msgid "Cereals containing gluten"
+msgstr "Glutenhaltige Getreide und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.cereals_containing_gluten
+msgid "Cereals containing gluten ( i.e. wheat, rye, barley, oats, spelt, kamut or their hybridised strains) and products thereof"
+msgstr "Glutenhaltige Getreide (d.h. Weizen, Roggen, Gerste, Hafer, Dinkel, Kamu oder deren Hybridstämme) und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.crustaceans
+#: model:product.food.allergen,name:product_allergens_labeling.crustaceans
+msgid "Crustaceans and products thereof"
+msgstr "Krebstiere und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.eggs
+#: model:product.food.allergen,name:product_allergens_labeling.eggs
+msgid "Eggs and products thereof"
+msgstr "Eier und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.fish
+#: model:product.food.allergen,name:product_allergens_labeling.fish
+msgid "Fish and products thereof"
+msgstr "Fische und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_product_allergen_ids
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_template_allergen_ids
+msgid "Food Allergens"
+msgstr "Lebensmittel Allergene"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_product_gluten_free
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_template_gluten_free
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_product_form_view
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_template_form_view
+msgid "Gluten-free"
+msgstr "Glutenfrei"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_product_ingredients
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_template_ingredients
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_product_form_view
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_template_form_view
+msgid "Ingredients"
+msgstr "Inhaltsstoffe"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_obligated_labeling
+msgid "Labeling required"
+msgstr "Kennzeichnung erforderlich"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_product_lactose_free
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_template_lactose_free
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_product_form_view
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_template_form_view
+msgid "Lactose-free"
+msgstr "Laktosefrei"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_food_allergen_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.lupins
+#: model:product.food.allergen,name:product_allergens_labeling.lupins
+msgid "Lupin and products thereof"
+msgstr "Lupinen und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.milk_lactose
+#: model:product.food.allergen,name:product_allergens_labeling.milk_lactose
+msgid "Milk and products thereof (including lactose)"
+msgstr "Milch und daraus gewonnene Erzeugnisse (einschließlich Laktose)"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.molluscs
+#: model:product.food.allergen,name:product_allergens_labeling.molluscs
+msgid "Molluscs and products thereof"
+msgstr "Weichtiere und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.mustard
+#: model:product.food.allergen,name:product_allergens_labeling.mustard
+msgid "Mustard and products thereof"
+msgstr "Senf und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_product_ingredient_name
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_template_ingredient_name
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_template_form_view
+msgid "Name as ingredient"
+msgstr "Angezeigter Name in der Zutatenliste"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,name:product_allergens_labeling.nuts
+msgid "Nuts and products thereof"
+msgstr "Schalenfrüchte und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.nuts
+msgid "Nuts i.e. Almond (Amygdalus communis L.), Hazelnut (Corylus avellana), Walnut (Juglans regia), Cashew (Anacardium occidentale), Pecan nut (Carya illinoiesis (Wangenh.) K. Koch), Brazil nut (Bertholletia excelsa), Pistachio nut (Pistacia vera), Macadamia nut and Queensland nut (Macadamia ternifolia) and products thereof"
+msgstr "Schalenfrüchte, d.h. Mandeln (Amygdalus communis L.), Haselnüsse (Corylus avellana), Walnüsse (Juglans regia), Kaschunüsse (Anacardium occidentale), Pecannüsse (Carya illinoiesis (Wangenh.) K. Koch), Paranüsse (Bertholletia excelsa), Pistazien (Pistacia vera), Makadamianüsse und Queenslandnüsse (Macadamia ternifolia) und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,help:product_allergens_labeling.field_product_product_ingredient_name
+#: model:ir.model.fields,help:product_allergens_labeling.field_product_template_ingredient_name
+msgid "Other name than the product name. In case there is an allergen inside it is possible to mark words manually with *word* to be printed bold."
+msgstr "Other name than the product name. In case there is an allergen inside it is possible to mark words manually with *word* to be printed bold."
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.peanuts
+#: model:product.food.allergen,name:product_allergens_labeling.peanuts
+msgid "Peanuts and products thereof"
+msgstr "Erdnüsse und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:ir.model,name:product_allergens_labeling.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_allergens_labeling
+#: model:ir.model,name:product_allergens_labeling.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.sesame_seeds
+#: model:product.food.allergen,name:product_allergens_labeling.sesame_seeds
+msgid "Sesame seeds and products thereof"
+msgstr "Sesamsamen und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.soybeans
+#: model:product.food.allergen,name:product_allergens_labeling.soybeans
+msgid "Soybeans and products thereof"
+msgstr "Sojabohnen und daraus gewonnene Erzeugnisse"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,name:product_allergens_labeling.sulphur_dioxide_sulphites
+msgid "Sulphur dioxide and sulphites"
+msgstr "Schwefeldioxid und Sulphite"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.sulphur_dioxide_sulphites
+msgid "Sulphur dioxide and sulphites at concentrations of more than 10 mg/kg or 10 mg/litre expressed as SO2."
+msgstr "Schwefeldioxid und Sulphite in Konzentrationen von mehr als 10 mg/kg oder 10 mg/l als insgesamt vorhandendes SO2, die für verzehrfertige oder gemäß den Anweisungen des Herstellers in den ursprünglichen Zustand zurückgeführte Erzeugnisse zu berechnen sind."
+
+#. module: product_allergens_labeling
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_product_yeast_free
+#: model:ir.model.fields,field_description:product_allergens_labeling.field_product_template_yeast_free
+#: model:ir.ui.view,arch_db:product_allergens_labeling.product_template_form_view
+msgid "Yeast-free"
+msgstr "Hefefrei"
+
+#. module: product_allergens_labeling
+#: model:ir.model,name:product_allergens_labeling.model_product_food_allergen
+msgid "product.food.allergen"
+msgstr "product.food.allergen"
+

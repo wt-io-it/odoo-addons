@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record
+            id="cereals_containing_gluten"
+            model="product.food.allergen">
+            <field name="name">Cereals containing gluten</field>
+            <field name="description">Cereals containing gluten ( i.e. wheat, rye, barley, oats, spelt, kamut or their hybridised strains) and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="crustaceans"
+            model="product.food.allergen">
+            <field name="name">Crustaceans and products thereof</field>
+            <field name="description">Crustaceans and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="eggs"
+            model="product.food.allergen">
+            <field name="name">Eggs and products thereof</field>
+            <field name="description">Eggs and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="fish"
+            model="product.food.allergen">
+            <field name="name">Fish and products thereof</field>
+            <field name="description">Fish and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="peanuts"
+            model="product.food.allergen">
+            <field name="name">Peanuts and products thereof</field>
+            <field name="description">Peanuts and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="soybeans"
+            model="product.food.allergen">
+            <field name="name">Soybeans and products thereof</field>
+            <field name="description">Soybeans and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="milk_lactose"
+            model="product.food.allergen">
+            <field name="name">Milk and products thereof (including lactose)</field>
+            <field name="description">Milk and products thereof (including lactose)</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="nuts"
+            model="product.food.allergen">
+            <field name="name">Nuts and products thereof</field>
+            <field name="description">Nuts i.e. Almond (Amygdalus communis L.), Hazelnut (Corylus avellana), Walnut (Juglans regia), Cashew (Anacardium occidentale), Pecan nut (Carya illinoiesis (Wangenh.) K. Koch), Brazil nut (Bertholletia excelsa), Pistachio nut (Pistacia vera), Macadamia nut and Queensland nut (Macadamia ternifolia) and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="celery"
+            model="product.food.allergen">
+            <field name="name">Celery and products thereof</field>
+            <field name="description">Celery and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="mustard"
+            model="product.food.allergen">
+            <field name="name">Mustard and products thereof</field>
+            <field name="description">Mustard and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="sesame_seeds"
+            model="product.food.allergen">
+            <field name="name">Sesame seeds and products thereof</field>
+            <field name="description">Sesame seeds and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="sulphur_dioxide_sulphites"
+            model="product.food.allergen">
+            <field name="name">Sulphur dioxide and sulphites</field>
+            <field name="description">Sulphur dioxide and sulphites at concentrations of more than 10 mg/kg or 10 mg/litre expressed as SO2.</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="lupins"
+            model="product.food.allergen">
+            <field name="name">Lupin and products thereof</field>
+            <field name="description">Lupin and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+        <record
+            id="molluscs"
+            model="product.food.allergen">
+            <field name="name">Molluscs and products thereof</field>
+            <field name="description">Molluscs and products thereof</field>
+            <field name="obligated_labeling" eval="True" />
+        </record>
+    </data>
+</odoo>

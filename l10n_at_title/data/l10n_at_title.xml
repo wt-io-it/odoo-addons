@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <!-- Österreichische Rechtsformen -->
+        <!-- Kapitalgesellschaften -->
+        <record id="res_partner_title_at_ag" model="res.partner.title">
+            <field name="name">Aktiengesellschaft</field>
+            <field name="shortcut">AG</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_gmbh" model="res.partner.title">
+            <field name="name">Gesellschaft mit beschränkter Haftung</field>
+            <field name="shortcut">GmbH</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        
+        <!-- Personengesellschaften -->
+        <record id="res_partner_title_at_kg" model="res.partner.title">
+            <field name="name">Kommanditgesellschaft</field>
+            <field name="shortcut">KG</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_kg_gmbh" model="res.partner.title">
+            <field name="name" eval="&quot;&quot;&quot;Gesellschaft mit beschränkter Haftung &amp; Compagnie Kommanditgesellschaft&quot;&quot;&quot;"></field>
+            <field name="shortcut" eval="&quot;&quot;&quot;GmbH &amp; Co. KG&quot;&quot;&quot;"></field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_og" model="res.partner.title">
+            <field name="name">Offene Gesellschaft</field>
+            <field name="shortcut">OG</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+
+        <record id="res_partner_title_at_gesnbr" model="res.partner.title">
+            <field name="name">Gesellschaft nach bürgerlichem Recht</field>
+            <field name="shortcut">GesnbR</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        
+        <!-- Personengesellschaften - alte Rechtsformen (bis 31. Dezember 2006) -->
+        <record id="res_partner_title_at_ohg" model="res.partner.title">
+            <field name="name">Offene Handelsgesellschaft</field>
+            <field name="shortcut">OHG</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_oeg" model="res.partner.title">
+            <field name="name">Offene Erwerbsgesellschaft</field>
+            <field name="shortcut">OEG</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_keg" model="res.partner.title">
+            <field name="name">Kommanditerwerbsgesellschaft</field>
+            <field name="shortcut">KEG</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        
+        <!-- Einzelunternehmen -->
+        <record id="res_partner_title_at_gt" model="res.partner.title">
+            <field name="name">Einzelunternehmen</field>
+            <field name="shortcut" eval="False"/>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_eu" model="res.partner.title">
+            <field name="name">eingetragenes Einzelunternehmen</field>
+            <field name="shortcut">e.U.</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <!-- Übrige Rechtsformen -->
+        <record id="res_partner_title_at_gen" model="res.partner.title">
+            <field name="name">Genossenschaft</field>
+            <field name="shortcut">e.G</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_zvr" model="res.partner.title">
+            <field name="name">Verein</field>
+            <field name="shortcut">e.V.</field>
+            <field name="country_id" ref="base.at" />
+        </record>
+        <record id="res_partner_title_at_stift" model="res.partner.title">
+            <field name="name">Stiftung</field>
+            <field name="shortcut" eval="False"/>
+            <field name="country_id" ref="base.at" />
+        </record>
+        
+        <!-- Titel Österreich -->
+        <record id="base.res_partner_title_doctor" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Doktor&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Dr.&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        <record id="base.res_partner_title_mister" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Herr&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Hr.&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        <record id="base.res_partner_title_madam" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Frau&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Fr.&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        
+        <record id="res_partner_title_dipl_ing" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Diplom-Ingenieur &quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Dipl. Ing.&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        <record id="res_partner_title_dipl_ing_fh" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Diplom-Ingenieur (FH)&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Dipl. Ing. (FH)&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        <record id="res_partner_title_ing" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Ingenieur&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Ing.&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        <record id="res_partner_title_mag" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Magister&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Mag.&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        <record id="res_partner_title_mag_fh" model="res.partner.title">
+            <field eval="&quot;&quot;&quot;Magister (FH)&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Mag. (FH)&quot;&quot;&quot;" name="shortcut"/>
+        </record>
+        
+    </data>
+</openerp>

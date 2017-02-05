@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <record id="product_template_form_view" model="ir.ui.view">
+            <field name="name">product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="ingredients" string="Ingredients" />
+                </field>
+                <xpath expr="//page[@name='sales']" position="before">
+                    <page name="allergens" string="Allergens &amp; Ingredients" attrs="{'invisible': ['|', ('ingredients', '!=', True), ('product_variant_count', '>', 1)]}">
+                        <group>
+                            <group>
+                                <field name="ingredient_name" string="Name as ingredient" />
+                                <field name="yeast_free" string="Yeast-free"  />
+                                <field name="gluten_free" string="Gluten-free" />
+                                <field name="lactose_free" string="Lactose-free" />
+                            </group>
+                        </group>
+                        <field name="allergen_ids" />
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_product_form_view" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="ingredients" string="Ingredients" />
+                </field>
+                <xpath expr="//page[@name='sales']" position="before">
+                    <page name="allergens" string="Allergens &amp; Ingredients" attrs="{'invisible': ['|', ('ingredients', '!=', True)]}">
+                        <group>
+                            <group>
+                                <field name="ingredient_name" />
+                                <field name="yeast_free" />
+                                <field name="gluten_free" string="Gluten-free" />
+                                <field name="lactose_free" string="Lactose-free" />
+                            </group>
+                        </group>
+                        <field name="allergen_ids" />
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

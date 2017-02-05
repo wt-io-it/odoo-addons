@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <record id="product_template_form_view" model="ir.ui.view">
+            <field name="name">product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view" />
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="nutrition" string="Nutrition" />
+                    <field name="use_portions" string="Portions?" attrs="{'invisible': [('nutrition', '!=', True)]}" />
+                </field>
+                <page name="general_information" position="inside">
+                    <div id="template_nutrition" attrs="{'invisible': ['|', ('nutrition', '!=', True), ('product_variant_count', '>', 1)]}">
+                        <group string="Nutrition Facts">
+                            <group string="Normalization">
+                                <field name="norm_weight" string="Weight per UoM (g)" />
+                                <field name="portions" string="Portions per UoM" attrs="{'invisible': [('use_portions', '!=', True)]}" />
+                                <field name="portion_grams" string="Grams per Portion" attrs="{'invisible': [('use_portions', '!=', True)]}" />
+                                <field name="norm_factor" string="UoM Factor" />
+                            </group>
+                            <group string="Nutrition facts per portion" attrs="{'invisible': [('use_portions', '!=', True)]}">
+                                <field name="energy_joule_portion" string="Energy (kJ)" />
+                                <field name="energy_calories_portion" string="Energy (kcal)" />
+                                <field name="fat_total_portion" string="Fat total (g)" />
+                                <field name="fat_saturated_portion" string="Fat saturated (g)" />
+                                <field name="carbohydrate_portion" string="Carbohydrate (g)" />
+                                <field name="carbo_sugars_portion" string="Sugars (g)" />
+                                <field name="roughage_portion" string="Roughage (g)" />
+                                <field name="protein_portion" string="Protein (g)" />
+                                <field name="sodium_portion" string="Sodium (g)" />
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Nutrition facts per 100g">
+                                <field name="energy_joule" string="Energy (kJ)" />
+                                <field name="energy_calories" string="Energy (kcal)" />
+                                <field name="fat_total" string="Fat total (g)" />
+                                <field name="fat_saturated" string="Fat saturated (g)" />
+                                <field name="carbohydrate" string="Carbohydrate (g)" />
+                                <field name="carbo_sugars" string="Sugars (g)" />
+                                <field name="roughage" string="Roughage (g)" />
+                                <field name="protein" string="Protein (g)" />
+                                <field name="sodium" string="Sodium (g)" />
+                            </group>
+                            <group string="Nutrition facts per UoM">
+                                <field name="energy_joule_uom" string="Energy (kJ)" />
+                                <field name="energy_calories_uom" string="Energy (kcal)" />
+                                <field name="fat_total_uom" string="Fat total (g)" />
+                                <field name="fat_saturated_uom" string="Fat saturated (g)" />
+                                <field name="carbohydrate_uom" string="Carbohydrate (g)" />
+                                <field name="carbo_sugars_uom" string="Sugars (g)" />
+                                <field name="roughage_uom" string="Roughage (g)" />
+                                <field name="protein_uom" string="Protein (g)" />
+                                <field name="sodium_uom" string="Sodium (g)" />
+                            </group>
+                        </group>
+                    </div>
+                    <div attrs="{'invisible': ['|', ('nutrition',  '!=', True), '&amp;', ('nutrition', '=', True), ('product_variant_count', '&lt;=', 1)]}">
+                        <h2 style="color: red">Please configure the nutrition facts on the corresponding variants!</h2>
+                    </div>
+                </page>
+            </field>
+        </record>
+        <record id="product_product_form_view" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="nutrition" />
+                    <field name="use_portions" attrs="{'invisible': [('nutrition', '!=', True)]}" />
+                </field>
+                <page name="general_information" position="inside">
+                    <div id="product_nutrition" attrs="{'invisible': [('nutrition', '!=', True)]}">
+                    <group string="Nutrition Facts">
+                        <group string="Normalization">
+                            <field name="norm_weight" />
+                            <field name="portions" attrs="{'invisible': [('use_portions', '!=', True)]}" />
+                            <field name="portion_grams" attrs="{'invisible': [('use_portions', '!=', True)]}" />
+                            <field name="norm_factor" />
+                        </group>
+                        <group string="Nutrition facts per portion" attrs="{'invisible': [('use_portions', '!=', True)]}">
+                            <field name="energy_joule_portion" string="Energy (kJ)" />
+                            <field name="energy_calories_portion" string="Energy (kcal)" />
+                            <field name="fat_total_portion" string="Fat total (g)" />
+                            <field name="fat_saturated_portion" string="Fat saturated (g)" />
+                            <field name="carbohydrate_portion" string="Carbohydrate (g)" />
+                            <field name="carbo_sugars_portion" string="Sugars (g)" />
+                            <field name="roughage_portion" string="Roughage (g)" />
+                            <field name="protein_portion" string="Protein (g)" />
+                            <field name="sodium_portion" string="Sodium (g)" />
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Nutrition facts per 100g">
+                            <field name="energy_joule" />
+                            <field name="energy_calories" />
+                            <field name="fat_total" />
+                            <field name="fat_saturated" />
+                            <field name="carbohydrate" />
+                            <field name="carbo_sugars" />
+                            <field name="roughage" />
+                            <field name="protein" />
+                            <field name="sodium" />
+                        </group>
+                        <group string="Nutrition facts per UoM">
+                            <field name="energy_joule_uom" string="Energy (kJ)" />
+                            <field name="energy_calories_uom" string="Energy (kcal)" />
+                            <field name="fat_total_uom" string="Fat total (g)" />
+                            <field name="fat_saturated_uom" string="Fat saturated (g)" />
+                            <field name="carbohydrate_uom" string="Carbohydrate (g)" />
+                            <field name="carbo_sugars_uom" string="Sugars (g)" />
+                            <field name="roughage_uom" string="Roughage (g)" />
+                            <field name="protein_uom" string="Protein (g)" />
+                            <field name="sodium_uom" string="Sodium (g)" />
+                        </group>
+                    </group>
+                    </div>
+                </page>
+            </field>
+        </record>
+    </data>
+</odoo>

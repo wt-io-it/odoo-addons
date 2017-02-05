@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="mrp_plan_list_document">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="row">
+                        <div class="col-xs-3"><strong>Planned point:</strong></div>
+                        <div class="col-xs-9"><span t-field="o.planning_time" /></div>
+                        <div class="col-xs-3"><strong>Creator:</strong></div>
+                        <div class="col-xs-9"><span t-field="o.create_uid" /></div>
+                    </div>
+                    <h2>Planned products</h2>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="text-right"
+                                    style="width: 15px;">Pos.</th>
+                                <th>Product</th>
+                                <th>Planned Quantity</th>
+                                <th class="text-right">Available</th>
+                                <th class="text-right">Minimum Need</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-set="line_num"
+                                t-value="1" />
+                            <t
+                                t-foreach="o.planned_items"
+                                t-as="l">
+                            <tr
+                                t-attf-style="{{'color:blue' if l.bom_avail else ''}}">
+                                <td class="text-right">
+                                    <span t-esc="line_num" />.
+                                </td>
+                                <td>
+                                    <t
+                                        t-set="line_name"
+                                        t-value="l.product_id and l.product_id.with_context(display_default_code=False).display_name"></t>
+                                    <span t-esc="line_name" />
+                                </td>
+                                <td>
+                                    <span t-field="l.product_qty" />
+                                    <span t-field="l.product_uom_id" />
+                                </td>
+                                <t
+                                    t-set="stock_uom"
+                                    t-value="l.stock_uom_id.name"></t>
+                                <td class="text-right">
+                                    <span t-field="l.qty_available" />
+                                    <span t-esc="stock_uom" />
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.qty_needed" />
+                                    <span t-esc="stock_uom" />
+                                </td>
+                                <t
+                                    t-set="line_num"
+                                    t-value="line_num + 1" />
+                            </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <h2>Details about the raw materials and products needed</h2>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="text-right"
+                                    style="width: 15px;">Pos.</th>
+                                <th>Product</th>
+                                <th>Needed Quantity</th>
+                                <th class="text-right">Available</th>
+                                <th class="text-right">Minimum Need</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-set="line_num"
+                                t-value="1" />
+                            <t
+                                t-foreach="o.needed_items"
+                                t-as="l">
+                            <tr 
+                                t-attf-style="{{'color:red' if l.bom_avail else 'color:green' if l.qty_needed == 0.0 else ''}}">
+                                <td class="text-right">
+                                    <span t-esc="line_num" />.
+                                </td>
+                                <td>
+                                    <t
+                                        t-set="line_name"
+                                        t-value="l.product_id and l.product_id.with_context(display_default_code=False).display_name"></t>
+                                    <span t-esc="line_name" />
+                                </td>
+                                <td>
+                                    <span t-field="l.product_qty" />
+                                    <span t-field="l.product_uom_id" />
+                                </td>
+                                <t
+                                    t-set="stock_uom"
+                                    t-value="l.stock_uom_id.name"></t>
+                                <td class="text-right">
+                                    <span t-field="l.qty_available" />
+                                    <span t-esc="stock_uom" />
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.qty_needed" />
+                                    <span t-esc="stock_uom" />
+                                </td>
+                                <t
+                                    t-set="line_num"
+                                    t-value="line_num + 1" />
+                            </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <h2 t-if="o.orders_created">Details about the production orders needed</h2>
+                    <table class="table table-condensed" t-if="o.orders_created">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="text-right"
+                                    style="width: 15px;">Pos.</th>
+                                <th>Product</th>
+                                <th>Planned Quantity</th>
+                                <th>Planned Date</th>
+                                <th>BoM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-set="line_num"
+                                t-value="1" />
+                            <t
+                                t-foreach="o.mrp_production_items"
+                                t-as="l">
+                            <tr>
+                                <td class="text-right">
+                                    <span t-esc="line_num" />.
+                                </td>
+                                <td>
+                                    <t
+                                        t-set="line_name"
+                                        t-value="l.product_id and l.product_id.with_context(display_default_code=False).display_name"></t>
+                                    <span t-esc="line_name" />
+                                </td>
+                                <td>
+                                    <span t-field="l.product_qty" />
+                                    <span t-field="l.product_uom_id" />
+                                </td>
+                                <td>
+                                    <span t-field="l.date_planned" />
+                                </td>
+                                <td>
+                                    <span t-field="l.bom_id" />
+                                </td>
+                                <t
+                                    t-set="line_num"
+                                    t-value="line_num + 1" />
+                            </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+        
+        <template id="mrp_plan_list">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="mrp_plan_wizard.mrp_plan_list_document" t-lang="o.env.user.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

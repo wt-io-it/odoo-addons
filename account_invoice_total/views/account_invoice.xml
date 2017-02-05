@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="customer_invoice_form_view" model="ir.ui.view">
+            <field name="name">Customer Invoice (Form)</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <field name="team_id" position="after">
+                    <field name="check_total" attrs="{'required': [('invoice_direction_role', '=', True), ('type', 'in', ['out_invoice', 'out_refund'])], 'invisible': [('invoice_direction_role', '!=', True), ('type', 'in', ['out_invoice', 'out_refund'])]}" />
+                </field>
+            </field>
+        </record>
+        <record id="supplier_invoice_supplier_form_view" model="ir.ui.view">
+            <field name="name">Supplier Invoice (Form)</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="arch" type="xml">
+                <field name="date_due" position="after">
+                    <field name="check_total" attrs="{'required': [('invoice_direction_role', '!=', True), ('type', 'in', ['in_invoice', 'in_refund'])], 'invisible': [('invoice_direction_role', '=', True), ('type', 'in', ['in_invoice', 'in_refund'])]}" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

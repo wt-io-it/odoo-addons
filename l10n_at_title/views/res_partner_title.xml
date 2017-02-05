@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_res_partner_inherit_form">
+            <field name="name">Partner Title Form</field>
+            <field name="inherit_id" ref="base.view_partner_title_form"/>
+            <field name="model">res.partner.title</field>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="shortcut" position="after">
+                        <field name="country_id" />
+                    </field>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

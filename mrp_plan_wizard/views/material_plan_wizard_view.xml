@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record
+            id="purchase_plan_wizard_form_view"
+            model="ir.ui.view">
+            <field name="name">Material Planning Wizard</field>
+            <field name="model">mrp.plan.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Material Planning Wizard">
+                    <div>
+                        <div class="oe_horizontal_separator">
+                            Planned products
+                        </div>
+                        <field name="planning_time" readonly="1" />
+                        <field name="orders_created" invisible="1" />
+                        <field name="planned_items" widget="one2many_list" attrs="{'readonly': [('orders_created', '=', True)]}">
+                            <tree editable="bottom" colors="blue:bom_avail==True">
+                                <field name="product_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" />
+                                <field name="product_qty" />
+                                <field name="product_uom_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" />
+                                <field name="bom_avail" invisible="1" />
+                                <field name="qty_available" string="Available" />
+                                <field name="qty_forecasted" string="Forecasted" />
+                                <field name="qty_needed" string="Minimum Need" />
+                                <field name="stock_uom_id" string="UoM" />
+                            </tree>
+                        </field>
+                    </div> 
+                    <div style="margin: 1em 0">
+                        <div style="color:blue">Product with Bill of Material</div>
+                        <div>Product without Bill of Material</div>
+                    </div>
+                    <div attrs="{'invisible': ['|', ('needed_items', '=', []), ('needed_items', '=', False)]}">
+                        <div class="oe_horizontal_separator">Details about the raw materials and products needed</div>
+                        <field name="needed_items" widget="one2many_list" readonly="1">
+                            <tree colors="red:bom_avail==True">
+                                <field name="product_id" />
+                                <field name="product_qty" />
+                                <field name="product_uom_id" />
+                                <field name="bom_avail" invisible="1" />
+                                <field name="qty_available" string="Available" />
+                                <field name="qty_forecasted" string="Forecasted" />
+                                <field name="qty_needed" string="Minimum Need" />
+                                <field name="stock_uom_id" string="UoM" />
+                            </tree>
+                        </field>
+                        <div style="margin: 1em 0">
+                            <div style="color:red">Product with more than one Bill of Material (without unique possibility to explode)</div>
+                        </div>
+                    </div>
+                    <div attrs="{'invisible': ['|', ('mrp_production_items', '=', []), ('mrp_production_items', '=', False)]}">
+                        <div class="oe_horizontal_separator">Details about the production orders needed</div>
+                        <field name="mrp_production_items" widget="one2many_list" attrs="{'readonly': [('orders_created', '=', True)]}">
+                            <tree editable="bottom">
+                                <field name="product_id" />
+                                <field name="bom_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" />
+                                <field name="date_planned" />
+                                <field name="product_qty" />
+                                <field name="product_uom_id" />
+                            </tree>
+                        </field>
+                    </div>
+                    <footer>
+                        <button name="action_calculate_ingredients" class="oe_highlight" type="object" string="Calculate dependent quantity" attrs="{'invisible': ['|', '|', ('planned_items', '=', []), ('planned_items', '=', False), ('orders_created', '=', True)]}" />
+                        <button name="create_production_orders" class="oe_highlight" type="object" string="Create production orders" attrs="{'invisible': ['|', '|', ('mrp_production_items', '=', []), ('mrp_production_items', '=', False), ('orders_created', '=', True)]}" />
+                        <button name="report_print" class="oe_highlight" type="object" string="Print" attrs="{'invisible': ['|', ('needed_items', '=', []), ('needed_items', '=', False)]}" />
+                        
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record
+            id="action_purchase_plan_wizard"
+            model="ir.actions.act_window">
+            <field name="name">Material Planning Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="target">new</field>
+            <field name="res_model">mrp.plan.wizard</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem
+            id="menu_purchase_plan_wizard"
+            name="Material Planning Wizard"
+            parent="mrp.menu_mrp_manufacturing"
+            action="action_purchase_plan_wizard"
+            sequence="10" />
+    </data>
+</odoo>

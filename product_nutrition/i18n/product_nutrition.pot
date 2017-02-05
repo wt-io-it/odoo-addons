@@ -1,0 +1,310 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_nutrition
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-11 07:30+0000\n"
+"PO-Revision-Date: 2017-02-11 07:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_available_in_pos
+msgid "Available in the Point of Sale"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_carbohydrate
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_carbohydrate
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Carbohydrate (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_carbohydrate_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_carbohydrate_uom
+msgid "Carbohydrate per UoM (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_carbohydrate_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_carbohydrate_portion
+msgid "Carbohydrate per portion (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,help:product_nutrition.field_product_product_to_weight
+msgid "Check if the product should be weighted using the hardware scale integration"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,help:product_nutrition.field_product_product_available_in_pos
+msgid "Check if you want this product to appear in the Point of Sale"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_energy_calories_portion
+msgid "Energy per portion (kcal)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_energy_joule
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_energy_joule
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Energy (kJ)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_energy_calories
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_energy_calories
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Energy (kcal)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_energy_joule_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_energy_joule_uom
+msgid "Energy per UoM (kJ)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_energy_calories_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_energy_calories_uom
+msgid "Energy per UoM (kcal)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_energy_joule_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_energy_joule_portion
+msgid "Energy per portion (kJ)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_energy_calories_portion
+msgid "Energy per portion (kcal)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_fat_saturated
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_fat_saturated
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Fat saturated (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_fat_saturated_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_fat_saturated_uom
+msgid "Fat saturated per UoM (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_fat_saturated_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_fat_saturated_portion
+msgid "Fat saturated per portion (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_fat_total
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_fat_total
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Fat total (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_fat_total_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_fat_total_uom
+msgid "Fat total per UoM (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_fat_total_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_fat_total_portion
+msgid "Fat total per portion (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Grams per Portion"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Normalization"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Nutrition"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Nutrition Facts"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Nutrition facts per 100g"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Nutrition facts per UoM"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Nutrition facts per portion"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Please configure the nutrition facts on the corresponding variants!"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_portions
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_portions
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Portions per UoM"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Portions?"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model,name:product_nutrition.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model,name:product_nutrition.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,help:product_nutrition.field_product_product_norm_weight
+#: model:ir.model.fields,help:product_nutrition.field_product_template_norm_weight
+msgid "Product UoM to be converted to 100g"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_protein
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_protein
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Protein (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_protein_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_protein_uom
+msgid "Protein per UoM (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_protein_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_protein_portion
+msgid "Protein per portion (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_roughage
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_roughage
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Roughage (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_roughage_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_roughage_uom
+msgid "Roughage per UoM (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_roughage_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_roughage_portion
+msgid "Roughage per portion (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_sodium
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_sodium
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Sodium (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_sodium_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_sodium_uom
+msgid "Sodium per UoM (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_sodium_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_sodium_portion
+msgid "Sodium per portion (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_carbo_sugars
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_carbo_sugars
+#: model:ir.ui.view,arch_db:product_nutrition.product_product_form_view
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Sugars (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_carbo_sugars_uom
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_carbo_sugars_uom
+msgid "Sugars per UoM (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_carbo_sugars_portion
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_carbo_sugars_portion
+msgid "Sugars per portion (g)"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_to_weight
+msgid "To Weigh With Scale"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_norm_factor
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_norm_factor
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "UoM Factor"
+msgstr ""
+
+#. module: product_nutrition
+#: model:ir.model.fields,field_description:product_nutrition.field_product_product_norm_weight
+#: model:ir.model.fields,field_description:product_nutrition.field_product_template_norm_weight
+#: model:ir.ui.view,arch_db:product_nutrition.product_template_form_view
+msgid "Weight per UoM (g)"
+msgstr ""
+

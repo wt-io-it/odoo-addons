@@ -1,0 +1,277 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_plan_wizard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-11 07:16+0000\n"
+"PO-Revision-Date: 2017-02-11 07:16+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "<strong>Creator:</strong>"
+msgstr "<strong>Ersteller:</strong>"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "<strong>Planned point:</strong>"
+msgstr "<strong>Erhebungszeitpunkt:</strong>"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_qty_available
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_qty_available
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Available"
+msgstr "Verfügbar"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_bom_avail
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_bom_avail
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_bom_id
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "BoM"
+msgstr "Stückliste"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Calculate dependent quantity"
+msgstr "Abhängige Menge berechnen"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Create production orders"
+msgstr "Fertigungsaufträge erstellen"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_create_uid
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_create_uid
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_create_uid
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_create_date
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_create_date
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_create_date
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Details about the production orders needed"
+msgstr "Detailliste der benötigten Fertigungsaufträge"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Details about the raw materials and products needed"
+msgstr "Detailliste der benötigten Rohstoffe und Produkte"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_display_name
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_display_name
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_display_name
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_qty_forecasted
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_qty_forecasted
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Forecasted"
+msgstr "Prognose"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_id
+msgid "ID"
+msgstr "ID"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line___last_update
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard___last_update
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line___last_update
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_write_uid
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_write_uid
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_write_uid
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_write_date
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_write_date
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_write_date
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: mrp_plan_wizard
+#: model:ir.actions.act_window,name:mrp_plan_wizard.action_purchase_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_wizard_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_wizard_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_wizard_id
+#: model:ir.ui.menu,name:mrp_plan_wizard.menu_purchase_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Material Planning Wizard"
+msgstr "Einkaufsplanungsassistent"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_qty_needed
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Minimum Need"
+msgstr "Mindestbedarf"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_qty_needed
+msgid "Minimum need"
+msgstr "Mindestbedarf"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_needed_items
+msgid "Needed Items"
+msgstr "Benötigte Produkte"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_product_qty
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "Needed Quantity"
+msgstr "Benötigte Menge"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_date_planned
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "Planned Date"
+msgstr "Plantermin"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_planned_items
+msgid "Planned Items"
+msgstr "Geplante Produkte"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_planning_time
+msgid "Planned Point"
+msgstr "Erhebungszeitpunkt"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_product_qty
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "Planned Quantity"
+msgstr "Geplante Menge"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Planned products"
+msgstr "Geplante Produkte"
+
+#. module: mrp_plan_wizard
+#: model:ir.actions.report.xml,name:mrp_plan_wizard.plan_purchase_list_test
+msgid "Planning List"
+msgstr "Planungsliste"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "Pos."
+msgstr "Pos."
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Print"
+msgstr "Druck vorbereiten"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_product_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_product_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_product_id
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.mrp_plan_list_document
+msgid "Product"
+msgstr "Produkt"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Product with Bill of Material"
+msgstr "Produkt mit Stückliste"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Product with more than one Bill of Material (without unique possibility to explode)"
+msgstr "Produkt mit mehr als einer Stückliste (ohne eindeutige Auflösungsmöglichkeit)"
+
+#. module: mrp_plan_wizard
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "Product without Bill of Material"
+msgstr "Produkt ohne Stückliste"
+
+#. module: mrp_plan_wizard
+#: model:ir.model,name:mrp_plan_wizard.model_mrp_production
+msgid "Production"
+msgstr "Produktivbetrieb"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_orders_created
+msgid "Production Orders created"
+msgstr "Fertigungsaufträge erstellt"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_mrp_production_items
+msgid "Production Plan Items"
+msgstr "Production Plan Items"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_product_qty
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: mrp_plan_wizard
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_product_uom_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_need_wizard_line_stock_uom_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_product_uom_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_plan_wizard_line_stock_uom_id
+#: model:ir.model.fields,field_description:mrp_plan_wizard.field_mrp_production_plan_wizard_line_product_uom_id
+#: model:ir.ui.view,arch_db:mrp_plan_wizard.purchase_plan_wizard_form_view
+msgid "UoM"
+msgstr "ME"
+
+#. module: mrp_plan_wizard
+#: model:ir.model,name:mrp_plan_wizard.model_mrp_need_wizard_line
+msgid "mrp.need.wizard.line"
+msgstr "mrp.need.wizard.line"
+
+#. module: mrp_plan_wizard
+#: model:ir.model,name:mrp_plan_wizard.model_mrp_plan_wizard
+msgid "mrp.plan.wizard"
+msgstr "mrp.plan.wizard"
+
+#. module: mrp_plan_wizard
+#: model:ir.model,name:mrp_plan_wizard.model_mrp_plan_wizard_line
+msgid "mrp.plan.wizard.line"
+msgstr "mrp.plan.wizard.line"
+
+#. module: mrp_plan_wizard
+#: model:ir.model,name:mrp_plan_wizard.model_mrp_production_plan_wizard_line
+msgid "mrp.production.plan.wizard.line"
+msgstr "mrp.production.plan.wizard.line"
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_template_form_view" model="ir.ui.view">
+            <field name="name">product.normal.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product_allergens_labeling.product_template_form_view" />
+            <field name="arch" type="xml">
+                <field name="uom_id" position="before">
+                    <field name="allow_standard_price_zero" />
+                </field>
+            
+                <field name="allergen_ids" position="after">
+                    <div id="mrp_template_labeling" style="margin-top: 1em" attrs="{'invisible': ['|', ('bom_ids', '=', []), ('bom_ids', '=', False)]}">
+                        <button name="compute_labeling_facts" type="object" string="Compute Labeling Facts (BoM)" />
+                    </div>
+                    <div style="margin-top: 1em">
+                        <h3>Ingredients List</h3>
+                        <div style="padding: 0">
+                            <i>
+                                <field name="calculated_norm_weight" class="oe_inline" readonly="True" /> g
+                                (<field name="deviation" class="oe_inline" readonly="True" />%)
+                            </i>
+                        </div>
+                        <field name="ingredient_list" readonly="1" />
+                    </div>
+                </field>
+            </field>
+        </record>
+        <record id="product_product_form_view" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product_allergens_labeling.product_product_form_view" />
+            <field name="arch" type="xml">
+                <field name="uom_id" position="before">
+                    <field name="allow_standard_price_zero" />
+                </field>
+                <field name="allergen_ids" position="after">
+                    <div id="mrp_product_labeling" style="margin-top: 1em" attrs="{'invisible': ['|', ('bom_ids', '=', []), ('bom_ids', '=', False)]}">
+                        <button name="compute_labeling_facts" type="object" string="Compute Labeling Facts (BoM)" />
+                    </div>
+                    <div style="margin-top: 1em">
+                        <h3>Ingredients List</h3>
+                        <div style="padding: 0">
+                            <i>
+                                <field name="calculated_norm_weight" class="oe_inline" readonly="True" /> g
+                                (<field name="deviation" class="oe_inline" readonly="True" />%)
+                            </i>
+                        </div>
+                        <field name="ingredient_list" readonly="1" />
+                    </div>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

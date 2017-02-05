@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_journal_form_view" model="ir.ui.view">
+            <field name="name">Account Journal - Invoice Direction Role (Form)</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form" />
+            <field name="arch" type="xml">
+                <field name="show_on_dashboard" position="before">
+                    <field name="dedicated_direction_journal" attrs="{'invisible': [('type', 'not in', ['sale', 'purchase'])]}" />
+                    <field name="invoice_direction_role" attrs="{'invisible': [('dedicated_direction_journal', '!=', True)]}" />
+                </field>
+            </field>
+        </record>
+        <record id="customer_invoice_form_view" model="ir.ui.view">
+            <field name="name">Customer Invoice (Form)</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <field name="payment_term_id" position="before">
+                    <label for="reference" string="Customer reference" attrs="{'invisible': [('invoice_direction_role', '!=', True), ('type', 'in', ['out_invoice', 'out_refund'])]}" />
+                    <div attrs="{'invisible': [('invoice_direction_role', '!=', True), ('type', 'in', ['out_invoice', 'out_refund'])]}" >
+                        <field name="reference" attrs="{'required': [('invoice_direction_role', '=', True), ('type', 'in', ['out_invoice', 'out_refund'])]}" />
+                    </div>
+                </field>
+                <field name="payment_term_id" position="after">
+                    <field name="invoice_direction_role" />
+                </field>
+                <field name="date_invoice" position="attributes">
+                    <attribute name="attrs">{'required': [('invoice_direction_role', '=', True), ('type', 'in', ['out_invoice', 'out_refund'])]}</attribute>
+                </field>
+            </field>
+        </record>
+        <record id="supplier_invoice_supplier_form_view" model="ir.ui.view">
+            <field name="name">Supplier Invoice (Form)</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="arch" type="xml">
+                <field name="reference" position="after">
+                    <field name="invoice_direction_role" />
+                </field>
+                <xpath expr="//group/field[@name='reference']" position="attributes">
+                    <attribute name="attrs">{'required': [('invoice_direction_role', '!=', True), ('type', 'in', ['in_invoice', 'in_refund'])]}</attribute>
+                </xpath>
+                <field name="date_invoice" position="attributes">
+                    <attribute name="attrs">{'required': [('invoice_direction_role', '!=', True), ('type', 'in', ['in_invoice', 'in_refund'])]}</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

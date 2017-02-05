@@ -1,0 +1,124 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_invoice_direction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-05 19:50+0000\n"
+"PO-Revision-Date: 2017-03-05 19:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_invoice_direction
+#: model:ir.model.fields,help:account_invoice_direction.field_account_journal_invoice_direction_role
+msgid "Applicable only for invoice direction stated"
+msgstr "Ausschließlich für die angegebene Richtung auswählbar"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Cancelled Credit Note"
+msgstr "Stornierte Gutschrift"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Cancelled Invoice"
+msgstr "Stornierte Rechnung"
+
+#. module: account_invoice_direction
+#: model:ir.model.fields,help:account_invoice_direction.field_account_journal_dedicated_direction_journal
+msgid "Check if you want to have a dedicated journal for invoice direction role change"
+msgstr "Auswählen, wenn Sie eine zugeordnete Richtung für dieses Journal haben möchten"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Credit Note"
+msgstr "Gutschrift"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.customer_invoice_form_view
+msgid "Customer reference"
+msgstr "Kundenreferenz"
+
+#. module: account_invoice_direction
+#: model:ir.model.fields,field_description:account_invoice_direction.field_account_journal_dedicated_direction_journal
+msgid "Dedicated direction"
+msgstr "Explizite Richtungsvorgabe"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Draft Credit Note"
+msgstr "Entwurf Gutschrift"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Draft Invoice"
+msgstr "Entwurf Rechnung"
+
+#. module: account_invoice_direction
+#: model:ir.model,name:account_invoice_direction.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Steuerzuordnung"
+
+#. module: account_invoice_direction
+#: model:ir.model,name:account_invoice_direction.model_account_invoice
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: account_invoice_direction
+#: model:ir.model,name:account_invoice_direction.model_account_journal
+msgid "Journal"
+msgstr "Journal"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "PRO-FORMA"
+msgstr "PRO-FORMA"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Refund"
+msgstr "Storno"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Refund Credit Note"
+msgstr "Storno Gutschrift"
+
+#. module: account_invoice_direction
+#: model:ir.model.fields,field_description:account_invoice_direction.field_account_invoice_invoice_direction_role
+#: model:ir.model.fields,field_description:account_invoice_direction.field_account_journal_invoice_direction_role
+msgid "Reverse direction"
+msgstr "Richtungsumkehr"
+
+#. module: account_invoice_direction
+#: model:ir.model,name:account_invoice_direction.model_account_tax
+msgid "Tax"
+msgstr "Umsatzsteuer"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Vendor Bill"
+msgstr "Rechnung"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Vendor Credit Note"
+msgstr "Gutschrift"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Vendor Refund"
+msgstr "Rückerstattung Rechnung"
+
+#. module: account_invoice_direction
+#: model:ir.ui.view,arch_db:account_invoice_direction.report_invoice_document
+msgid "Vendor Refund Credit Note"
+msgstr "Rückerstattung Gutschrift"
+

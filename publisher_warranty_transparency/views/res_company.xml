@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record  id="view_company_inherit_form" model="ir.ui.view">
+            <field name="name">res.company.form.inherit</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="model">res.company</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page" position="after">
+                        <page name="licence" string="License Information" groups="base.group_system">
+                             <group string="Odoo Enterprise Contract">
+                                <group>
+                                    <field name="contract_reference" />
+                                    <field name="nbr_users_contracted" />
+                                    <field name="version" />
+                                </group>
+                                <group>
+                                    <field name="date_start" />
+                                    <field name="date_to" />
+                                </group>
+                            </group>
+                            <group string="App Evaluation">>
+                                <group>
+                                    <field name="nbr_apps_contracted" />
+                                </group>
+                                <group>
+                                    <field name="apps" />
+                                </group>
+                            </group>
+                            <group string="Users Evaluation">
+                                <group>
+                                    <field name="nbr_users" />
+                                    <field name="nbr_active_users" />
+                                </group>
+                                <group>
+                                    <field name="nbr_share_users" />
+                                    <field name="nbr_active_share_users" />
+                                </group>
+                            </group>
+                            <group string="Request Evaluation">
+                                <group>
+                                    <field name="nbr_page_requests" />
+                                </group>
+                                <group>
+                                </group>
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,260 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_labeling
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-11 07:21+0000\n"
+"PO-Revision-Date: 2017-02-11 07:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_deviation
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_template_deviation
+msgid "Abweichung (Prozent)"
+msgstr "Abweichung (Prozent)"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_norm_weight_diff
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_template_norm_weight_diff
+msgid "Abweichung (g)"
+msgstr "Abweichung (g)"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_mrp_production_alert_date
+msgid "Alert Date"
+msgstr "Alarmzeitpunkt"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_calculated_norm_weight
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_template_calculated_norm_weight
+msgid "Berechnetes Gewicht pro ME (g)"
+msgstr "Berechnetes Gewicht pro ME (g)"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_mrp_production_use_date
+msgid "Best before Date"
+msgstr "Mindestens haltbar bis"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_mrp_production_employee_id
+msgid "Chef"
+msgstr "Koch"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_code
+msgid "Code"
+msgstr "Code"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: mrp_labeling
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_labeling_facts_product
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_labeling_facts_product_template
+#: model:ir.ui.view,arch_db:mrp_labeling.product_product_form_view
+#: model:ir.ui.view,arch_db:mrp_labeling.product_template_form_view
+msgid "Compute Labeling Facts (BoM)"
+msgstr "Inhaltsstoffe berechnen (BoM)"
+
+#. module: mrp_labeling
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_price_product
+#: model:ir.actions.server,name:mrp_labeling.action_server_compute_price_product_template
+msgid "Compute Price (BoM)"
+msgstr "Standardpreis berechnen (BoM)"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_covername
+msgid "Cover Name"
+msgstr "Deckname"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_hr_employee_calendar_id
+msgid "Define the schedule of resource"
+msgstr "Definieren Sie den Einsatzplan für diese Ressource"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_time_efficiency
+msgid "Efficiency Factor"
+msgstr "Effizienzfaktor"
+
+#. module: mrp_labeling
+#: model:ir.model,name:mrp_labeling.model_hr_employee
+msgid "Employee"
+msgstr "Mitarbeiter"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_mrp_production_life_date
+msgid "End of Life Date"
+msgstr "Verwendbar bis"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_hr_employee_active
+msgid "If the active field is set to False, it will allow you to hide the resource record without removing it."
+msgstr "Bei Deaktivierung kann die Ansicht der Ressource ausgeblendet werden."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_ingredient_list
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_template_ingredient_list
+#: model:ir.ui.view,arch_db:mrp_labeling.product_product_form_view
+#: model:ir.ui.view,arch_db:mrp_labeling.product_template_form_view
+msgid "Ingredients List"
+msgstr "Zutatenliste"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_name
+msgid "Name"
+msgstr "Name"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_allow_standard_price_zero
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_template_allow_standard_price_zero
+msgid "No costs implied"
+msgstr "Keine Kosten"
+
+#. module: mrp_labeling
+#: code:addons/mrp_labeling/models/product.py:63
+#, python-format
+msgid "Norm weight for product %s must be greater than 0!"
+msgstr "Das Gewicht pro ME für das Produkt %s muss einen Wert größer als 0 haben!"
+
+#. module: mrp_labeling
+#: model:ir.model,name:mrp_labeling.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: mrp_labeling
+#: code:addons/mrp_labeling/models/product.py:28
+#, python-format
+msgid "Product %s is not activated for nutrition!"
+msgstr "Produkt %s wurde noch nicht für Nährwerte aktiviert!"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_alert_time
+msgid "Product Alert Time"
+msgstr "Tage bis Ablaufwarnung"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_life_time
+msgid "Product Life Time"
+msgstr "Verfalldauer"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_removal_time
+msgid "Product Removal Time"
+msgstr "Tage bis Vernichtung"
+
+#. module: mrp_labeling
+#: model:ir.model,name:mrp_labeling.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_use_time
+msgid "Product Use Time"
+msgstr "Haltbarkeitsdauer"
+
+#. module: mrp_labeling
+#: model:ir.model,name:mrp_labeling.model_mrp_production
+msgid "Production"
+msgstr "Produktion"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_hr_employee_user_id
+msgid "Related user name for the resource to manage its access."
+msgstr "Der mit der Ressource verbunden Benutzer für die Zugriffsberechtigung"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_mrp_production_removal_date
+msgid "Removal Date"
+msgstr "Datum der Vernichtung"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_resource_type
+msgid "Resource Type"
+msgstr "Ressource Typ"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_hr_employee_time_efficiency
+msgid "This field depict the efficiency of the resource to complete tasks. e.g  resource put alone on a phase of 5 days with 5 tasks assigned to him, will show a load of 100% for this phase by default, but if we put a efficiency of 200%, then his load will only be 50%."
+msgstr "Dieses Feld beschreibt die Effizienz von Ressourcen, bei der Erledigung von Arbeitsaufträgen. Wenn Sie z.B. im Standard einer einzige Ressource einer Phase über 5 Tagen mit 5 Aufgaben zuweisen, wird bei ihm eine Auslastung von 100% für diese Phase standardmäßig angezeigt, wenn wir allerdings die Effizienz auf 200% ändern, würde seine Auslastung im Ergebnis nur noch 50% betragen."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_hr_employee_covername
+msgid "This is a individual name used in customer relations if someone does not want to be identified directly"
+msgstr "Das ist der individuelle Name für Kundenkommunikation, der den Mitarbeiter intern identifiziert"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_mrp_production_alert_date
+msgid "This is the date on which an alert should be notified about the goods with this Serial Number."
+msgstr "Datum zu dem ein Alarm bezüglich des Verfalls dieser Serie ausgegeben werden soll."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_mrp_production_life_date
+msgid "This is the date on which the goods with this Serial Number may become dangerous and must not be consumed."
+msgstr "Anzahl der Tage nach Erstellung dieser Serie bevor die Verwendbarkeit gefährlich werden kann und nicht mehr konsumiert werden darf."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_mrp_production_removal_date
+msgid "This is the date on which the goods with this Serial Number should be removed from the stock."
+msgstr "Spätestens zu diesem Datum sollten Produkte mit dieser Seriennummer entsorgt werden."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_mrp_production_use_date
+msgid "This is the date on which the goods with this Serial Number start deteriorating, without being dangerous yet."
+msgstr "Anzahl der Tage nach Erstellung einer Serie, an dem die Haltbarkeit abläuft, ohne dass der Konsum nach Ablaufdatum gesundheitsschädlich ist."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_user_id
+msgid "User"
+msgstr "Benutzer"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_product_product_alert_time
+msgid "When a new a Serial Number is issued, this is the number of days before an alert should be notified."
+msgstr "Anzahl der Tage vor dem Ablaufdatum zu dem ein Alarm für diese neue Serie ausgegeben werden soll."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_product_product_life_time
+msgid "When a new a Serial Number is issued, this is the number of days before the goods may become dangerous and must not be consumed."
+msgstr "Anzahl der Tage nach Erstellung einer Serie bevor die Verwendbarkeit gefährlich werden kann und nicht mehr konsumiert werden darf."
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_product_product_removal_time
+msgid "When a new a Serial Number is issued, this is the number of days before the goods should be removed from the stock."
+msgstr "Anzahl der Tage bevor eine Serie vernichtet oder anderweitig verwertet werden soll"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,help:mrp_labeling.field_product_product_use_time
+msgid "When a new a Serial Number is issued, this is the number of days before the goods starts deteriorating, without being dangerous yet."
+msgstr "Die Anzahl der Tage bevor eine Serie schlecht wird ohne gefährlich zu werden (mindestens Haltbar bis ...)"
+
+#. module: mrp_labeling
+#: model:ir.model.fields,field_description:mrp_labeling.field_hr_employee_calendar_id
+msgid "Working Time"
+msgstr "Arbeitszeit"
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tax_form" model="ir.ui.view">
+            <field name="name">Legal Tax Term Indicator (Form)</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form" />
+            <field name="arch" type="xml">
+                <field name="price_include" position="before">
+                    <field name="apply_legal_tax_term" />
+                    <field name="legal_tax_sentence" attrs="{'invisible': [('apply_legal_tax_term', '=', False)]}" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

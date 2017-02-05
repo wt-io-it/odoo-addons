@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account_fiscal_position_b2c_form_view" model="ir.ui.view">
+            <field name="name">B2C Form Indicator (Fiscal Position)</field>
+            <field name="model">account.fiscal.position</field>
+            <field name="inherit_id" ref="account.view_account_position_form" />
+            <field name="arch" type="xml">
+                <field name="tax_ids" position="before">
+                    <group>
+                        <field name="b2c_fiscal_position" />
+                     </group>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -10,11 +10,6 @@ Product Allergens Labeling (EU 1169/2011)
 Usage
 =====
 
-
-Bugs
-=======
-https://github.com/wt-io-it/odoo-addons/tree/8.0
-
 Credits
 =======
 

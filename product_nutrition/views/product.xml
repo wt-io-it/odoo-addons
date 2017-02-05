@@ -11,7 +11,7 @@
                     <field name="nutrition" string="Nutrition" />
                     <field name="use_portions" string="Portions?" attrs="{'invisible': [('nutrition', '!=', True)]}" />
                 </field>
-                <field name="description" position="before">
+                <page name="general_information" position="inside">
                     <div id="template_nutrition" attrs="{'invisible': ['|', ('nutrition', '!=', True), ('product_variant_count', '>', 1)]}">
                         <group string="Nutrition Facts">
                             <group string="Normalization">
@@ -60,7 +60,7 @@
                     <div attrs="{'invisible': ['|', ('nutrition',  '!=', True), '&amp;', ('nutrition', '=', True), ('product_variant_count', '&lt;=', 1)]}">
                         <h2 style="color: red">Please configure the nutrition facts on the corresponding variants!</h2>
                     </div>
-                </field>
+                </page>
             </field>
         </record>
         <record id="product_product_form_view" model="ir.ui.view">
@@ -72,7 +72,7 @@
                     <field name="nutrition" />
                     <field name="use_portions" attrs="{'invisible': [('nutrition', '!=', True)]}" />
                 </field>
-                <field name="description" position="before">
+                <page name="general_information" position="inside">
                     <div id="product_nutrition" attrs="{'invisible': [('nutrition', '!=', True)]}">
                     <group string="Nutrition Facts">
                         <group string="Normalization">
@@ -118,7 +118,7 @@
                         </group>
                     </group>
                     </div>
-                </field>
+                </page>
             </field>
         </record>
     </data>

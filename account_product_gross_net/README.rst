@@ -1,14 +1,14 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
-.. image:: https://img.shields.io/badge/Odoo-8.0-a24689.svg
-    :alt: Odoo Version: 8.0
+.. image:: https://img.shields.io/badge/Odoo-9.0-a24689.svg
+    :alt: Odoo Version: 9.0
 
 
 Odoo Product Gross/Net Price Approach for accounting
 ====================================================
 
 This module does add helpers to be able to maintain gross/net prices on
-product and product variants and product categories.
+product templates and product categories.
 
 Usage
 =====
@@ -17,7 +17,7 @@ Usage
 
 Bugs
 =======
-https://github.com/wt-io-it/odoo-addons/tree/8.0
+https://github.com/wt-io-it/odoo-addons/tree/9.0
 
 Credits
 =======

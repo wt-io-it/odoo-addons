@@ -10,11 +10,6 @@ Product Labeling
 Usage
 =====
 
-
-Bugs
-=======
-https://github.com/wt-io-it/odoo-addons/tree/8.0
-
 Credits
 =======
 

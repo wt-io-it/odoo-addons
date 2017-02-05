@@ -24,20 +24,6 @@ def _calc_date(product, dtype, from_date=datetime.today()):
 class MRPProduction(models.Model):
     _inherit = 'mrp.production'
 
-    @api.v7
-    def product_id_change(self, cr, uid, ids, product_id, qty, context=None):
-        context = context or {}
-        res = super(MRPProduction, self).product_id_change(cr, uid, ids, product_id, qty, context=context)
-        product = self.pool['product.product'].browse(cr, uid, product_id, context=context)
-        res['value'].update({
-            'life_date': _calc_date(product, 'life_time'),
-            'use_date': _calc_date(product, 'use_time'),
-            'removal_date': _calc_date(product, 'removal_time'),
-            'alert_date': _calc_date(product, 'alert_time'),
-        })
-        return res
-
-    @api.one
     @api.onchange('date_planned')
     def _get_date(self):
         """Compute the limit date for a given date"""

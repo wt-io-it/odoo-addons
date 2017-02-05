@@ -54,24 +54,6 @@
             </field>
         </record>
         <record
-            id="variants_template_tree_view"
-            model="ir.ui.view">
-            <field name="name">variants.template.tree</field>
-            <field name="model">product.attribute.value</field>
-            <field
-                name="inherit_id"
-                ref="product.variants_template_tree_view" />
-            <field
-                name="arch"
-                type="xml">
-                <field
-                    name="price_extra"
-                    position="after">
-                    <field name="lst_price_brut" />
-                </field>
-            </field>
-        </record>
-        <record
             id="product_category_brut_net_form_view"
             model="ir.ui.view">
             <field name="name">product.category.brut_net.form</field>
@@ -85,8 +67,8 @@
                 type="xml">
                 <data>
                     <xpath
-                        expr="//group[@name='parent']"
-                        position="inside">
+                        expr="//group[@name='first']"
+                        position="after">
                         <group string="Sale" colspan="2">>
                             <field name="brut_net_factor" />
                         </group>

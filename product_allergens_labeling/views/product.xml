@@ -10,7 +10,7 @@
                 <field name="type" position="after">
                     <field name="ingredients" string="Ingredients" />
                 </field>
-                <xpath expr="//page[@string='Sales']" position="before">
+                <xpath expr="//page[@name='sales']" position="before">
                     <page name="allergens" string="Allergens &amp; Ingredients" attrs="{'invisible': ['|', ('ingredients', '!=', True), ('product_variant_count', '>', 1)]}">
                         <group>
                             <group>
@@ -33,7 +33,7 @@
                 <field name="type" position="after">
                     <field name="ingredients" string="Ingredients" />
                 </field>
-                <xpath expr="//page[@string='Sales']" position="before">
+                <xpath expr="//page[@name='sales']" position="before">
                     <page name="allergens" string="Allergens &amp; Ingredients" attrs="{'invisible': ['|', ('ingredients', '!=', True)]}">
                         <group>
                             <group>

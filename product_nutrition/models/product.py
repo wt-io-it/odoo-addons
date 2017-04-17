@@ -55,6 +55,7 @@ class ProductTemplate(models.Model):
     @api.model
     def create(self, vals):
         product_tmpl = super(ProductTemplate, self).create(vals)
+        del vals['message_follower_ids']
         product_tmpl.product_variant_ids.write(vals)
         return product_tmpl
 

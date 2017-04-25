@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record
+            model="ir.actions.server"
+            id="action_server_convert_list_brut_price">
+            <field name="name">Normalize list brut prices (to net)</field>
+            <field
+                name="model_id"
+                ref="product.model_product_template" />
+            <field name="state">code</field>
+            <field name="code">action = object.browse(context.get('active_ids', [])).convert_list_brut_price()</field>
+        </record>
+        <record
+            model="ir.actions.server"
+            id="action_server_convert_list_net_price">
+            <field name="name">Normalize list net prices</field>
+            <field
+                name="model_id"
+                ref="product.model_product_template" />
+            <field name="state">code</field>
+            <field name="code">action = object.browse(context.get('active_ids', [])).convert_list_net_price()</field>
+        </record>
+    </data>
+</odoo>

@@ -10,6 +10,7 @@
     "website": "https://www.wt-io-it.at",
     "license": 'AGPL-3',
     'data': [
+        'data/ir_actions_server.xml',
         'views/product.xml',
     ],
     'installable': True,

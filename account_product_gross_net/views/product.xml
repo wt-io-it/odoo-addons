@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <record
             id="view_product_template_form_inherit"
@@ -17,8 +17,21 @@
                     <field
                         name="list_price"
                         position="after">
-                        <field name="lst_price_brut" />
-                        <field name="brut_net_factor" />
+                        <field
+                            name="lst_price_net"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                            class="oe_inline" 
+                            attrs="{'invisible': [('sale_ok', '=', False)]}" />
+                        <field
+                            name="lst_price_brut"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                            class="oe_inline" 
+                            attrs="{'invisible': [('sale_ok', '=', False)]}" />
+                        <field 
+                            name="brut_net_factor" 
+                            attrs="{'invisible': [('sale_ok', '=', False)]}" />
                     </field>
                 </data>
             </field>
@@ -40,41 +53,8 @@
                         position="attributes">
                         <attribute name="readonly">True</attribute>
                     </field>
-                    <field
-                        name="lst_price"
-                        position="after">
-                        <field
-                            name="lst_price_brut"
-                            readonly="True" />
-                        <field
-                            name="brut_net_factor"
-                            readonly="True" />
-                    </field>
-                </data>
-            </field>
-        </record>
-        <record
-            id="product_category_brut_net_form_view"
-            model="ir.ui.view">
-            <field name="name">product.category.brut_net.form</field>
-            <field name="model">product.category</field>
-            <field name="priority">10</field>
-            <field
-                name="inherit_id"
-                ref="product.product_category_form_view" />
-            <field
-                name="arch"
-                type="xml">
-                <data>
-                    <xpath
-                        expr="//group[@name='first']"
-                        position="after">
-                        <group string="Sale" colspan="2">>
-                            <field name="brut_net_factor" />
-                        </group>
-                    </xpath>
                 </data>
             </field>
         </record>
     </data>
-</openerp>
+</odoo>

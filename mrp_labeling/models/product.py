@@ -145,10 +145,11 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def compute_labeling_facts(self):
-        qty = 1
-        uom = self.uom_id
-        ingredients = self._recursive_bom_ingredients_complete(qty=qty, uom=uom)
-        self.write_nutrition_facts_complete(ingredients)
+        for template in self:
+            qty = 1
+            uom = template.uom_id
+            ingredients = template._recursive_bom_ingredients_complete(qty=qty, uom=uom)
+            template.write_nutrition_facts_complete(ingredients)
 
     @api.multi
     def batch_compute_labeling(self):
@@ -243,8 +244,10 @@ class ProductProduct(models.Model):
 
     @api.multi
     def compute_labeling_facts(self):
-        if self.product_tmpl_id.product_variant_count <= 1:
-            self.product_tmpl_id.compute_labeling_facts()
+        for product in self:
+            template = product.product_tmpl_id
+            if template.product_variant_count <= 1:
+                template.compute_labeling_facts()
 
     @api.multi
     def batch_compute_labeling(self):

@@ -1,0 +1,37 @@
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :alt: License: AGPL-3
+.. image:: https://img.shields.io/badge/Odoo-10.0-a24689.svg
+    :alt: Odoo Version: 10.0
+
+
+Account Invoice Approval
+========================================================
+
+Usage
+=====
+Adds a button for invoices to be released before available to validate 
+
+Bugs
+=======
+https://github.com/wt-io-it/odoo-addons/tree/10.0
+
+Credits
+=======
+
+
+Contributors
+------------
+
+* Wolfgang Taferner (WT-IO-IT GmbH)
+
+
+Maintainer
+----------
+
+.. image:: https://www.wt-io-it.at/logo.png
+   :alt: WT-IO-IT GmbH
+   :target: https://www.wt-io-it.at
+
+This module is maintained by the WT-IO-IT.
+
+We Trust in Open IT

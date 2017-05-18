@@ -11,7 +11,7 @@
                     <field name="use_portions" string="Portions?" attrs="{'invisible': [('nutrition', '!=', True)]}" />
                 </field>
                 <page name="general_information" position="inside">
-                    <div id="template_nutrition" attrs="{'invisible': ['|', ('nutrition', '!=', True), ('product_variant_count', '!=', 1)]}">
+                    <div id="template_nutrition" attrs="{'invisible': ['|', ('nutrition', '!=', True), ('product_variant_count', '>', 1)]}">
                         <group string="Nutrition Facts">
                             <group string="Normalization">
                                 <field name="norm_weight" string="Weight per UoM (g)" />

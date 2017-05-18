@@ -11,7 +11,7 @@
                     <field name="ingredients" string="Ingredients" />
                 </field>
                 <xpath expr="//page[@name='sales']" position="before">
-                    <page name="allergens" string="Allergens &amp; Ingredients" attrs="{'invisible': ['|', ('ingredients', '!=', True), ('product_variant_count', '!=', 1)]}">
+                    <page name="allergens" string="Allergens &amp; Ingredients" attrs="{'invisible': ['|', ('ingredients', '!=', True), ('product_variant_count', '>', 1)]}">
                         <group>
                             <group>
                                 <field name="ingredient_name" string="Name as ingredient" />

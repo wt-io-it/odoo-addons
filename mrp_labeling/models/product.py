@@ -122,7 +122,7 @@ class ProductTemplate(models.Model):
                         else:
                             ingredient_name += '<strong>' + part + '</strong>'
                 else:
-                    if show_percentage:
+                    if show_percentage and round(info[1] / total_norm_weight * 100) > 1:
                         ingredient_name = '<strong>%s (%s%%)</strong>' % (ingredient_name, int(round(info[1] / total_norm_weight * 100)))
                     else:
                         ingredient_name = '<strong>%s</strong>' % ingredient_name

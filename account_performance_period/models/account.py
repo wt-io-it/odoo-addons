@@ -18,8 +18,8 @@ class AccountInvoice(models.Model):
         readonly=True, states={'draft': [('readonly', False)]}
     )
 
-    @api.onchange('date_range_id')
     @api.multi
+    @api.onchange('date_range_id')
     def onchange_performance_range(self):
         for invoice in self:
             for line in invoice.invoice_line_ids:
@@ -27,13 +27,13 @@ class AccountInvoice(models.Model):
                 line.date_start = invoice.date_range_id.date_start
                 line.date_end = invoice.date_range_id.date_end
 
-    @api.onchange('invoice_line_ids')
     @api.multi
+    @api.onchange('invoice_line_ids')
     def onchange_invoice_lines(self):
         for invoice in self:
             date_range = invoice.date_range_id
             for line in invoice.invoice_line_ids:
-                if date_range != line.date_range_id:
+                if date_range and date_range != line.date_range_id:
                     invoice.date_range_id = False
 
     @api.multi
@@ -100,6 +100,7 @@ class AccountInvoiceLine(models.Model):
         required=True,
     )
 
+    @api.multi
     @api.onchange('date_start', 'date_end')
     def onchange_date_start(self):
         self.ensure_one()
@@ -117,6 +118,7 @@ class AccountInvoiceLine(models.Model):
         if remove_range:
             self.date_range_id = False
 
+    @api.multi
     @api.onchange('date_range_id')
     def onchange_date_range(self):
         self.ensure_one()
@@ -145,6 +147,7 @@ class AccountMoveLine(models.Model):
         required=True,
     )
 
+    @api.multi
     @api.onchange('date_start', 'date_end')
     def onchange_date_start(self):
         self.ensure_one()
@@ -162,6 +165,7 @@ class AccountMoveLine(models.Model):
         if remove_range:
             self.date_range_id = False
 
+    @api.multi
     @api.onchange('date_range_id')
     def onchange_date_range(self):
         self.ensure_one()
@@ -202,6 +206,7 @@ class AccountAnalyticLine(models.Model):
         required=True,
     )
 
+    @api.multi
     @api.onchange('date_start', 'date_end')
     def onchange_date_start(self):
         self.ensure_one()
@@ -219,6 +224,7 @@ class AccountAnalyticLine(models.Model):
         if remove_range:
             self.date_range_id = False
 
+    @api.multi
     @api.onchange('date_range_id')
     def onchange_date_range(self):
         self.ensure_one()

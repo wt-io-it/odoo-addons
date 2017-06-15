@@ -5,7 +5,7 @@
             id="cereals_containing_gluten"
             model="product.food.allergen">
             <field name="name">Cereals containing gluten</field>
-            <field name="description">Cereals containing gluten ( i.e. wheat, rye, barley, oats, spelt, kamut or their hybridised strains) and products thereof</field>
+            <field name="description">Cereals containing gluten (i.e. wheat, rye, barley, oats, spelt, kamut or their hybridised strains) and products thereof</field>
             <field name="obligated_labeling" eval="True" />
         </record>
         <record

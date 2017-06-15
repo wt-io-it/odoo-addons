@@ -34,6 +34,12 @@ class ProductTemplate(models.Model):
         string="Lactose-free",
         related='product_variant_ids.lactose_free'
     )
+    allergens_long = fields.Char(
+        related='product_variant_ids.allergens_long'
+    )
+    allergens_short = fields.Char(
+        related='product_variant_ids.allergens_short'
+    )
     allergen_ids = fields.Many2many(
         string='Food Allergens',
         related='product_variant_ids.allergen_ids'
@@ -64,6 +70,14 @@ class ProductProduct(models.Model):
         default=lambda self: self.name,
         help="Other name than the product name. In case there is an allergen inside it is possible to mark words manually with *word* to be printed bold."
     )
+    allergens_long = fields.Char(
+        string="Product Allergens",
+        compute="_compute_allergens"
+    )
+    allergens_short = fields.Char(
+        string="Product Allergens (Abbr)",
+        compute="_compute_allergens"
+    )
     allergen_ids = fields.Many2many(
         'product.food.allergen',
         rel='product_product_food_allergen_rel',
@@ -71,6 +85,11 @@ class ProductProduct(models.Model):
         id2='food_allergen_id',
         string='Food Allergens',
     )
+
+    def _compute_allergens(self):
+        for product in self:
+            product.allergens_short = ', '.join(product.allergen_ids.mapped('short_name'))
+            product.allergens_long = ', '.join(product.allergen_ids.mapped('name'))
 
     @api.onchange('allergen_ids')
     def _compute_allergen_label_free(self):
@@ -90,6 +109,9 @@ class FoodAllergen(models.Model):
         string="Allergen",
         required=True,
         translate=True
+    )
+    short_name = fields.Char(
+        string="Abbreviation",
     )
     description = fields.Text(
         string="Description",

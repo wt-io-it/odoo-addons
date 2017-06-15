@@ -11,6 +11,12 @@
                             <field name="name" />
                         </h1>
                         <field name="obligated_labeling" /><label for="obligated_labeling" />
+                        <group>
+                            <group>
+                                <field name="short_name" />
+                            </group>
+                            <group />
+                        </group>
                         <field name="description" />
                     </sheet>
                 </form>
@@ -21,6 +27,7 @@
             <field name="model">product.food.allergen</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="short_name" />
                     <field name="name" />
                     <field name="obligated_labeling" />
                     <field name="description" invisible="1" />

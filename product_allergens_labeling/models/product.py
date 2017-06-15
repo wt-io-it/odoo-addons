@@ -88,8 +88,8 @@ class ProductProduct(models.Model):
 
     def _compute_allergens(self):
         for product in self:
-            product.allergens_short = ', '.join(product.allergen_ids.mapped('short_name'))
-            product.allergens_long = ', '.join(product.allergen_ids.mapped('name'))
+            product.allergens_short = ', '.join(filter(bool, product.allergen_ids.mapped('short_name')))
+            product.allergens_long = ', '.join(filter(bool, product.allergen_ids.mapped('name')))
 
     @api.onchange('allergen_ids')
     def _compute_allergen_label_free(self):

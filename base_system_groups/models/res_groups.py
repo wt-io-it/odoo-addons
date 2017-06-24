@@ -27,7 +27,7 @@ class GroupsView(models.Model):
     @api.multi
     def write(self, vals):
         for group in self:
-            if group.system_group and not group.env.user._is_superuser():
+            if ('system_group' in vals or group.system_group) and not group.env.user._is_superuser():
                 raise ValidationError('It is not allowed to write on the system group %s' % group.name)
         return super(GroupsView, self).write(vals)
 
@@ -57,9 +57,10 @@ class UsersView(models.Model):
             if is_boolean_group(key):
                 val = get_boolean_group(key)
             if val and (is_boolean_group(key) or is_selection_groups(key)):
-                group = self.env['res.groups'].browse(val)
-                if group and group.system_group and not self.env.user._is_superuser():
-                    raise ValidationError('You are not allowed to assign the system group %s' % group.name)
+                groups = self.env['res.groups'].browse(val)
+                groups |= groups.mapped('trans_implied_ids')
+                if groups and groups.filtered(lambda r: r.system_group) and not self.env.user._is_superuser():
+                    raise ValidationError('You are not allowed to assign the system group %s' % ', '.join(g.name for g in groups.filtered(lambda r: r.system_group)))
 
     @api.model
     def fields_get(self, allfields=None, attributes=None):

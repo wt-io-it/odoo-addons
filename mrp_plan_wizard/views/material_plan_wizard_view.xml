@@ -53,6 +53,7 @@
                         <div class="oe_horizontal_separator">Details about the production orders needed</div>
                         <field name="mrp_production_items" widget="one2many_list" attrs="{'readonly': [('orders_created', '=', True)]}">
                             <tree editable="bottom">
+                                <field name="sequence" widget="handle" />
                                 <field name="product_id" />
                                 <field name="bom_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" />
                                 <field name="date_planned" />

@@ -129,6 +129,7 @@ class MaterialNeedWizardLine(models.TransientModel):
 class MaterialProductionPlanWizardLine(models.TransientModel):
     _name = 'mrp.production.plan.wizard.line'
 
+    sequence = fields.Integer(string='Sequence', default=100)
     product_id = fields.Many2one(
         'product.product',
         string='Product', readonly=True
@@ -155,6 +156,8 @@ class MaterialProductionPlanWizardLine(models.TransientModel):
         'mrp.plan.wizard',
         string='Material Planning Wizard'
     )
+
+    _order = 'sequence, date_planned, id'
 
 
 class MaterialPlanWizard(models.TransientModel):

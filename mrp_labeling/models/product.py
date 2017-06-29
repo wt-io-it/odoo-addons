@@ -177,7 +177,7 @@ class ProductTemplate(models.Model):
                     price = action.get('context', {}).get('default_new_price', 0)
                     template.standard_price = price
                 except:
-                    _logger.error('Fehler beim Berechnen des Standardpreises für Produkt %s', template.name)
+                    _logger.error(u'Fehler beim Berechnen des Standardpreises für Produkt %s', template.name)
 
     @api.multi
     def batch_compute_all(self):

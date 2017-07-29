@@ -61,10 +61,11 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def write(self, vals):
-        nutrition = vals.get('nutrition', self.nutrition)
-        norm_weight = vals.get('norm_weight', self.norm_weight)
-        if nutrition and norm_weight == 0:
-            raise ValidationError("Norm weight must be greater than 0")
+        for template in self:
+            nutrition = vals.get('nutrition', template.nutrition)
+            norm_weight = vals.get('norm_weight', template.norm_weight)
+            if nutrition and norm_weight == 0:
+                raise ValidationError("Norm weight must be greater than 0")
         return super(ProductTemplate, self).write(vals)
 
     @api.multi

@@ -6,10 +6,6 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product_allergens_labeling.product_template_form_view" />
             <field name="arch" type="xml">
-                <field name="uom_id" position="before">
-                    <field name="allow_standard_price_zero" />
-                </field>
-            
                 <field name="allergen_ids" position="after">
                     <div id="mrp_template_labeling" style="margin-top: 1em" attrs="{'invisible': ['|', ('bom_ids', '=', []), ('bom_ids', '=', False)]}">
                         <button name="compute_labeling_facts" type="object" string="Compute Labeling Facts (BoM)" />
@@ -32,9 +28,6 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product_allergens_labeling.product_product_form_view" />
             <field name="arch" type="xml">
-                <field name="uom_id" position="before">
-                    <field name="allow_standard_price_zero" />
-                </field>
                 <field name="allergen_ids" position="after">
                     <div id="mrp_product_labeling" style="margin-top: 1em" attrs="{'invisible': ['|', ('bom_ids', '=', []), ('bom_ids', '=', False)]}">
                         <button name="compute_labeling_facts" type="object" string="Compute Labeling Facts (BoM)" />

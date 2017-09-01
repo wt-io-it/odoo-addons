@@ -18,7 +18,6 @@ class ProductTemplate(models.Model):
     calculated_norm_weight = fields.Float(string='Berechnetes Gewicht pro ME (g)', related="product_variant_ids.calculated_norm_weight", store=True)
     norm_weight_diff = fields.Float(string='Abweichung (g)', related="product_variant_ids.norm_weight_diff", store=True)
     deviation = fields.Float(string='Abweichung (Prozent)', related="product_variant_ids.deviation", store=True)
-    allow_standard_price_zero = fields.Boolean(string='No costs implied')
 
     def _recursive_bom_ingredients_complete(self, qty=0, uom=0, level=0, ingredients=None):
         ingredients = ingredients or {}

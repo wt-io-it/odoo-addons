@@ -131,12 +131,6 @@ msgid "Name"
 msgstr "Name"
 
 #. module: mrp_labeling
-#: model:ir.model.fields,field_description:mrp_labeling.field_product_product_allow_standard_price_zero
-#: model:ir.model.fields,field_description:mrp_labeling.field_product_template_allow_standard_price_zero
-msgid "No costs implied"
-msgstr "Keine Kosten"
-
-#. module: mrp_labeling
 #: code:addons/mrp_labeling/models/product.py:63
 #, python-format
 msgid "Norm weight for product %s must be greater than 0!"

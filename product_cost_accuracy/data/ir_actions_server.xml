@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record
+            model="ir.actions.server"
+            id="action_server_compute_price_product">
+            <field name="name">Compute Price (BoM)</field>
+            <field
+                name="model_id"
+                ref="product.model_product_product" />
+            <field name="state">code</field>
+            <field name="code">action = object.browse(context.get('active_ids', [])).batch_compute_price()</field>
+        </record>
+        <record
+            model="ir.actions.server"
+            id="action_server_compute_price_product_template">
+            <field name="name">Compute Price (BoM)</field>
+            <field
+                name="model_id"
+                ref="product.model_product_template" />
+            <field name="state">code</field>
+            <field name="code">action = object.browse(context.get('active_ids', [])).batch_compute_price()</field>
+        </record>
+    </data>
+</odoo>

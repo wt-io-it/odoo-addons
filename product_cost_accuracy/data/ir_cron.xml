@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<openerp>
+    <data noupdate="0">
+        <record model="ir.cron" id="cron_batch_compute_all">
+            <field name="name">Products Batch Computation</field>
+            <field name="priority">10</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'product.template'"/>
+            <field name="function" eval="'cron_batch_computation'"/>
+            <field name="args" eval="''"/>
+        </record>
+    </data>
+</openerp>

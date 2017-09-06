@@ -1,0 +1,247 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* product_allergens_labeling
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-06 14:29+0200\n"
+"PO-Revision-Date: 2017-09-06 14:38+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Language: es_ES\n"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,name:0
+msgid "Allergen"
+msgstr "Alérgenos"
+
+#. module: product_allergens_labeling
+#: view:product.product:product_allergens_labeling.product_product_form_view
+#: view:product.template:product_allergens_labeling.product_template_form_view
+msgid "Allergens & Ingredients"
+msgstr "Alérgenos e Ingredientes"
+
+#. module: product_allergens_labeling
+#: field:product.product,allergens_included:0
+#: view:product.template:product_allergens_labeling.product_template_form_view
+msgid "Allergens included"
+msgstr "Alérgenos incluidos"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.celery
+#: model:product.food.allergen,name:product_allergens_labeling.celery
+msgid "Celery and products thereof"
+msgstr "Apio y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,name:product_allergens_labeling.cereals_containing_gluten
+msgid "Cereals containing gluten"
+msgstr "Cereales que contiene gluten"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.cereals_containing_gluten
+msgid ""
+"Cereals containing gluten ( i.e. wheat, rye, barley, oats, spelt, kamut or "
+"their hybridised strains) and products thereof"
+msgstr ""
+"Cereales que contiene gluten (ej. trigo, centeno, cebada, avena, espelta, "
+"kamut o sus cepas hibridizadas) y sus derivados"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.crustaceans
+#: model:product.food.allergen,name:product_allergens_labeling.crustaceans
+msgid "Crustaceans and products thereof"
+msgstr "Crustaceos y sus derivados"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.eggs
+#: model:product.food.allergen,name:product_allergens_labeling.eggs
+msgid "Eggs and products thereof"
+msgstr "Huevos y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.fish
+#: model:product.food.allergen,name:product_allergens_labeling.fish
+msgid "Fish and products thereof"
+msgstr "Pescado y sus derivados"
+
+#. module: product_allergens_labeling
+#: field:product.product,allergen_ids:0 field:product.template,allergen_ids:0
+msgid "Food Allergens"
+msgstr "Alérgenos Alimentarios"
+
+#. module: product_allergens_labeling
+#: view:product.product:product_allergens_labeling.product_product_form_view
+#: field:product.product,gluten_free:0
+#: view:product.template:product_allergens_labeling.product_template_form_view
+#: field:product.template,gluten_free:0
+msgid "Gluten-free"
+msgstr "Sin-gluten"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: product_allergens_labeling
+#: view:product.product:product_allergens_labeling.product_product_form_view
+#: field:product.product,ingredients:0
+#: view:product.template:product_allergens_labeling.product_template_form_view
+#: field:product.template,ingredients:0
+msgid "Ingredients"
+msgstr "Ingredientes"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,obligated_labeling:0
+msgid "Labeling required"
+msgstr "Requiere etiquetado"
+
+#. module: product_allergens_labeling
+#: view:product.product:product_allergens_labeling.product_product_form_view
+#: field:product.product,lactose_free:0
+#: view:product.template:product_allergens_labeling.product_template_form_view
+#: field:product.template,lactose_free:0
+msgid "Lactose-free"
+msgstr "Sin-lactosa"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: product_allergens_labeling
+#: field:product.food.allergen,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.lupins
+#: model:product.food.allergen,name:product_allergens_labeling.lupins
+msgid "Lupin and products thereof"
+msgstr "Lupino y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.milk_lactose
+#: model:product.food.allergen,name:product_allergens_labeling.milk_lactose
+msgid "Milk and products thereof (including lactose)"
+msgstr "Leche y sus derivados (incluyendo lactosa)"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.molluscs
+#: model:product.food.allergen,name:product_allergens_labeling.molluscs
+msgid "Molluscs and products thereof"
+msgstr "Moluscos y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.mustard
+#: model:product.food.allergen,name:product_allergens_labeling.mustard
+msgid "Mustard and products thereof"
+msgstr "Mostaza y sus derivados"
+
+#. module: product_allergens_labeling
+#: field:product.product,ingredient_name:0
+#: view:product.template:product_allergens_labeling.product_template_form_view
+#: field:product.template,ingredient_name:0
+msgid "Name as ingredient"
+msgstr "Nombre como ingrediente"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,name:product_allergens_labeling.nuts
+msgid "Nuts and products thereof"
+msgstr "Frutos Secos y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.nuts
+msgid ""
+"Nuts i.e. Almond (Amygdalus communis L.), Hazelnut (Corylus avellana), "
+"Walnut (Juglans regia), Cashew (Anacardium occidentale), Pecan nut (Carya "
+"illinoiesis (Wangenh.) K. Koch), Brazil nut (Bertholletia excelsa), "
+"Pistachio nut (Pistacia vera), Macadamia nut and Queensland nut (Macadamia "
+"ternifolia) and products thereof"
+msgstr ""
+"Frutos Secos ej. Almendra (Amygdalus communis L.), Avellana (Corylus "
+"avellana), Nuez (Juglans regia), Anacardo (Anacardium occidentale), Nuez "
+"Pecan (Carya illinoiesis (Wangenh.) K. Koch), Nuez de Brasil (Bertholletia "
+"excelsa), Pistacho (Pistacia vera), Nuez de Macadamia (Macadamia "
+"ternifolia) y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.peanuts
+#: model:product.food.allergen,name:product_allergens_labeling.peanuts
+msgid "Peanuts and products thereof"
+msgstr "Cacahuetes y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:ir.model,name:product_allergens_labeling.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: product_allergens_labeling
+#: model:ir.model,name:product_allergens_labeling.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.sesame_seeds
+#: model:product.food.allergen,name:product_allergens_labeling.sesame_seeds
+msgid "Sesame seeds and products thereof"
+msgstr "Semillas de sésamo y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.soybeans
+#: model:product.food.allergen,name:product_allergens_labeling.soybeans
+msgid "Soybeans and products thereof"
+msgstr "Semillas de soja y sus derivados"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,name:product_allergens_labeling.sulphur_dioxide_sulphites
+msgid "Sulphur dioxide and sulphites"
+msgstr "Dióxido de azufre y sulfitos"
+
+#. module: product_allergens_labeling
+#: model:product.food.allergen,description:product_allergens_labeling.sulphur_dioxide_sulphites
+msgid ""
+"Sulphur dioxide and sulphites at concentrations of more than 10 mg/kg or 10 "
+"mg/litre expressed as SO2."
+msgstr ""
+"Dióxido de azufre y sulfitos en concentraciones de más de 10 mg/kg o 10 mg/"
+"litro expresado como SO2."
+
+#. module: product_allergens_labeling
+#: field:product.product,yeast_free:0
+#: view:product.template:product_allergens_labeling.product_template_form_view
+#: field:product.template,yeast_free:0
+msgid "Yeast-free"
+msgstr "Sin-levadura"

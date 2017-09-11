@@ -12,6 +12,7 @@
     'images': [],
     'depends': [
         'account',
+        'sale',
     ],
     'data': [
         'views/account.xml',

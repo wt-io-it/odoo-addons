@@ -34,7 +34,8 @@ class product_template(models.Model):
         product = self.product_variant_ids
         if len(self.product_variant_ids) > 1:
             product = self.product_variant_ids[0]
-        taxes = self.taxes_id.with_context(round=False).compute_all(price, self.currency_id, 1, product=product, partner=self.env.user.company_id.partner_id)
+        company = self.env.user.company_id
+        taxes = self.taxes_id.filtered(lambda x: x.company_id == company).with_context(round=False).compute_all(price, self.currency_id, 1, product=product, partner=self.env.user.company_id.partner_id)
 
         brut_net_factor = 1
         if taxes['total_excluded'] > 0:

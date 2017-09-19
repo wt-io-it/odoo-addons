@@ -19,10 +19,10 @@ class SaleOrder(models.Model):
             company_id = self[0].company_id
         company = company_id.sudo()
         current_method = company.tax_calculation_rounding_method
-        if not self.fiscal_position_id.b2c_fiscal_position:
-            company.tax_calculation_rounding_method = 'round_globally'
-        else:
-            company.tax_calculation_rounding_method = 'round_per_line'
-        res = super(SaleOrder, self)._amount_all()
+        for order in self:
+            if not order.fiscal_position_id.b2c_fiscal_position:
+                company.tax_calculation_rounding_method = 'round_globally'
+            else:
+                company.tax_calculation_rounding_method = 'round_per_line'
+            super(SaleOrder, order)._amount_all()
         company.tax_calculation_rounding_method = current_method
-        return res

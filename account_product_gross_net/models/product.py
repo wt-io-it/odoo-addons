@@ -13,15 +13,18 @@ class product_template(models.Model):
 
     list_price = fields.Float(
         compute='_compute_net_price',
+        # company_dependent=True,
         store=True,
     )
     lst_price_brut = fields.Float(
         string='Gross selling price',
         digits=dp.get_precision('Product Price'),
+        # company_dependent=True,
     )
     lst_price_net = fields.Float(
         string='Net selling price',
         digits=dp.get_precision('Product Price'),
+        # company_dependent=True,
     )
 
     brut_net_factor = fields.Float(

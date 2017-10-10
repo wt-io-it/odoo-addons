@@ -53,7 +53,7 @@ class UsersView(models.Model):
         return super(UsersView, self).write(vals)
 
     def _check_system_group(self, vals):
-        for key, val in vals.iteritems():
+        for key, val in vals.items():
             if is_boolean_group(key):
                 val = get_boolean_group(key)
             if val and (is_boolean_group(key) or is_selection_groups(key)):

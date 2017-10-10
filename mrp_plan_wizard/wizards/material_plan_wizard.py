@@ -279,7 +279,7 @@ class MaterialPlanWizard(models.TransientModel):
         digits = self.env['decimal.precision'].precision_get('Product Unit of Measure')
 
         record_list = []
-        for product, qty in purchase_list.iteritems():
+        for product, qty in purchase_list.items():
             diff = float_round(qty, precision_digits=digits) - product.qty_available
             if diff < 0:
                 diff = 0
@@ -292,7 +292,7 @@ class MaterialPlanWizard(models.TransientModel):
                 })
             )
         bom_product_list = []
-        for product, qty in production_list.iteritems():
+        for product, qty in production_list.items():
             bom = self.env['mrp.bom'].search([
                 '|',
                 ('product_tmpl_id', '=', product.product_tmpl_id.id),

@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
-import account
-import sale
+from . import account
+from . import sale

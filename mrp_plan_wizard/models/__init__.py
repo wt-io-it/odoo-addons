@@ -1,1 +1,1 @@
-import mrp
+from . import mrp

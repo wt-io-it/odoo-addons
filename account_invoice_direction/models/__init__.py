@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-import account_invoice
+from . import account_invoice

@@ -1,1 +1,1 @@
-import material_plan_wizard
+from . import material_plan_wizard

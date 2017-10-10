@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-import res_groups
+from . import res_groups

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
+from odoo import models, api
 
 import logging
 
@@ -24,5 +24,31 @@ class SaleOrder(models.Model):
                 company.tax_calculation_rounding_method = 'round_globally'
             else:
                 company.tax_calculation_rounding_method = 'round_per_line'
+            _logger.debug('Amount All: Tax Calculation Rounding Method: %s', company.tax_calculation_rounding_method)
             super(SaleOrder, order)._amount_all()
         company.tax_calculation_rounding_method = current_method
+
+
+class SaleOrderLine(models.Model):
+    _name = 'sale.order.line'
+    _inherit = ['sale.order.line']
+
+    @api.depends('product_uom_qty', 'discount', 'price_unit', 'tax_id')
+    def _compute_amount(self):
+        if len(self) == 0:
+            company_id = self.env.user.company_id
+        else:
+            company_id = self[0].company_id
+        company = company_id.sudo()
+        current_method = company.tax_calculation_rounding_method
+
+        fiscal_position = self.mapped('order_id').fiscal_position_id
+        if not fiscal_position.b2c_fiscal_position:
+            company.tax_calculation_rounding_method = 'round_globally'
+        else:
+            company.tax_calculation_rounding_method = 'round_per_line'
+        _logger.debug('Compute Amount: Tax Calculation Rounding Method: %s', company.tax_calculation_rounding_method)
+
+        res = super(SaleOrderLine, self)._compute_amount()
+        company.tax_calculation_rounding_method = current_method
+        return res

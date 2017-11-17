@@ -30,6 +30,7 @@ class product_template(models.Model):
     brut_net_factor = fields.Float(
         string='Gross/Net Ratio',
         compute='_compute_net_price',
+        store=True, readonly=True,
         default=1
     )
 
@@ -56,7 +57,7 @@ class product_template(models.Model):
             template.brut_net_factor = brut_net_factor
             template.lst_price_brut = float_round(template.lst_price_net * brut_net_factor, prec)
 
-    @api.onchange('lst_price_brut', 'taxes_id')
+    @api.depends('lst_price_brut', 'taxes_id')
     def _compute_net_price(self):
         """
             The gross price will always have the last word, so even if you set a net price directly

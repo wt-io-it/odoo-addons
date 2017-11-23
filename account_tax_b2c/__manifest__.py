@@ -16,7 +16,7 @@
     ],
     'data': [
         'views/account.xml',
-
+        'views/product.xml',
     ],
     'demo': [
     ],

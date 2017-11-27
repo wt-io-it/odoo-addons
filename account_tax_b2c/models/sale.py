@@ -42,7 +42,9 @@ class SaleOrderLine(models.Model):
         company = company_id.sudo()
         current_method = company.tax_calculation_rounding_method
 
-        fiscal_position = self.mapped('order_id').fiscal_position_id
+        fiscal_position = self.mapped('order_id').mapped('fiscal_position_id')
+        if len(fiscal_position) > 1:
+            _logger.error('Multiple Fiscal Positions found (multiple orders at the same time): %s', ','.join(self.mapped('order_id').mapped('name')))
         if not fiscal_position.b2c_fiscal_position:
             company.tax_calculation_rounding_method = 'round_globally'
         else:

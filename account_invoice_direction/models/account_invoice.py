@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
+from datetime import datetime, date
 from odoo import fields, models, api, _
 from odoo.exceptions import UserError
 import logging
@@ -43,6 +43,8 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def invoice_validate(self):
+        last_day = self.env.user.company_id.fiscalyear_last_day
+        last_month = self.env.user.company_id.fiscalyear_last_month
         for invoice in self:
             if invoice.date_invoice > fields.Date.today():
                 raise UserError('You try to validate an invoice for a date in the future!')
@@ -50,6 +52,15 @@ class AccountInvoice(models.Model):
             business_type = 'sale'
             if invoice.type in ['in_invoice', 'in_refund']:
                 business_type = 'purchase'
+
+            year = int(invoice.date_invoice[:4])
+            fiscal_year_end = date(year, last_month, last_day)
+            this_fiscal_year_date = fiscal_year_end.strftime('%Y-%m-%d')
+            if this_fiscal_year_date >= invoice.date_invoice:
+                fiscal_year_end = date((year - 1), last_month, last_day)
+            else:
+                this_fiscal_year_date = date((year + 1), last_month, last_day).strftime('%Y-%m-%d')
+            last_fiscal_year_date = fiscal_year_end.strftime('%Y-%m-%d')
 
             # Check whether a journal is allowed or not before validating
             journal = invoice.journal_id
@@ -66,14 +77,19 @@ class AccountInvoice(models.Model):
                     ]
                     # Check for draft invoices which will be made impossible
                     domain_draft = domain[:]
+                    domain_draft.append(('date_invoice', '<=', this_fiscal_year_date))
                     domain_draft.append(('date_invoice', '<', invoice.date_invoice))
+                    domain_draft.append(('date_invoice', '>', last_fiscal_year_date))
+
                     domain_draft.append(('state', 'in', ['draft']))
 
                     if invoice.search(domain_draft, limit=500, order='date_invoice DESC'):
                         raise UserError('There is a draft invoice prior the current invoice date for this configured invoice type!\n')
 
                     # Check for journal and already validated invoices
+                    domain.append(('date_invoice', '<=', this_fiscal_year_date))
                     domain.append(('date_invoice', '>', invoice.date_invoice))
+                    domain.append(('date_invoice', '>', last_fiscal_year_date))
                     domain.append(('state', 'not in', ['cancel', 'draft']))
                     domain.append(('journal_id', '=', invoice.journal_id.id))
                     if invoice.search(domain):

@@ -56,7 +56,7 @@ class AccountInvoice(models.Model):
                 'date_end': inv_line.date_end,
             })
             analytic_lines = []
-            for analytic_line in line.get('analytic_line_ids'):
+            for analytic_line in line.get('analytic_line_ids') or []:
                 analytic_line[2].update({
                     'date_range_id': inv_line.date_range_id.id,
                     'date_start': inv_line.date_start,

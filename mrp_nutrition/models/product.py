@@ -14,6 +14,8 @@ _logger = logging.getLogger(__name__)
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
+    is_packaging = fields.Boolean(string="Packaging?", related="product_variant_ids.is_packaging")
+
     def _recursive_bom_ingredients(self, qty=0, uom=0, level=0, ingredients=None):
         ingredients = ingredients or {}
         level += 1
@@ -27,14 +29,14 @@ class ProductTemplate(models.Model):
                 # Ask which one should be taken, for now we take the first bom
                 for bom in [self.bom_ids[0]]:
                     bom_ingridients = {}
-                    for bom_line in bom.bom_line_ids:
+                    for bom_line in bom.bom_line_ids.filtered(lambda bl: not bl.product_id.is_packaging):
                         bom_ingridients = bom_line.product_id.product_tmpl_id._recursive_bom_ingredients(qty=bom_line.product_qty, uom=bom_line.product_uom_id, level=level, ingredients=bom_ingridients)
                 self.write_nutrition_facts(bom_ingridients, qty=bom.product_qty, uom=bom.product_uom_id)
             else:
                 bom = self.bom_ids
                 _logger.debug('\n--------- #%s Single BoM (%s) ---------', level, self.display_name)
                 bom_ingridients = {}
-                for bom_line in bom.bom_line_ids:
+                for bom_line in bom.bom_line_ids.filtered(lambda bl: not bl.product_id.is_packaging):
                     bom_ingridients = bom_line.product_id.product_tmpl_id._recursive_bom_ingredients(qty=bom_line.product_qty, uom=bom_line.product_uom_id, level=level, ingredients=bom_ingridients)
                 self.write_nutrition_facts(bom_ingridients, qty=bom.product_qty, uom=bom.product_uom_id)
 
@@ -158,6 +160,8 @@ class ProductTemplate(models.Model):
 
 class ProductProduct(models.Model):
     _inherit = 'product.product'
+
+    is_packaging = fields.Boolean(string="Packaging?")
 
     @api.multi
     def compute_nutrition_facts(self):

@@ -40,13 +40,13 @@ class ProductTemplate(models.Model):
                 _logger.debug('\n Qty: %s %s | BoM Result Qty: %s %s | Multiplier: %s', qty, uom.name, bom_qty, bom_uom.name, multiplier)
                 # Ask which one should be taken, for now we take the first bom
                 for bom in [self.bom_ids[0]]:
-                    for bom_line in bom.bom_line_ids:
+                    for bom_line in bom.bom_line_ids.filtered(lambda bl: not bl.product_id.is_packaging):
                         partial_qty = bom_line.product_qty * multiplier
                         ingredients = bom_line.product_id.product_tmpl_id._recursive_bom_ingredients_complete(qty=partial_qty, uom=bom_line.product_uom_id, level=level, ingredients=ingredients)
             else:
                 _logger.debug('\n--------- #%s Single BoM (%s) ---------', level, self.display_name)
                 _logger.debug('\n Qty: %s %s | BoM Result Qty: %s %s | Multiplier: %s', qty, uom.name, bom_qty, bom_uom.name, multiplier)
-                for bom_line in bom.bom_line_ids:
+                for bom_line in bom.bom_line_ids.filtered(lambda bl: not bl.product_id.is_packaging):
                     bom_line_qty = bom_line.product_qty
                     if bom_line.product_id.uom_id != bom_line.product_uom_id:
                         bom_line_qty = bom_line.product_uom_id._compute_quantity(bom_line.product_qty, bom_line.product_id.uom_id, round=False)

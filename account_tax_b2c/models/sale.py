@@ -25,6 +25,7 @@ class SaleOrder(models.Model):
             else:
                 company.tax_calculation_rounding_method = 'round_per_line'
             _logger.debug('Amount All: Tax Calculation Rounding Method: %s', company.tax_calculation_rounding_method)
+            order.company_id.sudo().tax_calculation_rounding_method = company.tax_calculation_rounding_method
             super(SaleOrder, order)._amount_all()
         company.tax_calculation_rounding_method = current_method
 
@@ -49,8 +50,8 @@ class SaleOrderLine(models.Model):
             company.tax_calculation_rounding_method = 'round_globally'
         else:
             company.tax_calculation_rounding_method = 'round_per_line'
-        _logger.debug('Compute Amount: Tax Calculation Rounding Method: %s', company.tax_calculation_rounding_method)
-
+        self.mapped('company_id').sudo().tax_calculation_rounding_method = company.tax_calculation_rounding_method
+        _logger.debug('Compute Amount: Tax Calculation Rounding Method: %s vs. %s', company_id.tax_calculation_rounding_method, company.tax_calculation_rounding_method)
         res = super(SaleOrderLine, self)._compute_amount()
         company.tax_calculation_rounding_method = current_method
         return res

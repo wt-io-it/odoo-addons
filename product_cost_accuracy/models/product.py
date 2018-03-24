@@ -46,24 +46,8 @@ class ProductTemplate(models.Model):
         return res
 
     @api.multi
-    def batch_compute_price(self):
-        for template in self:
-            for product in template.product_variant_ids:
-                if product.standard_price == 0 and not product.allow_standard_price_zero:
-                    product.standard_price = product.get_history_price(product.company_id.id)
-                _logger.debug('Product: %s | Price: %s per %s', product.name, product.standard_price, product.uom_id.name)
-
-            action = template.with_context(bulk_calc=True).compute_price()
-            if not isinstance(action, bool):
-                try:
-                    price = action.get('context', {}).get('default_new_price', 0)
-                    template.standard_price = price
-                except:
-                    _logger.error(u'Error in the calculation of the standard price for product %s', template.name)
-
-    @api.multi
     def cron_batch_computation(self):
-        self.search([]).batch_compute_price()
+        self.search([]).mapped('product_variant_ids').batch_compute_price()
 
 
 class ProductProduct(models.Model):
@@ -123,5 +107,19 @@ class ProductProduct(models.Model):
 
     @api.multi
     def batch_compute_price(self):
-        if self.product_tmpl_id.product_variant_count <= 1:
-            self.product_tmpl_id.batch_compute_price()
+        for product in self:
+            if product.standard_price == 0 and not product.allow_standard_price_zero:
+                product.standard_price = product.get_history_price(product.company_id.id)
+            _logger.debug('Product: %s | Price: %s per %s', product.name, product.standard_price, product.uom_id.name)
+
+            action = product.with_context(bulk_calc=True).compute_price()
+            if not isinstance(action, bool):
+                try:
+                    price = action.get('context', {}).get('default_new_price', 0)
+                    product.standard_price = price
+                except:
+                    _logger.error(u'Error in the calculation of the standard price for product %s', product.name)
+
+    @api.multi
+    def cron_batch_computation(self):
+        self.search([]).batch_compute_price()

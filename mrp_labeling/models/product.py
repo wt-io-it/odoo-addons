@@ -163,24 +163,8 @@ class ProductTemplate(models.Model):
                 _logger.error('%s: %s', e[0], e[1])
 
     @api.multi
-    def batch_compute_price(self):
-        for template in self:
-            for product in template.product_variant_ids:
-                if product.standard_price == 0 and not product.allow_standard_price_zero:
-                    product.standard_price = product.get_history_price(product.company_id.id)
-                _logger.debug('Produkt: %s | Preis: %s pro %s', product.name, product.standard_price, product.uom_id.name)
-
-            action = template.with_context(bulk_calc=True).compute_price()
-            if not isinstance(action, bool):
-                try:
-                    price = action.get('context', {}).get('default_new_price', 0)
-                    template.standard_price = price
-                except:
-                    _logger.error(u'Fehler beim Berechnen des Standardpreises für Produkt %s', template.name)
-
-    @api.multi
     def batch_compute_all(self):
-        self.batch_compute_price()
+        self.mapped('product_variant_ids').batch_compute_price()
         super(ProductTemplate, self).batch_compute_all()
         for template in self:
             try:
@@ -261,11 +245,5 @@ class ProductProduct(models.Model):
                 _logger.error('%s: %s', e[0], e[1])
 
     @api.multi
-    def batch_compute_price(self):
-        if self.product_tmpl_id.product_variant_count <= 1:
-            self.product_tmpl_id.batch_compute_price()
-
-    @api.multi
     def batch_compute_all(self):
-        if self.product_tmpl_id.product_variant_count <= 1:
-            self.product_tmpl_id.batch_compute_all()
+        self.mapped('product_tmpl_id').batch_compute_all()

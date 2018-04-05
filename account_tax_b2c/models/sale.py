@@ -43,15 +43,16 @@ class SaleOrderLine(models.Model):
         company = company_id.sudo()
         current_method = company.tax_calculation_rounding_method
 
-        fiscal_position = self.mapped('order_id').mapped('fiscal_position_id')
-        if len(fiscal_position) > 1:
-            _logger.error('Multiple Fiscal Positions found (multiple orders at the same time): %s', ','.join(self.mapped('order_id').mapped('name')))
-        if not fiscal_position.b2c_fiscal_position:
-            company.tax_calculation_rounding_method = 'round_globally'
-        else:
-            company.tax_calculation_rounding_method = 'round_per_line'
-        self.mapped('company_id').sudo().tax_calculation_rounding_method = company.tax_calculation_rounding_method
-        _logger.debug('Compute Amount: Tax Calculation Rounding Method: %s vs. %s', company_id.tax_calculation_rounding_method, company.tax_calculation_rounding_method)
-        res = super(SaleOrderLine, self)._compute_amount()
-        company.tax_calculation_rounding_method = current_method
+        for line in self:
+            fiscal_position = line.mapped('order_id').mapped('fiscal_position_id')
+            if not fiscal_position.mapped('b2c_fiscal_position'):
+                company.tax_calculation_rounding_method = 'round_globally'
+            else:
+                company.tax_calculation_rounding_method = 'round_per_line'
+            self.mapped('company_id').sudo().tax_calculation_rounding_method = company.tax_calculation_rounding_method
+            _logger.debug('Compute Amount: Tax Calculation Rounding Method: %s vs. %s', company_id.tax_calculation_rounding_method, company.tax_calculation_rounding_method)
+            res = super(SaleOrderLine, line)._compute_amount()
+            company.tax_calculation_rounding_method = current_method
+        if res:
+            _logger.warning('Result for _compute_amount: %s', res)
         return res

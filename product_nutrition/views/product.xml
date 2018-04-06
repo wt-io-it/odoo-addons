@@ -22,6 +22,7 @@
                             <group string="Nutrition facts per portion" attrs="{'invisible': [('use_portions', '!=', True)]}">
                                 <field name="energy_joule_portion" string="Energy (kJ)" />
                                 <field name="energy_calories_portion" string="Energy (kcal)" />
+                                <field name="bread_units_portion" string="Bread Units (BU)" />
                                 <field name="fat_total_portion" string="Fat total (g)" />
                                 <field name="fat_saturated_portion" string="Fat saturated (g)" />
                                 <field name="carbohydrate_portion" string="Carbohydrate (g)" />
@@ -35,6 +36,7 @@
                             <group string="Nutrition facts per 100g">
                                 <field name="energy_joule" string="Energy (kJ)" />
                                 <field name="energy_calories" string="Energy (kcal)" />
+                                <field name="bread_units" string="Bread Units (BU)" />
                                 <field name="fat_total" string="Fat total (g)" />
                                 <field name="fat_saturated" string="Fat saturated (g)" />
                                 <field name="carbohydrate" string="Carbohydrate (g)" />
@@ -46,6 +48,7 @@
                             <group string="Nutrition facts per UoM">
                                 <field name="energy_joule_uom" string="Energy (kJ)" />
                                 <field name="energy_calories_uom" string="Energy (kcal)" />
+                                <field name="bread_units_uom" string="Bread Units (BU)" />
                                 <field name="fat_total_uom" string="Fat total (g)" />
                                 <field name="fat_saturated_uom" string="Fat saturated (g)" />
                                 <field name="carbohydrate_uom" string="Carbohydrate (g)" />
@@ -83,6 +86,7 @@
                         <group string="Nutrition facts per portion" attrs="{'invisible': [('use_portions', '!=', True)]}">
                             <field name="energy_joule_portion" string="Energy (kJ)" />
                             <field name="energy_calories_portion" string="Energy (kcal)" />
+                            <field name="bread_units_portion" string="Bread Units (BU)" />
                             <field name="fat_total_portion" string="Fat total (g)" />
                             <field name="fat_saturated_portion" string="Fat saturated (g)" />
                             <field name="carbohydrate_portion" string="Carbohydrate (g)" />
@@ -96,6 +100,7 @@
                         <group string="Nutrition facts per 100g">
                             <field name="energy_joule" />
                             <field name="energy_calories" />
+                            <field name="bread_units" />
                             <field name="fat_total" />
                             <field name="fat_saturated" />
                             <field name="carbohydrate" />
@@ -107,6 +112,7 @@
                         <group string="Nutrition facts per UoM">
                             <field name="energy_joule_uom" string="Energy (kJ)" />
                             <field name="energy_calories_uom" string="Energy (kcal)" />
+                            <field name="bread_units_uom" string="Bread Units (BU)" />
                             <field name="fat_total_uom" string="Fat total (g)" />
                             <field name="fat_saturated_uom" string="Fat saturated (g)" />
                             <field name="carbohydrate_uom" string="Carbohydrate (g)" />

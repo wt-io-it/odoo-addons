@@ -46,8 +46,12 @@ class ProductTemplate(models.Model):
         return res
 
     @api.multi
+    def batch_compute_price(self):
+        self.mapped('product_variant_ids').batch_compute_price()
+            
+    @api.multi
     def cron_batch_computation(self):
-        self.search([]).mapped('product_variant_ids').batch_compute_price()
+        self.search([]).batch_compute_price()
 
 
 class ProductProduct(models.Model):

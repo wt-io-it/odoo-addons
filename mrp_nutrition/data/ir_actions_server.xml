@@ -9,7 +9,7 @@
                 name="model_id"
                 ref="product.model_product_product" />
             <field name="state">code</field>
-            <field name="code">action = object.browse(context.get('active_ids', [])).batch_compute_nutrition()</field>
+            <field name="code">action = records.batch_compute_nutrition()</field>
         </record>
         <record
             model="ir.actions.server"
@@ -19,7 +19,7 @@
                 name="model_id"
                 ref="product.model_product_template" />
             <field name="state">code</field>
-            <field name="code">action = object.browse(context.get('active_ids', [])).batch_compute_nutrition()</field>
+            <field name="code">action = records.batch_compute_nutrition()</field>
         </record>
         <record
             model="ir.actions.server"
@@ -29,7 +29,7 @@
                 name="model_id"
                 ref="product.model_product_template" />
             <field name="state">code</field>
-            <field name="code">action = object.browse(context.get('active_ids', [])).batch_compute_all()</field>
+            <field name="code">action = records.batch_compute_all()</field>
         </record>
         <record
             model="ir.actions.server"

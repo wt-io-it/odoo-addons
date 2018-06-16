@@ -109,7 +109,7 @@ class ProductTemplate(models.Model):
         """
         for template in self:
             brut_net_factor = template._get_brut_net_factor(template.lst_price_brut)
-            list_price = self._get_net_price(template.lst_price_brut)
+            list_price = template._get_net_price(template.lst_price_brut)
             template.update({
                 'list_price': list_price,
                 'brut_net_factor': brut_net_factor,

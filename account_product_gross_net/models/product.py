@@ -8,7 +8,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class product_template(models.Model):
+class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     list_price = fields.Float(
@@ -47,15 +47,59 @@ class product_template(models.Model):
             _logger.debug('%s / %s = %s', taxes['total_included'], taxes['total_excluded'], brut_net_factor)
         return brut_net_factor
 
+    @api.model
+    def create(self, vals):
+        if 'lst_price_net' in vals:
+            vals['list_price'] = vals.get('lst_price_net')
+        template = super(ProductTemplate, self).create(vals)
+        if 'lst_price_brut' in vals:
+            vals['lst_price_net'] = template._get_net_price(vals.get('lst_price_brut'))
+        if 'list_price' in vals:
+            vals.update({
+                'lst_price_brut': template._get_brut_price(vals.get('list_price')),
+                'lst_price_net': vals.get('list_price')
+            })
+        template.write(vals)
+        return template
+
+    @api.multi
+    def write(self, vals):
+        if 'lst_price_net' in vals:
+            vals['list_price'] = vals.get('lst_price_net')
+        for template in self:
+            if 'lst_price_brut' in vals:
+                vals['lst_price_net'] = template._get_net_price(vals.get('lst_price_brut'))
+            if 'list_price' in vals:
+                vals.update({
+                    'lst_price_brut': template._get_brut_price(vals.get('list_price')),
+                    'lst_price_net': vals.get('list_price')
+                })
+            break
+        return super(ProductTemplate, self).write(vals)
+
+    def _get_brut_price(self, net_price):
+        self.ensure_one()
+        prec = self.env['decimal.precision'].precision_get('Product Price') + 1
+        brut_net_factor = self._get_brut_net_factor(net_price)
+        return float_round(net_price * brut_net_factor, prec)
+
+    def _get_net_price(self, brut_price):
+        self.ensure_one()
+        prec = self.env['decimal.precision'].precision_get('Product Price') + 1
+        brut_net_factor = self._get_brut_net_factor(brut_price)
+        return float_round(brut_price / brut_net_factor, prec)
+
     @api.onchange('lst_price_net')
     def _compute_brut_price(self):
         for template in self:
             brut_net_factor = template._get_brut_net_factor(template.lst_price_net)
 
             prec = self.env['decimal.precision'].precision_get('Product Price') + 1
-            template.list_price = float_round(template.lst_price_net, prec)
-            template.brut_net_factor = brut_net_factor
-            template.lst_price_brut = float_round(template.lst_price_net * brut_net_factor, prec)
+            template.update({
+                'list_price': float_round(template.lst_price_net, prec),
+                'brut_net_factor': brut_net_factor,
+                'lst_price_brut': template._get_brut_price(self.lst_price_net)
+            })
 
     @api.depends('lst_price_brut', 'taxes_id')
     def _compute_net_price(self):
@@ -65,11 +109,12 @@ class product_template(models.Model):
         """
         for template in self:
             brut_net_factor = template._get_brut_net_factor(template.lst_price_brut)
-
-            prec = self.env['decimal.precision'].precision_get('Product Price') + 1
-            template.brut_net_factor = brut_net_factor
-            template.list_price = float_round(template.lst_price_brut / brut_net_factor, prec)
-            template.lst_price_net = float_round(template.list_price, prec)
+            list_price = self._get_net_price(template.lst_price_brut)
+            template.update({
+                'list_price': list_price,
+                'brut_net_factor': brut_net_factor,
+                'lst_price_net': list_price
+            })
 
     def _get_db_list_price(self):
         self.env.cr.execute("SELECT list_price FROM product_template WHERE id = %s", (self.id,))

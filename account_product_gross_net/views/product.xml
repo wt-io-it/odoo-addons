@@ -36,25 +36,5 @@
                 </data>
             </field>
         </record>
-        <record
-            id="view_product_product_form_inherit"
-            model="ir.ui.view">
-            <field name="name">product.product.form.inherit</field>
-            <field name="model">product.product</field>
-            <field
-                name="inherit_id"
-                ref="product.product_normal_form_view" />
-            <field
-                name="arch"
-                type="xml">
-                <data>
-                    <field
-                        name="lst_price"
-                        position="attributes">
-                        <attribute name="readonly">True</attribute>
-                    </field>
-                </data>
-            </field>
-        </record>
     </data>
 </odoo>

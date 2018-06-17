@@ -50,14 +50,14 @@ class ProductTemplate(models.Model):
     @api.model
     def create(self, vals):
         if 'lst_price_net' in vals:
-            vals['list_price'] = vals.get('lst_price_net')
+            vals['list_price'] = float(vals.get('lst_price_net'))
         template = super(ProductTemplate, self).create(vals)
         if 'lst_price_brut' in vals:
-            vals['lst_price_net'] = template._get_net_price(vals.get('lst_price_brut'))
+            vals['lst_price_net'] = template._get_net_price(float(vals.get('lst_price_brut')))
         if 'list_price' in vals:
             vals.update({
-                'lst_price_brut': template._get_brut_price(vals.get('list_price')),
-                'lst_price_net': vals.get('list_price')
+                'lst_price_brut': template._get_brut_price(float(vals.get('list_price'))),
+                'lst_price_net': float(vals.get('list_price'))
             })
         template.write(vals)
         return template
@@ -65,14 +65,14 @@ class ProductTemplate(models.Model):
     @api.multi
     def write(self, vals):
         if 'lst_price_net' in vals:
-            vals['list_price'] = vals.get('lst_price_net')
+            vals['list_price'] = float(vals.get('lst_price_net'))
         for template in self:
             if 'lst_price_brut' in vals:
-                vals['lst_price_net'] = template._get_net_price(vals.get('lst_price_brut'))
+                vals['lst_price_net'] = template._get_net_price(float(vals.get('lst_price_brut')))
             if 'list_price' in vals:
                 vals.update({
-                    'lst_price_brut': template._get_brut_price(vals.get('list_price')),
-                    'lst_price_net': vals.get('list_price')
+                    'lst_price_brut': template._get_brut_price(float(vals.get('list_price'))),
+                    'lst_price_net': float(vals.get('list_price'))
                 })
             break
         return super(ProductTemplate, self).write(vals)

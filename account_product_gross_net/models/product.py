@@ -59,6 +59,7 @@ class ProductTemplate(models.Model):
                 'lst_price_brut': template._get_brut_price(float(vals.get('list_price'))),
                 'lst_price_net': float(vals.get('list_price'))
             })
+        del vals['message_follower_ids']
         template.write(vals)
         return template
 

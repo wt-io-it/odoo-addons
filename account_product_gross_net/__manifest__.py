@@ -5,7 +5,10 @@
     'summary': 'Product Gross/Net Price',
     'category': 'Accounting',
     'version': '1.0.1',
-    'depends': ['product'],
+    'depends': [
+        'product',
+        'account',
+    ],
     "author": "WT-IO-IT GmbH, Wolfgang Taferner",
     "website": "https://www.wt-io-it.at",
     "license": 'AGPL-3',

@@ -45,12 +45,10 @@ class AccountInvoice(models.Model):
     @api.multi
     def invoice_validate(self):
         for invoice in self:
-            if not self._context.get('install_mode') and not invoice._get_external_ids() and (
+            if not self._context.get('install_mode') and not invoice._get_external_ids()[invoice.id] and (
                 float_compare(invoice.check_total, invoice.amount_total, precision_digits=2) != 0 and
                     invoice._business_case_needs_check_total()
             ):
-                import pdb
-                pdb.set_trace()
                 raise UserError(
                     _('Please verify the total of the invoice!\nThe encoded total does not match the computed total.')
                 )

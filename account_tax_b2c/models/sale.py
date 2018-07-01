@@ -52,7 +52,7 @@ class SaleOrderLine(models.Model):
             self.mapped('company_id').sudo().tax_calculation_rounding_method = company.tax_calculation_rounding_method
             _logger.debug('Compute Amount: Tax Calculation Rounding Method: %s vs. %s', company_id.tax_calculation_rounding_method, company.tax_calculation_rounding_method)
             res = super(SaleOrderLine, line)._compute_amount()
-            company.tax_calculation_rounding_method = current_method
+        company.tax_calculation_rounding_method = current_method
         if res:
             _logger.warning('Result for _compute_amount: %s', res)
         return res

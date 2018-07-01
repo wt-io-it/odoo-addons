@@ -217,8 +217,6 @@ class ProductProduct(models.Model):
     def write(self, vals):
         product = super(ProductProduct, self).write(vals)
         if vals.get('norm_weight') and self.norm_weight == 0:
-            import pdb
-            pdb.set_trace()
             raise ValidationError("Norm weight must be greater than 0")
         return product
 

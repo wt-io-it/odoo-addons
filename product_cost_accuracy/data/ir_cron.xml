@@ -9,7 +9,7 @@
             <field name="interval_type">hours</field>
             <field name="numbercall">-1</field>
             <field name="doall" eval="False"/>
-            <field name="model" eval="'product.template'"/>
+            <field name="model_id" ref="product.model_product_template"/>
             <field name="function" eval="'cron_batch_computation'"/>
             <field name="args" eval="''"/>
         </record>

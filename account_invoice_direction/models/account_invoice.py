@@ -46,17 +46,21 @@ class AccountInvoice(models.Model):
         last_day = self.env.user.company_id.fiscalyear_last_day
         last_month = self.env.user.company_id.fiscalyear_last_month
         for invoice in self:
-            if invoice.date_invoice > fields.Date.today():
+            date_invoice = invoice.date_invoice
+            if not date_invoice:
+                date_invoice = fields.Date.today()
+
+            if date_invoice > fields.Date.today():
                 raise UserError('You try to validate an invoice for a date in the future!')
 
             business_type = 'sale'
             if invoice.type in ['in_invoice', 'in_refund']:
                 business_type = 'purchase'
 
-            year = int(invoice.date_invoice[:4])
+            year = int(date_invoice[:4])
             fiscal_year_end = date(year, last_month, last_day)
             this_fiscal_year_date = fiscal_year_end.strftime('%Y-%m-%d')
-            if this_fiscal_year_date >= invoice.date_invoice:
+            if this_fiscal_year_date >= date_invoice:
                 fiscal_year_end = date((year - 1), last_month, last_day)
             else:
                 this_fiscal_year_date = date((year + 1), last_month, last_day).strftime('%Y-%m-%d')
@@ -68,32 +72,31 @@ class AccountInvoice(models.Model):
                 raise UserError('You try to validate an invoice for a journal which is not properly aligned for this type of invoice!')
 
             if business_type == 'purchase' and invoice.invoice_direction_role or business_type == 'sale' and not invoice.invoice_direction_role:
-                if invoice.date_invoice:
-                    domain = [
-                        ('date_invoice', '!=', False),
-                        ('id', '!=', invoice.id),
-                        ('type', '=', invoice.type),
-                        ('invoice_direction_role', '=', invoice.invoice_direction_role)
-                    ]
-                    # Check for draft invoices which will be made impossible
-                    domain_draft = domain[:]
-                    domain_draft.append(('date_invoice', '<=', this_fiscal_year_date))
-                    domain_draft.append(('date_invoice', '<', invoice.date_invoice))
-                    domain_draft.append(('date_invoice', '>', last_fiscal_year_date))
+                domain = [
+                    ('date_invoice', '!=', False),
+                    ('id', '!=', invoice.id),
+                    ('type', '=', invoice.type),
+                    ('invoice_direction_role', '=', invoice.invoice_direction_role)
+                ]
+                # Check for draft invoices which will be made impossible
+                domain_draft = domain[:]
+                domain_draft.append(('date_invoice', '<=', this_fiscal_year_date))
+                domain_draft.append(('date_invoice', '<', date_invoice))
+                domain_draft.append(('date_invoice', '>', last_fiscal_year_date))
 
-                    domain_draft.append(('state', 'in', ['draft']))
+                domain_draft.append(('state', 'in', ['draft']))
 
-                    if invoice.search(domain_draft, limit=500, order='date_invoice DESC'):
-                        raise UserError('There is a draft invoice prior the current invoice date for this configured invoice type!\n')
+                if invoice.search(domain_draft, limit=500, order='date_invoice DESC'):
+                    raise UserError('There is a draft invoice prior the current invoice date for this configured invoice type!\n')
 
-                    # Check for journal and already validated invoices
-                    domain.append(('date_invoice', '<=', this_fiscal_year_date))
-                    domain.append(('date_invoice', '>', invoice.date_invoice))
-                    domain.append(('date_invoice', '>', last_fiscal_year_date))
-                    domain.append(('state', 'not in', ['cancel', 'draft']))
-                    domain.append(('journal_id', '=', invoice.journal_id.id))
-                    if invoice.search(domain):
-                        raise UserError('There is another validated invoice after the current invoice date for this configured invoice type and journal!')
+                # Check for journal and already validated invoices
+                domain.append(('date_invoice', '<=', this_fiscal_year_date))
+                domain.append(('date_invoice', '>', date_invoice))
+                domain.append(('date_invoice', '>', last_fiscal_year_date))
+                domain.append(('state', 'not in', ['cancel', 'draft']))
+                domain.append(('journal_id', '=', invoice.journal_id.id))
+                if invoice.search(domain):
+                    raise UserError('There is another validated invoice after the current invoice date for this configured invoice type and journal!')
 
         return super(AccountInvoice, self).invoice_validate()
 

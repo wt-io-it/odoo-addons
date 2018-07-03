@@ -10,8 +10,8 @@
             <field name="numbercall">-1</field>
             <field name="doall" eval="False"/>
             <field name="model_id" ref="product.model_product_template"/>
-            <field name="function" eval="'cron_batch_computation'"/>
-            <field name="args" eval="''"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_batch_computation()</field>
         </record>
     </data>
 </openerp>

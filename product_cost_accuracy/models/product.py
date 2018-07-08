@@ -37,13 +37,17 @@ class ProductTemplate(models.Model):
     )
     allow_standard_price_zero = fields.Boolean(string='No costs implied')
 
-    @api.onchange('standard_price')
-    def _compute_purchase_price(self):
+    @api.onchange('standard_price', 'uom_po_id')
+    def onchange_standard_price(self):
         res = {}
-        for product in self:
-            factor = product.uom_po_id._compute_quantity(1, product.uom_id)
-            product.purchase_price = product.standard_price * factor
+        self._compute_purchase_price()
         return res
+
+    def _compute_purchase_price(self):
+        for template in self:
+            if template.product_variant_count == 1:
+                factor = template.uom_po_id._compute_quantity(1, template.uom_id)
+                template.purchase_price = template.standard_price * factor
 
     @api.multi
     def batch_compute_price(self):
@@ -61,13 +65,16 @@ class ProductProduct(models.Model):
         digits=dp.get_precision('Cost Price')
     )
 
-    @api.onchange('standard_price')
-    def _compute_purchase_price(self):
+    @api.onchange('standard_price', 'uom_po_id')
+    def onchange_standard_price(self):
         res = {}
+        self._compute_purchase_price()
+        return res
+
+    def _compute_purchase_price(self):
         for product in self:
             factor = product.uom_po_id._compute_quantity(1, product.uom_id)
             product.purchase_price = product.standard_price * factor
-        return res
 
     @api.multi
     def write(self, vals):

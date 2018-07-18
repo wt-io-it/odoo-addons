@@ -3,6 +3,7 @@
 from odoo import models, fields, api
 from odoo.tools.float_utils import float_round
 from odoo.addons import decimal_precision as dp
+
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -11,11 +12,15 @@ _logger = logging.getLogger(__name__)
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
+    # is set to True if we are in a clean install and need to read list_price once for every template from database
+    install_mode = False
+
     list_price = fields.Float(
         compute='_compute_net_price',
         # company_dependent=True,
         store=True,
     )
+
     lst_price_brut = fields.Float(
         string='Gross selling price',
         digits=dp.get_precision('Product Price'),
@@ -33,6 +38,12 @@ class ProductTemplate(models.Model):
         store=True, readonly=True,
         default=1
     )
+
+    def __init__(self, pool, cr):
+        super(ProductTemplate, self).__init__(pool, cr)
+        cr.execute("SELECT column_name FROM information_schema.columns WHERE table_name=%s and column_name='lst_price_brut'", (self._table,))
+        res = cr.fetchone()
+        ProductTemplate.install_mode = res is None
 
     def _get_brut_net_factor(self, price):
         product = self.product_variant_ids
@@ -109,6 +120,9 @@ class ProductTemplate(models.Model):
             The gross price will always have the last word, so even if you set a net price directly
             it might happen it will change to a calculated price based on gross price and the calculated ratio
         """
+        if ProductTemplate.install_mode:
+            self.convert_list_net_price()
+
         for template in self:
             brut_net_factor = template._get_brut_net_factor(template.lst_price_brut)
             list_price = template._get_net_price(template.lst_price_brut)
@@ -118,21 +132,21 @@ class ProductTemplate(models.Model):
                 'lst_price_net': list_price
             })
 
-    def _get_db_list_price(self):
-        self.env.cr.execute("SELECT list_price FROM product_template WHERE id = %s", (self.id,))
-        db_template = self.env.cr.dictfetchall()[0]
-        return db_template['list_price']
+        if ProductTemplate.install_mode:
+            ProductTemplate.install_mode = False
 
     @api.multi
     def convert_list_brut_price(self):
+        db_dict = {template['id']: template for template in self.read(['list_price'])}
         for template in self:
             if template.lst_price_brut == 0:
-                template.lst_price_brut = template._get_db_list_price()
+                template.lst_price_brut = db_dict[template.id]['list_price']
                 template._compute_net_price()
 
     @api.multi
     def convert_list_net_price(self):
+        db_dict = {template['id']: template for template in self.read(['list_price'])}
         for template in self:
             if template.lst_price_net == 0:
-                template.lst_price_net = template._get_db_list_price()
+                template.lst_price_net = db_dict[template.id]['list_price']
                 template._compute_brut_price()

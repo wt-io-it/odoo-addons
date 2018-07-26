@@ -4,7 +4,7 @@
     'name': 'Material Planning Wizard',
     'summary': "Material Planning Wizard for BoM",
     'category': 'Manufacturing',
-    "version": "1.0.2",
+    "version": "1.0.3",
     'depends': ['mrp'],
     "author": "WT-IO-IT GmbH, Wolfgang Taferner",
     "website": "https://www.wt-io-it.at",

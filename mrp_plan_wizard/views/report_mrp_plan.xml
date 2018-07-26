@@ -169,8 +169,8 @@
         
         <template id="mrp_plan_list">
             <t t-call="report.html_container">
-                <t t-foreach="doc_ids" t-as="doc_id">
-                    <t t-raw="translate_doc(doc_id, doc_model, 'create_uid.lang', 'mrp_plan_wizard.mrp_plan_list_document')"/>
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="mrp_plan_wizard.mrp_plan_list_document" t-lang="o.env.user.lang"/>
                 </t>
             </t>
         </template>

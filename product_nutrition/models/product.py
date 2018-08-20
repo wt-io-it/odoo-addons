@@ -57,9 +57,10 @@ class ProductTemplate(models.Model):
 
     @api.model
     def create(self, vals):
+        # As message_follower_ids and other magic values are injected during create
+        local_vals = list(vals)
         product_tmpl = super(ProductTemplate, self).create(vals)
-        del vals['message_follower_ids']
-        product_tmpl.product_variant_ids.write(vals)
+        product_tmpl.product_variant_ids.write(local_vals)
         return product_tmpl
 
     @api.multi

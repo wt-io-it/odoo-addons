@@ -63,16 +63,11 @@ class ProductTemplate(models.Model):
         if 'lst_price_net' in vals:
             vals['list_price'] = float(vals.get('lst_price_net'))
         template = super(ProductTemplate, self).create(vals)
-        if 'lst_price_brut' in vals:
-            vals['lst_price_net'] = template._get_net_price(float(vals.get('lst_price_brut')))
         if 'list_price' in vals:
-            vals.update({
+            template.write({
                 'lst_price_brut': template._get_brut_price(float(vals.get('list_price'))),
                 'lst_price_net': float(vals.get('list_price'))
             })
-        if 'message_follower_ids' in vals:
-            del vals['message_follower_ids']
-        template.write(vals)
         return template
 
     @api.multi

@@ -21,6 +21,7 @@ class ProductTemplate(models.Model):
     portion_grams = fields.Float(string="Grams per Portion", related="product_variant_ids.portion_grams")
     norm_weight = fields.Float(string="Weight per UoM (g)", digits=dp.get_precision('Stock Weight'), help="Product UoM to be converted to 100g", related="product_variant_ids.norm_weight")
     norm_factor = fields.Float(string="UoM Factor", related="product_variant_ids.norm_factor")
+    carb_percentage = fields.Float(string="Carb Percentage", related="product_variant_ids.carb_percentage", digits=dp.get_precision('Stock Weight'), default=1)
 
     energy_joule = fields.Float(string="Energy (kJ)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.energy_joule")
     energy_calories = fields.Float(string="Energy (kcal)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.energy_calories")
@@ -112,6 +113,13 @@ class ProductTemplate(models.Model):
                 template.roughage_uom = template.roughage / template.norm_factor
                 template.protein_uom = template.protein / template.norm_factor
                 template.sodium_uom = template.sodium / template.norm_factor
+
+                divisor = template.fat_total * 9.2 + template.carbohydrate * 4.2 + template.roughage * 2 + template.protein * 4.1
+                if divisor:
+                    template.carb_percentage = (
+                        template.carbohydrate * 4.2 + template.roughage * 2
+                    ) / divisor * 100
+
                 if template.use_portions and template.portions != 0:
                     template.energy_joule_portion = template.energy_joule_uom / template.portions
                     template.energy_calories_portion = template.energy_calories_uom / template.portions
@@ -176,6 +184,7 @@ class ProductProduct(models.Model):
     portion_grams = fields.Float(string="Grams per Portion")
     norm_weight = fields.Float(string="Weight per UoM (g)", digits=dp.get_precision('Stock Weight'), help="Product UoM to be converted to 100g", default=0)
     norm_factor = fields.Float(string="UoM Factor", compute='_compute_norm_factor', store=True, default=0)
+    carb_percentage = fields.Float(string="Carb Percentage", compute='_compute_facts_uom', store=True, digits=dp.get_precision('Stock Weight'), default=1)
 
     energy_joule = fields.Float(string="Energy (kJ)", digits=dp.get_precision('Stock Weight'))
     energy_calories = fields.Float(string="Energy (kcal)", digits=dp.get_precision('Stock Weight'))
@@ -265,6 +274,12 @@ class ProductProduct(models.Model):
                 product.sodium_uom = product.sodium / product.norm_factor
                 product.bread_units_uom = product.carbohydrate_uom / 12
 
+                divisor = product.fat_total * 9.2 + product.carbohydrate * 4.2 + product.roughage * 2 + product.protein * 4.1
+                if divisor:
+                    product.carb_percentage = (
+                        product.carbohydrate * 4.2 + product.roughage * 2
+                    ) / divisor * 100
+
                 if product.use_portions:
                     product.energy_joule_portion = product.energy_joule_uom / product.portions
                     product.energy_calories_portion = product.energy_calories_uom / product.portions
@@ -275,7 +290,7 @@ class ProductProduct(models.Model):
                     product.roughage_portion = product.roughage_uom / product.portions
                     product.protein_portion = product.protein_uom / product.portions
                     product.sodium_portion = product.sodium_uom / product.portions
-                    
+
                     product.bread_units_portion = product.carbohydrate_portion / 12
 
     @api.multi

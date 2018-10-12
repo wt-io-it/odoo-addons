@@ -18,6 +18,8 @@
                                 <field name="portions" string="Portions per UoM" attrs="{'invisible': [('use_portions', '!=', True)]}" />
                                 <field name="portion_grams" string="Grams per Portion" attrs="{'invisible': [('use_portions', '!=', True)]}" />
                                 <field name="norm_factor" string="UoM Factor" />
+                                <field name="carb_percentage"  widget="progressbar" string="Carb Percentage" />
+                                
                             </group>
                             <group string="Nutrition facts per portion" attrs="{'invisible': [('use_portions', '!=', True)]}">
                                 <field name="energy_joule_portion" string="Energy (kJ)" />
@@ -82,6 +84,7 @@
                             <field name="portions" attrs="{'invisible': [('use_portions', '!=', True)]}" />
                             <field name="portion_grams" attrs="{'invisible': [('use_portions', '!=', True)]}" />
                             <field name="norm_factor" />
+                                <field name="carb_percentage"  widget="progressbar" string="Carb Percentage" />
                         </group>
                         <group string="Nutrition facts per portion" attrs="{'invisible': [('use_portions', '!=', True)]}">
                             <field name="energy_joule_portion" string="Energy (kJ)" />

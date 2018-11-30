@@ -16,5 +16,6 @@ class AccountTax(models.Model):
         string="Apply Legal Tax Term"
     )
     legal_tax_sentence = fields.Char(
-        string="Legal Tax Sentence"
+        string="Legal Tax Sentence",
+        translate=True,
     )

@@ -20,7 +20,7 @@
                                     <field name="date_to" />
                                 </group>
                             </group>
-                            <group string="App Evaluation">>
+                            <group string="App Evaluation">
                                 <group>
                                     <field name="nbr_apps_contracted" />
                                 </group>

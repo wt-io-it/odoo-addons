@@ -57,14 +57,14 @@ class AccountInvoice(models.Model):
             if invoice.type in ['in_invoice', 'in_refund']:
                 business_type = 'purchase'
 
-            year = int(date_invoice[:4])
+            year = date_invoice.year
             fiscal_year_end = date(year, last_month, last_day)
-            this_fiscal_year_date = fiscal_year_end.strftime('%Y-%m-%d')
+            this_fiscal_year_date = fiscal_year_end
             if this_fiscal_year_date >= date_invoice:
                 fiscal_year_end = date((year - 1), last_month, last_day)
             else:
-                this_fiscal_year_date = date((year + 1), last_month, last_day).strftime('%Y-%m-%d')
-            last_fiscal_year_date = fiscal_year_end.strftime('%Y-%m-%d')
+                this_fiscal_year_date = date((year + 1), last_month, last_day)
+            last_fiscal_year_date = fiscal_year_end
 
             # Check whether a journal is allowed or not before validating
             journal = invoice.journal_id

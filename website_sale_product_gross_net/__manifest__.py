@@ -15,5 +15,5 @@
     'data': [
         'views/product.xml',
     ],
-    'auto_install': True,
+    'auto_install': False,
 }

@@ -6,7 +6,7 @@
             <field name="model">account.journal</field>
             <field name="inherit_id" ref="account.view_account_journal_form" />
             <field name="arch" type="xml">
-                <field name="show_on_dashboard" position="before">
+                <field name="loss_account_id" position="after">
                     <field name="dedicated_direction_journal" attrs="{'invisible': [('type', 'not in', ['sale', 'purchase'])]}" />
                     <field name="invoice_direction_role" attrs="{'invisible': [('dedicated_direction_journal', '!=', True)]}" />
                 </field>

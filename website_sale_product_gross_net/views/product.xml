@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <template id="product_price" inherit_id="website_sale.product_price">
-            <xpath expr="//span[@t-field='product.lst_price']" position="attributes">
+            <xpath expr="//span[@t-field='product.list_price']" position="attributes">
                 <attribute name="t-field">product.lst_price_net</attribute>
             </xpath>
         </template>

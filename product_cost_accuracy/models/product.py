@@ -123,7 +123,7 @@ class ProductProduct(models.Model):
                 product.standard_price = product.get_history_price(product.company_id.id)
             _logger.debug('Product: %s | Price: %s per %s', product.name, product.standard_price, product.uom_id.name)
 
-            action = product.with_context(bulk_calc=True).compute_price()
+            action = product.with_context(bulk_calc=True).button_bom_cost()
             if not isinstance(action, bool):
                 try:
                     price = action.get('context', {}).get('default_new_price', 0)

@@ -9,7 +9,7 @@
     "website": "https://www.wt-io-it.at",
     "license": 'AGPL-3',
     'depends': [
-        'product_extended',
+        'mrp_bom_cost',
         'stock_account',
     ],
     'data': [

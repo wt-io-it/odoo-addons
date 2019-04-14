@@ -21,10 +21,9 @@ class AccountInvoice(models.Model):
     @api.multi
     def get_taxes_values(self):
         if len(self) == 0:
-            company_id = self.env.user.company_id
+            company = self.env.user.company_id
         else:
-            company_id = self[0].company_id
-        company = company_id.sudo()
+            company = self[0].company_id
         current_method = company.tax_calculation_rounding_method
         if not self.fiscal_position_id.b2c_fiscal_position:
             company.tax_calculation_rounding_method = 'round_globally'
@@ -38,10 +37,9 @@ class AccountInvoice(models.Model):
     def _compute_residual(self):
         for invoice in self:
             if len(invoice) == 0:
-                company_id = invoice.env.user.company_id
+                company = invoice.env.user.company_id
             else:
-                company_id = invoice[0].company_id
-            company = company_id.sudo()
+                company = invoice[0].company_id
             current_method = company.tax_calculation_rounding_method
             if not invoice.fiscal_position_id.b2c_fiscal_position:
                 company.tax_calculation_rounding_method = 'round_globally'

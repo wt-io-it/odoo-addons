@@ -26,25 +26,25 @@ class AccountInvoice(models.Model):
             company = self[0].company_id
         current_method = company.tax_calculation_rounding_method
         if not self.fiscal_position_id.b2c_fiscal_position:
-            company.tax_calculation_rounding_method = 'round_globally'
+            method = 'round_globally'
         else:
-            company.tax_calculation_rounding_method = 'round_per_line'
+            method = 'round_per_line'
+        company._set_rounding_method(method=method)
         _logger.debug('Taxes Computation: Tax Calculation Rounding Method: %s', company.tax_calculation_rounding_method)
         tax_grouped = super(AccountInvoice, self).get_taxes_values()
-        company.tax_calculation_rounding_method = current_method
+        company._set_rounding_method(method=current_method)
         return tax_grouped
 
     def _compute_residual(self):
+        company = self.env.user.company_id
         for invoice in self:
-            if len(invoice) == 0:
-                company = invoice.env.user.company_id
-            else:
-                company = invoice[0].company_id
+            company = invoice.company_id
             current_method = company.tax_calculation_rounding_method
             if not invoice.fiscal_position_id.b2c_fiscal_position:
-                company.tax_calculation_rounding_method = 'round_globally'
+                method = 'round_globally'
             else:
-                company.tax_calculation_rounding_method = 'round_per_line'
+                method = 'round_per_line'
+            company._set_rounding_method(method=method)
             _logger.debug('Compute Residual: Tax Calculation Rounding Method: %s', company.tax_calculation_rounding_method)
             super(AccountInvoice, invoice)._compute_residual()
-            company.tax_calculation_rounding_method = current_method
+            company._set_rounding_method(method=current_method)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template
+            id="product"
+            priority="100"
+            inherit_id="website_sale.product"
+            name="Product">
+            <xpath expr="//p[@t-field='product.description_sale']" position="after">
+                <p id="description_sale_variant" class="text-muted"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

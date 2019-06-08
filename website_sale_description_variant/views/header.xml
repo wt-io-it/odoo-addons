@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template
+            id="assets_frontend"
+            priority="100"
+            inherit_id="website_sale.assets_frontend"
+            name="Shop">
+        </template>
+        <template id="custom_assets_frontend" priority="80" name="Shop Custom (Variant Description)" inherit_id="website_sale.assets_frontend">
+            <xpath
+                expr="."
+                position="inside">
+                <script
+                    type="text/javascript"
+                    src="/website_sale_description_variant/static/src/js/website_sale_custom.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_scheduled_date_prio
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-15 07:07+0000\n"
+"PO-Revision-Date: 2019-06-15 07:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_scheduled_date_prio
+#: model:ir.ui.view,arch_db:stock_scheduled_date_prio.view_picking_internal_search
+msgid "Normal"
+msgstr ""
+
+#. module: stock_scheduled_date_prio
+#: model:ir.ui.view,arch_db:stock_scheduled_date_prio.view_picking_internal_search
+msgid "Not Urgent"
+msgstr ""
+
+#. module: stock_scheduled_date_prio
+#: model:ir.model,name:stock_scheduled_date_prio.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: stock_scheduled_date_prio
+#: model:ir.model,name:stock_scheduled_date_prio.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: stock_scheduled_date_prio
+#: model:ir.ui.view,arch_db:stock_scheduled_date_prio.view_picking_internal_search
+msgid "Urgent"
+msgstr ""
+
+#. module: stock_scheduled_date_prio
+#: model:ir.ui.view,arch_db:stock_scheduled_date_prio.view_picking_internal_search
+msgid "Very Urgent"
+msgstr ""
+

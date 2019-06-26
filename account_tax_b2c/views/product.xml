@@ -13,5 +13,15 @@
                 </field>
             </field>
         </record>
+        <record id="product_pricelist_view_tree" model="ir.ui.view">
+            <field name="name">product.pricelist.tree.inherit.product</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after">
+                    <field name="b2c_pricelist" />
+                </field>
+            </field>
+        </record>
     </data>
 </odoo>

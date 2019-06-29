@@ -1,4 +1,4 @@
-odoo.define('website_sale_custom.website_sale', function (require) {
+odoo.define('website_sale_description_variant.website_sale', function (require) {
     "use strict";
 
     require('web.dom_ready');

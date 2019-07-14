@@ -10,7 +10,7 @@
                     <field name="allow_standard_price_zero" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" />
                 </label>
                 <field name="uom_po_id" position="before">
-                    <field name="purchase_price" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" />
+                    <field name="purchase_price" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" groups="product.group_uom" />
                 </field>
             </field>
         </record>
@@ -21,13 +21,9 @@
             <field name="arch" type="xml">
                 <field name="uom_id" position="before">
                     <field name="allow_standard_price_zero" />
-                    <label for="standard_price" groups="base.group_user" />
-                    <div name="standard_price_uom" groups="base.group_user">
-                        <field name="standard_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
-                    </div>
                 </field>
                 <field name="uom_po_id" position="before">
-                    <field name="purchase_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                    <field name="purchase_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" groups="product.group_uom"/>
                 </field>
             </field>
         </record>

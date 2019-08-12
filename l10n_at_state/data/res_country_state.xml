@@ -46,5 +46,9 @@
             <field name="code">9</field>
             <field name="country_id" ref="base.at" />
         </record>
+        <!-- remove state_code from address format, zip should go before city -->
+        <record id="base.at" model="res.country">
+            <field name="address_format" eval="'%(street)s\n%(street2)s\n%(zip)s %(city)s\n%(country_name)s'" />
+        </record>
     </data>
 </openerp>

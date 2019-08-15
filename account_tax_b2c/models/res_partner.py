@@ -19,4 +19,7 @@ class ResPartner(models.Model):
     @api.depends('property_account_position_id.b2c_fiscal_position')
     def _compute_b2c_fiscal_position(self):
         for partner in self:
-            partner.b2c_fiscal_position = partner.property_account_position_id.b2c_fiscal_position
+            position = True
+            if partner.property_account_position_id:
+                position = partner.property_account_position_id.b2c_fiscal_position
+            partner.b2c_fiscal_position = position

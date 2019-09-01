@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vpicktree" model="ir.ui.view">
+        <field name="name">Stock Picking (Tree)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <data>
+                <tree position="inside">
+                    <field name="scheduled_date_only" />
+                </tree>
+                <tree position="attributes">
+                    <attribute name="decoration-warning">state not in ('cancel', 'done') and scheduled_date_only == current_date</attribute>
+                </tree>
+            </data>
+        </field>
+    </record>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">Stock Picking (Form)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name="priority" position="after">
+                    <field name="priority_scheduled" />
+                </field>
+            </data>
+        </field>
+    </record>
+    <record id="view_picking_internal_search" model="ir.ui.view">
+        <field name="name">Stock Picking (Search)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <data>
+                <filter name="done" position="after">
+                    <separator/>
+                    <filter name="very_urgent" string="Very Urgent" domain="[('priority','=', 3)]" />
+                    <filter name="urgent" string="Urgent" domain="[('priority','=', 2)]" />
+                    <filter name="normal" string="Normal" domain="[('priority','=', 1)]" />
+                    <filter name="not urgent" string="Not Urgent" domain="[('priority','=', 0)]" />
+                </filter>
+            </data>
+        </field>
+    </record>
+</odoo>

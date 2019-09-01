@@ -1,7 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
-.. image:: https://img.shields.io/badge/Odoo-10.0-a24689.svg
-    :alt: Odoo Version: 10.0
+.. image:: https://img.shields.io/badge/Odoo-11.0-a24689.svg
+    :alt: Odoo Version: 11.0
 
 
 System Managed Groups
@@ -13,7 +13,7 @@ Adds the possibility to define system managed groups which are kind of exclusive
 
 Bugs
 =======
-https://github.com/wt-io-it/odoo-addons/tree/10.0
+https://github.com/wt-io-it/odoo-addons/tree/11.0
 
 Credits
 =======

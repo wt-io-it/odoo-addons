@@ -4,13 +4,12 @@
     :alt: Odoo Version: 11.0
 
 
-Odoo Product Gross/Net Price Approach for accounting
-====================================================
-
-This module does add helpers to be able to maintain gross/net prices on products.
+Stock Scheduled Date Prio
+========================================================
 
 Usage
 =====
+
 
 Bugs
 =======

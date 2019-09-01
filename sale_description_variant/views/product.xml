@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_normal_form_view" model="ir.ui.view">
+            <field name="name">Product Normal View (Custom Base)</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='description']" position="after">
+                        <field 
+                            name="description_sale_variant" 
+                            nolabel="1" 
+                            attrs="{'invisible': [('description_sale', 'in', [False, ''])]}"
+                            placeholder="This note will be added underneath the template description (variant specific)." />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="product_variant_easy_edit_view" model="ir.ui.view">
+            <field name="name">Product Variant Easy (Custom Base)</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/group[4]" position="after">
+                    <group name="variant_notes" string="Description for Customers (Variant)">
+                        <field name="description_sale_variant" nolabel="1" placeholder="This note will be added underneath the template description (variant specific)."/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

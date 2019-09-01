@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+
+    <!-- Partner form -->
+    <record id="view_res_partner_filter_assign_tree" model="ir.ui.view">
+        <field name="name">res.partner.geo.inherit.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="website_crm_partner_assign.view_res_partner_filter_assign_tree"/>
+        <field name="arch" type="xml">
+            <field name="activation" position="after">
+                <field name="implemented_count_override" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_crm_partner_assign_form" model="ir.ui.view">
+        <field name="name">res.partner.assign.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="website_crm_partner_assign.view_crm_partner_assign_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='activation']" position="after">
+                    <field name="implemented_count_override"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</odoo>

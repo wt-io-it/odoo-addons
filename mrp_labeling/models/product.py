@@ -15,6 +15,11 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     ingredient_list = fields.Html(string='Ingredients List', related='product_variant_ids.ingredient_list')
+    has_organic_farming = fields.Boolean(
+        string='Organic Origin',
+        help='Labelled Organic Farming Ingredients',
+        related='product_variant_ids.has_organic_farming',
+    )
     calculated_norm_weight = fields.Float(string='Berechnetes Gewicht pro ME (g)', related="product_variant_ids.calculated_norm_weight", store=True)
     norm_weight_diff = fields.Float(string='Abweichung (g)', related="product_variant_ids.norm_weight_diff", store=True)
     deviation = fields.Float(string='Abweichung (Prozent)', related="product_variant_ids.deviation", store=True)
@@ -76,6 +81,7 @@ class ProductTemplate(models.Model):
             ingredients[self].update({
                 'ingredient_name': (self.ingredient_name or self.name).strip(),
                 'yeast_free': self.yeast_free,
+                'organic_farming': self.organic_farming,
                 'allergen_ids': self.allergen_ids,
             })
         else:
@@ -83,6 +89,7 @@ class ProductTemplate(models.Model):
                 'norm_weight': self.norm_weight * qty,
                 'ingredient_name': (self.ingredient_name or self.name).strip(),
                 'yeast_free': self.yeast_free,
+                'organic_farming': self.organic_farming,
                 'allergen_ids': self.allergen_ids,
             }
 
@@ -92,12 +99,15 @@ class ProductTemplate(models.Model):
     def write_nutrition_facts_complete(self, ingredients):
         tuple_list = []
         yeast_free = True
+        organic_farming = False
         allergen_ids = self.env['product.food.allergen']
         total_norm_weight = 0
         for info in ingredients.itervalues():
             total_norm_weight += info['norm_weight']
-            tuple_list.append((info['ingredient_name'], info['norm_weight'], info['yeast_free'], info['allergen_ids']))
+            tuple_list.append((info['ingredient_name'], info['norm_weight'], info['yeast_free'], info['allergen_ids'], info['organic_farming']))
             allergen_ids |= info['allergen_ids']
+            if info['organic_farming']:
+                organic_farming = True
             if not info['yeast_free']:
                 yeast_free = False
 
@@ -128,6 +138,8 @@ class ProductTemplate(models.Model):
 
             _logger.debug("%s g of %s", round(info[1], 2), ingredient_name)
 
+            if info[4]:
+                ingredient_name = '%s*' % ingredient_name
             ingredient_names.append(ingredient_name)
 
         _logger.debug("Abweichung: %s%%", round(deviation, 2))
@@ -135,6 +147,7 @@ class ProductTemplate(models.Model):
 
         self.write({
             'ingredient_list': ', '.join(map(unicode, ingredient_names)) or self.ingredient_name or self.name,
+            'has_organic_farming': organic_farming,
             'yeast_free': yeast_free,
             'calculated_norm_weight': total_norm_weight,
             'deviation': deviation,
@@ -181,6 +194,10 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     ingredient_list = fields.Html(string='Ingredients List')
+    has_organic_farming = fields.Boolean(
+        string='Organic Origin',
+        help='Labelled Organic Farming Ingredients',
+    )
     calculated_norm_weight = fields.Float(string='Berechnetes Gewicht pro ME (g)', digits=dp.get_precision('Stock Weight'), default=0)
     norm_weight_diff = fields.Float(string='Abweichung (g)', default=0)
     deviation = fields.Float(string='Abweichung (Prozent)', default=0)

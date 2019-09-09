@@ -19,6 +19,8 @@
                             </i>
                         </div>
                         <field name="ingredient_list" readonly="1" />
+                        <field name="has_organic_farming" invisible="1" />
+                        <div attrs="{'invisible': [('has_organic_farming', '=', False)]}">* from controlled organic cultivation</div>
                     </div>
                 </field>
             </field>
@@ -41,6 +43,8 @@
                             </i>
                         </div>
                         <field name="ingredient_list" readonly="1" />
+                        <field name="has_organic_farming" invisible="1" />
+                        <div attrs="{'invisible': [('has_organic_farming', '=', False)]}">* from controlled organic cultivation</div>
                     </div>
                 </field>
             </field>

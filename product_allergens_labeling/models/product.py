@@ -34,6 +34,10 @@ class ProductTemplate(models.Model):
         string="Lactose-free",
         related='product_variant_ids.lactose_free'
     )
+    organic_farming = fields.Boolean(
+        string="Organic Farming",
+        related='product_variant_ids.organic_farming'
+    )
     allergens_long = fields.Char(
         related='product_variant_ids.allergens_long'
     )
@@ -63,6 +67,9 @@ class ProductProduct(models.Model):
     lactose_free = fields.Boolean(
         string="Lactose-free",
         compute='_compute_allergen_label_free'
+    )
+    organic_farming = fields.Boolean(
+        string="Organic Farming",
     )
     ingredient_name = fields.Char(
         string="Name as ingredient",

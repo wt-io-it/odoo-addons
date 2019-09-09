@@ -18,6 +18,7 @@
                                 <field name="yeast_free" string="Yeast-free"  />
                                 <field name="gluten_free" string="Gluten-free" />
                                 <field name="lactose_free" string="Lactose-free" />
+                                <field name="organic_farming" />
                             </group>
                         </group>
                         <field name="allergen_ids" />
@@ -41,6 +42,7 @@
                                 <field name="yeast_free" />
                                 <field name="gluten_free" string="Gluten-free" />
                                 <field name="lactose_free" string="Lactose-free" />
+                                <field name="organic_farming" />
                             </group>
                         </group>
                         <field name="allergen_ids" />

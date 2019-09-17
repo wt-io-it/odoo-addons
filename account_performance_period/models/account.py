@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError
-from odoo.addons import decimal_precision as dp
+from odoo import models, fields, api
 
 import logging
 
@@ -55,6 +53,7 @@ class AccountInvoice(models.Model):
                 'date_start': inv_line.date_start,
                 'date_end': inv_line.date_end,
             })
+            # TODO it seems analytic_line_ids is never present in line (not populated in super method)
             for analytic_line in line.get('analytic_line_ids') or []:
                 analytic_line[2].update({
                     'date_range_id': inv_line.date_range_id.id,
@@ -138,11 +137,11 @@ class AccountMoveLine(models.Model):
     )
     date_start = fields.Date(
         string='Performance Start',
-        required=True,
+        required=False,
     )
     date_end = fields.Date(
         string='Performance End',
-        required=True,
+        required=False,
     )
 
     @api.multi

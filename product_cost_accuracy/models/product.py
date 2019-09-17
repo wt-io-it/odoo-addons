@@ -52,7 +52,7 @@ class ProductTemplate(models.Model):
     @api.multi
     def batch_compute_price(self):
         self.mapped('product_variant_ids').batch_compute_price()
-            
+
     @api.multi
     def cron_batch_computation(self):
         self.search([]).batch_compute_price()
@@ -124,7 +124,7 @@ class ProductProduct(models.Model):
             _logger.debug('Product: %s | Price: %s per %s', product.name, product.standard_price, product.uom_id.name)
 
             action = product.with_context(bulk_calc=True).button_bom_cost()
-            if not isinstance(action, bool):
+            if action:
                 try:
                     price = action.get('context', {}).get('default_new_price', 0)
                     product.standard_price = price

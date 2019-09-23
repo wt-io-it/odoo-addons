@@ -93,11 +93,11 @@ class AccountInvoiceLine(models.Model):
     )
     date_start = fields.Date(
         string='Performance Start',
-        required=True,
+        required=False,
     )
     date_end = fields.Date(
         string='Performance End',
-        required=True,
+        required=False,
     )
 
     @api.multi

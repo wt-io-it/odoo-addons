@@ -47,7 +47,7 @@ class MRPProduction(models.Model):
             date = self.date_start
         if self.date_finished:
             date = self.date_finished
-        from_date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+        from_date = date
 
         self.life_date = _calc_date(product, 'life_time', from_date=from_date)
         self.use_date = _calc_date(product, 'use_time', from_date=from_date)

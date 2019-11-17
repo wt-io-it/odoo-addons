@@ -15,10 +15,17 @@ class MaterialPlanWizardLine(models.TransientModel):
 
     product_id = fields.Many2one('product.product', string='Product', required=True)
     product_qty = fields.Float(string='Planned Quantity', digits=dp.get_precision('Product Unit of Measure'), required=True)
-    product_uom_id = fields.Many2one('product.uom', 'UoM', required=True)
+    product_uom_id = fields.Many2one(
+        comodel_name='uom.uom',
+        string='UoM', required=True
+    )
     qty_available = fields.Float(string='Available', digits=dp.get_precision('Product Unit of Measure'), compute='_get_product_info', readonly=True)
     qty_forecasted = fields.Float(string='Forecasted', digits=dp.get_precision('Product Unit of Measure'), compute='_get_product_info', readonly=True)
-    stock_uom_id = fields.Many2one('product.uom', string='UoM', compute='_get_product_info')
+    stock_uom_id = fields.Many2one(
+        comodel_name='uom.uom',
+        string='UoM',
+        compute='_get_product_info',
+    )
     qty_needed = fields.Float(string='Minimum need', digits=dp.get_precision('Product Unit of Measure'), compute='_get_product_info', default=0, readonly=True)
     bom_avail = fields.Boolean(string='BoM', compute='_get_product_info', readonly=True)
     wizard_id = fields.Many2one('mrp.plan.wizard', string='Material Planning Wizard')
@@ -65,7 +72,7 @@ class MaterialNeedWizardLine(models.TransientModel):
         readonly=True
     )
     product_uom_id = fields.Many2one(
-        'product.uom',
+        comodel_name='uom.uom',
         string='UoM',
         readonly=True
     )
@@ -82,7 +89,7 @@ class MaterialNeedWizardLine(models.TransientModel):
         readonly=True
     )
     stock_uom_id = fields.Many2one(
-        'product.uom',
+        comodel_name='uom.uom',
         string='UoM',
         compute='_get_product_info'
     )
@@ -140,7 +147,7 @@ class MaterialProductionPlanWizardLine(models.TransientModel):
         readonly=True
     )
     product_uom_id = fields.Many2one(
-        'product.uom',
+        comodel_name='uom.uom',
         string='UoM',
         readonly=True
     )

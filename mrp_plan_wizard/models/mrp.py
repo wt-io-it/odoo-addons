@@ -59,7 +59,7 @@ class MRPProduction(models.Model):
             ('product_tmpl_id', '=', product.product_tmpl_id.id),
             ('product_id', '=', product.id)
         ])
-        qty = self.env['product.uom'].browse(product_uom_id)._compute_quantity(product_qty, product.uom_id)
+        qty = self.env['uom.uom'].browse(product_uom_id)._compute_quantity(product_qty, product.uom_id)
 
         if bom:
             # We assume that there should be only one BoM per product as we do not handle a choice of BoM during the calculation

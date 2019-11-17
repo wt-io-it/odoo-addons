@@ -111,6 +111,7 @@ class ProductProduct(models.Model):
 
 class FoodAllergen(models.Model):
     _name = 'product.food.allergen'
+    _description = 'Product Food Allergens'
 
     name = fields.Char(
         string="Allergen",

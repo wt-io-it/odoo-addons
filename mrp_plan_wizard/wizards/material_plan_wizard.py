@@ -12,6 +12,7 @@ _logger = logging.getLogger(__name__)
 
 class MaterialPlanWizardLine(models.TransientModel):
     _name = 'mrp.plan.wizard.line'
+    _description = 'Material Plan Wizard Line'
 
     product_id = fields.Many2one('product.product', string='Product', required=True)
     product_qty = fields.Float(string='Planned Quantity', digits=dp.get_precision('Product Unit of Measure'), required=True)
@@ -61,6 +62,7 @@ class MaterialPlanWizardLine(models.TransientModel):
 
 class MaterialNeedWizardLine(models.TransientModel):
     _name = 'mrp.need.wizard.line'
+    _description = 'Material Need Wizard Line'
 
     product_id = fields.Many2one(
         'product.product',
@@ -135,6 +137,7 @@ class MaterialNeedWizardLine(models.TransientModel):
 
 class MaterialProductionPlanWizardLine(models.TransientModel):
     _name = 'mrp.production.plan.wizard.line'
+    _description = 'Material Production Plan Wizard Line'
 
     sequence = fields.Integer(string='Sequence', default=100)
     product_id = fields.Many2one(
@@ -169,6 +172,7 @@ class MaterialProductionPlanWizardLine(models.TransientModel):
 
 class MaterialPlanWizard(models.TransientModel):
     _name = 'mrp.plan.wizard'
+    _description = 'Material Plan Wizard'
 
     planning_time = fields.Datetime(
         string='Planned Point',

@@ -8,7 +8,7 @@
     "author": "WT-IO-IT GmbH, Wolfgang Taferner",
     "website": "https://www.wt-io-it.at",
     "license": 'AGPL-3',
-    'depends': ['mrp', 'product_extended', 'product_nutrition'],
+    'depends': ['mrp', 'mrp_bom_cost', 'product_nutrition'],
     'data': [
         'data/ir_actions_server.xml',
         'views/product.xml',

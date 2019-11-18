@@ -14,7 +14,7 @@ _logger = logging.getLogger(__name__)
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    is_packaging = fields.Boolean(string="Packaging?", related="product_variant_ids.is_packaging")
+    is_packaging = fields.Boolean(string="Packaging?", related="product_variant_ids.is_packaging", readonly=False)
 
     def _recursive_bom_ingredients(self, qty=0, uom=0, level=0, ingredients=None):
         ingredients = ingredients or {}

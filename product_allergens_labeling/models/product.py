@@ -15,38 +15,43 @@ class ProductTemplate(models.Model):
 
     ingredients = fields.Boolean(
         string="Ingredients",
-        related="product_variant_ids.ingredients"
+        related="product_variant_ids.ingredients",
+        readonly=False
     )
     ingredient_name = fields.Char(
         string="Name as ingredient",
         related="product_variant_ids.ingredient_name",
-        help="Other name than the product name. In case there is an allergen inside it is possible to mark words manually with *word* to be printed bold."
+        help="Other name than the product name. In case there is an allergen inside it is possible to mark words manually with *word* to be printed bold.",
+        readonly=False
     )
     gluten_free = fields.Boolean(
         string="Gluten-free",
-        related='product_variant_ids.gluten_free'
+        related='product_variant_ids.gluten_free',
     )
     yeast_free = fields.Boolean(
         string="Yeast-free",
-        related='product_variant_ids.yeast_free'
+        related='product_variant_ids.yeast_free',
+        readonly=False
     )
     lactose_free = fields.Boolean(
         string="Lactose-free",
-        related='product_variant_ids.lactose_free'
+        related='product_variant_ids.lactose_free',
     )
     organic_farming = fields.Boolean(
         string="Organic Farming",
-        related='product_variant_ids.organic_farming'
+        related='product_variant_ids.organic_farming',
+        readonly=False
     )
     allergens_long = fields.Char(
-        related='product_variant_ids.allergens_long'
+        related='product_variant_ids.allergens_long',
     )
     allergens_short = fields.Char(
-        related='product_variant_ids.allergens_short'
+        related='product_variant_ids.allergens_short',
     )
     allergen_ids = fields.Many2many(
         string='Food Allergens',
-        related='product_variant_ids.allergen_ids'
+        related='product_variant_ids.allergen_ids',
+        readonly=False
     )
 
 

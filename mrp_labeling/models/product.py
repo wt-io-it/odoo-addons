@@ -14,15 +14,16 @@ _logger = logging.getLogger(__name__)
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    ingredient_list = fields.Html(string='Ingredients List', related='product_variant_ids.ingredient_list')
+    ingredient_list = fields.Html(string='Ingredients List', related='product_variant_ids.ingredient_list', readonly=False)
     has_organic_farming = fields.Boolean(
         string='Organic Origin',
         help='Labelled Organic Farming Ingredients',
         related='product_variant_ids.has_organic_farming',
+        readonly = False,
     )
-    calculated_norm_weight = fields.Float(string='Berechnetes Gewicht pro ME (g)', related="product_variant_ids.calculated_norm_weight", store=True)
-    norm_weight_diff = fields.Float(string='Abweichung (g)', related="product_variant_ids.norm_weight_diff", store=True)
-    deviation = fields.Float(string='Abweichung (Prozent)', related="product_variant_ids.deviation", store=True)
+    calculated_norm_weight = fields.Float(string='Berechnetes Gewicht pro ME (g)', related="product_variant_ids.calculated_norm_weight", store=True, readonly=False)
+    norm_weight_diff = fields.Float(string='Abweichung (g)', related="product_variant_ids.norm_weight_diff", store=True, readonly=False)
+    deviation = fields.Float(string='Abweichung (Prozent)', related="product_variant_ids.deviation", store=True, readonly=False)
 
     def _recursive_bom_ingredients_complete(self, qty=0, uom=0, level=0, ingredients=None):
         ingredients = ingredients or {}

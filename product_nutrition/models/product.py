@@ -15,24 +15,24 @@ JOULES_CALORIES_FACTOR = 4.2  # SI Value 4.1868
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    nutrition = fields.Boolean(string="Nutrition", related="product_variant_ids.nutrition")
-    use_portions = fields.Boolean(string="Portions?", related="product_variant_ids.use_portions")
-    portions = fields.Float(string="Portions per UoM", related="product_variant_ids.portions", default=1)
-    portion_grams = fields.Float(string="Grams per Portion", related="product_variant_ids.portion_grams")
-    norm_weight = fields.Float(string="Weight per UoM (g)", digits=dp.get_precision('Stock Weight'), help="Product UoM to be converted to 100g", related="product_variant_ids.norm_weight")
-    norm_factor = fields.Float(string="UoM Factor", related="product_variant_ids.norm_factor")
-    carb_percentage = fields.Float(string="Carb Percentage", related="product_variant_ids.carb_percentage", digits=dp.get_precision('Stock Weight'), default=1)
+    nutrition = fields.Boolean(string="Nutrition", related="product_variant_ids.nutrition", readonly=False)
+    use_portions = fields.Boolean(string="Portions?", related="product_variant_ids.use_portions", readonly=False)
+    portions = fields.Float(string="Portions per UoM", related="product_variant_ids.portions", default=1, readonly=False)
+    portion_grams = fields.Float(string="Grams per Portion", related="product_variant_ids.portion_grams", readonly=False)
+    norm_weight = fields.Float(string="Weight per UoM (g)", digits=dp.get_precision('Stock Weight'), help="Product UoM to be converted to 100g", related="product_variant_ids.norm_weight", readonly=False)
+    norm_factor = fields.Float(string="UoM Factor", related="product_variant_ids.norm_factor", readonly=False)
+    carb_percentage = fields.Float(string="Carb Percentage", related="product_variant_ids.carb_percentage", digits=dp.get_precision('Stock Weight'), default=1, readonly=False)
 
-    energy_joule = fields.Float(string="Energy (kJ)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.energy_joule")
-    energy_calories = fields.Float(string="Energy (kcal)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.energy_calories")
-    fat_total = fields.Float(string="Fat total (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.fat_total")
-    fat_saturated = fields.Float(string="Fat saturated (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.fat_saturated")
-    carbohydrate = fields.Float(string="Carbohydrate (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.carbohydrate")
-    carbo_sugars = fields.Float(string="Sugars (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.carbo_sugars")
-    roughage = fields.Float(string="Roughage (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.roughage")
-    protein = fields.Float(string="Protein (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.protein")
-    sodium = fields.Float(string="Sodium (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.sodium")
-    bread_units = fields.Float(string="Bread Units (BU)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.bread_units")
+    energy_joule = fields.Float(string="Energy (kJ)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.energy_joule", readonly=False)
+    energy_calories = fields.Float(string="Energy (kcal)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.energy_calories", readonly=False)
+    fat_total = fields.Float(string="Fat total (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.fat_total", readonly=False)
+    fat_saturated = fields.Float(string="Fat saturated (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.fat_saturated", readonly=False)
+    carbohydrate = fields.Float(string="Carbohydrate (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.carbohydrate", readonly=False)
+    carbo_sugars = fields.Float(string="Sugars (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.carbo_sugars", readonly=False)
+    roughage = fields.Float(string="Roughage (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.roughage", readonly=False)
+    protein = fields.Float(string="Protein (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.protein", readonly=False)
+    sodium = fields.Float(string="Sodium (g)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.sodium", readonly=False)
+    bread_units = fields.Float(string="Bread Units (BU)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.bread_units", readonly=False)
 
     energy_joule_uom = fields.Float(string="Energy per UoM (kJ)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
     energy_calories_uom = fields.Float(string="Energy per UoM (kcal)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
@@ -43,7 +43,7 @@ class ProductTemplate(models.Model):
     roughage_uom = fields.Float(string="Roughage per UoM (g)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
     protein_uom = fields.Float(string="Protein per UoM (g)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
     sodium_uom = fields.Float(string="Sodium per UoM (g)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
-    bread_units_uom = fields.Float(string="Bread Units per UoM (BU)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.bread_units_uom", default=0)
+    bread_units_uom = fields.Float(string="Bread Units per UoM (BU)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.bread_units_uom", default=0, readonly=False)
 
     energy_joule_portion = fields.Float(string="Energy per portion (kJ)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
     energy_calories_portion = fields.Float(string="Energy per portion (kcal)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
@@ -54,7 +54,7 @@ class ProductTemplate(models.Model):
     roughage_portion = fields.Float(string="Roughage per portion (g)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
     protein_portion = fields.Float(string="Protein per portion (g)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
     sodium_portion = fields.Float(string="Sodium per portion (g)", compute='_compute_facts_uom', digits=dp.get_precision('Stock Weight'), default=0)
-    bread_units_portion = fields.Float(string="Bread Units per portion (BU)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.bread_units_portion", default=0)
+    bread_units_portion = fields.Float(string="Bread Units per portion (BU)", digits=dp.get_precision('Stock Weight'), related="product_variant_ids.bread_units_portion", default=0, readonly=False)
 
     @api.model
     def create(self, vals):
@@ -260,7 +260,7 @@ class ProductProduct(models.Model):
             Computes the nutrition facts based on the normalization parameters
         """
         for product in self:
-            
+
             product.bread_units = product.carbohydrate / 12
             if product.norm_factor > 0:
                 product.energy_joule_uom = product.energy_joule / product.norm_factor

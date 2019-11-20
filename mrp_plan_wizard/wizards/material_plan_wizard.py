@@ -205,6 +205,7 @@ class MaterialPlanWizard(models.TransientModel):
         assert len(self) == 1, 'This option should only be used for a single id at a time.'
         if not self.orders_created:
             self.replace_needed_items()
+        # TODO: report was moved
         return self.env['report'].get_action(self, 'mrp_plan_wizard.mrp_plan_list')
 
     @api.multi

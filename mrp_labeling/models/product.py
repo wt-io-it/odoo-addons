@@ -103,7 +103,7 @@ class ProductTemplate(models.Model):
         organic_farming = False
         allergen_ids = self.env['product.food.allergen']
         total_norm_weight = 0
-        for info in ingredients.itervalues():
+        for info in ingredients.values():
             total_norm_weight += info['norm_weight']
             tuple_list.append((info['ingredient_name'], info['norm_weight'], info['yeast_free'], info['allergen_ids'], info['organic_farming']))
             allergen_ids |= info['allergen_ids']
@@ -147,7 +147,7 @@ class ProductTemplate(models.Model):
         _logger.debug('Total Norm Weight: %s g', round(total_norm_weight, 2))
 
         self.write({
-            'ingredient_list': ', '.join(map(unicode, ingredient_names)) or self.ingredient_name or self.name,
+            'ingredient_list': ', '.join(ingredient_names) or self.ingredient_name or self.name,
             'has_organic_farming': organic_farming,
             'yeast_free': yeast_free,
             'calculated_norm_weight': total_norm_weight,

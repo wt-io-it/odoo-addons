@@ -93,7 +93,7 @@ class ProductTemplate(models.Model):
         if uom and uom != self.uom_id:
             qty = uom._compute_quantity(qty, self.uom_id)
 
-        for info in ingredients.itervalues():
+        for info in ingredients.values():
             energy_joule += info['energy_joule'] / qty * self.norm_factor
             energy_calories += info['energy_calories'] / qty * self.norm_factor
             fat_total += info['fat_total'] / qty * self.norm_factor

@@ -2,16 +2,16 @@
 <odoo>
     <data>
         <template id="mrp_plan_list_document">
-            <t t-call="report.external_layout">
+            <t t-call="web.external_layout">
                 <div class="page">
                     <div class="row">
-                        <div class="col-xs-3"><strong>Planned point:</strong></div>
-                        <div class="col-xs-9"><span t-field="o.planning_time" /></div>
-                        <div class="col-xs-3"><strong>Creator:</strong></div>
-                        <div class="col-xs-9"><span t-field="o.create_uid" /></div>
+                        <div class="col-3"><strong>Planned point:</strong></div>
+                        <div class="col-9"><span t-field="o.planning_time" /></div>
+                        <div class="col-3"><strong>Creator:</strong></div>
+                        <div class="col-9"><span t-field="o.create_uid" /></div>
                     </div>
                     <h2>Planned products</h2>
-                    <table class="table table-condensed">
+                    <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th
@@ -64,7 +64,7 @@
                         </tbody>
                     </table>
                     <h2>Details about the raw materials and products needed</h2>
-                    <table class="table table-condensed">
+                    <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th
@@ -117,7 +117,7 @@
                         </tbody>
                     </table>
                     <h2 t-if="o.orders_created">Details about the production orders needed</h2>
-                    <table class="table table-condensed" t-if="o.orders_created">
+                    <table class="table table-sm" t-if="o.orders_created">
                         <thead>
                             <tr>
                                 <th
@@ -168,7 +168,7 @@
         </template>
         
         <template id="mrp_plan_list">
-            <t t-call="report.html_container">
+            <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="mrp_plan_wizard.mrp_plan_list_document" t-lang="o.env.user.lang"/>
                 </t>

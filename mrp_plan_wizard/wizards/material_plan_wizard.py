@@ -206,7 +206,7 @@ class MaterialPlanWizard(models.TransientModel):
         if not self.orders_created:
             self.replace_needed_items()
         # TODO: report was moved
-        return self.env['report'].get_action(self, 'mrp_plan_wizard.mrp_plan_list')
+        return self.env.ref('mrp_plan_wizard.plan_purchase_list_test').report_action(self)
 
     @api.multi
     def create_production_orders(self):

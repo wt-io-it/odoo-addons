@@ -86,6 +86,42 @@ class ProductProduct(models.Model):
                     product.product_tmpl_id.allow_standard_price_zero = product.allow_standard_price_zero
         return res
 
+    def _compute_bom_price(self, bom, boms_to_recompute=False):
+        product = self
+
+        message = ''
+        fail = False
+        for sbom in bom.bom_line_ids:
+            my_qty = sbom.product_qty
+            if not sbom.attribute_value_ids:
+                if sbom.product_id.standard_price <= 0:
+                    sbom.product_id.batch_compute_price()
+                price_product = sbom.product_id.uom_id._compute_price(sbom.product_id.standard_price, sbom.product_uom_id) * my_qty
+                if price_product <= 0:
+                    if not (sbom.product_id.allow_standard_price_zero and price_product == 0):
+                        _logger.warning('Configuration missing: Product: %s | Quantity: %s | Costs: %s per %s', sbom.product_id.display_name, sbom.product_qty, sbom.product_id.standard_price, sbom.product_uom_id.name)
+                        if not self._context.get('bulk_calc'):
+                            fail = True
+                        product_name = bom.product_id and bom.product_id.name or bom.product_tmpl_id and bom.product_tmpl_id.name
+                        message += message + u'%s has a price of EUR %s defined, wheras no valid price for the product %s can be derived!\n' % (sbom.product_id.name, price_product, product_name)
+
+        if fail:
+            raise ValidationError(message)
+
+        price = super(ProductProduct, product)._compute_bom_price(bom, boms_to_recompute=boms_to_recompute)
+
+        if price > 0:
+            _logger.info('BoM Product: %s | Price: %s per %s', product.name, price, product.uom_id.name)
+            return price
+
+        _logger.info('Single Product: %s | Price: %s per %s', product.name, price, product.uom_id.name)
+
+        if price == 0 and not product.allow_standard_price_zero:
+            price = product.get_history_price(product.company_id.id)
+
+        return price
+
+    # DEPRECATED
     def _calc_price(self, bom):
         product = self
         if product.standard_price == 0 and not product.allow_standard_price_zero:
@@ -116,12 +152,14 @@ class ProductProduct(models.Model):
 
         return price
 
+    # DEPRECATED
     @api.multi
     def batch_compute_price(self):
         for product in self:
             if product.standard_price == 0 and not product.allow_standard_price_zero:
                 product.standard_price = product.get_history_price(product.company_id.id)
-            _logger.debug('Product: %s | Price: %s per %s', product.name, product.standard_price, product.uom_id.name)
+            if product.standard_price > 0:
+                _logger.info('Product: %s | Price: %s per %s', product.name, product.standard_price, product.uom_id.name)
 
             action = product.with_context(bulk_calc=True).button_bom_cost()
             if action:

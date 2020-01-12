@@ -6,9 +6,11 @@
                 <div class="page">
                     <div class="row">
                         <div class="col-3"><strong>Planned point:</strong></div>
-                        <div class="col-9"><span t-field="o.planning_time" /></div>
+                        <div class="col-9"><span t-field="o.planning_time"/></div>
+                    </div>
+                    <div class="row">
                         <div class="col-3"><strong>Creator:</strong></div>
-                        <div class="col-9"><span t-field="o.create_uid" /></div>
+                        <div class="col-9"><span t-field="o.create_uid"/></div>
                     </div>
                     <h2>Planned products</h2>
                     <table class="table table-sm">

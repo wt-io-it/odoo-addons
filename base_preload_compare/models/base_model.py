@@ -88,9 +88,12 @@ def preload_wrapper(loader):
 
     def _check_preload_compare(self):
         """ Check if we are installing/upgrading and if Model-Module combination is marked for preload """
+        if self.env.get('base.preload.compare', None) is None:
+            return False
+
         allowed_module = self.env['base.preload.compare'].search([
             ('module_id.name', '=', self._context.get('module')),
-            ('model_ids.model', '=', self._name)
+            ('model_ids.model', '=', self._name),
         ])
 
         return self._context.get('mode', '') in ['update', 'init'] and allowed_module

@@ -70,8 +70,10 @@ def preload_wrapper(loader):
                 value = int(value) if value else 0
             elif db_field_type == 'boolean':
                 value = True if value.lower() == 'true' else False
+            elif db_field_type in ['selection', 'char']:
+                value = False if not value else value
 
-            if not field_type and item_value != value and bool(item_value) != bool(value):
+            if not field_type and item_value != value:
                 return True
             elif (
                     field_type == 'id' and
@@ -114,9 +116,11 @@ def preload_wrapper(loader):
                 if _check_any_changes(self, fields, line):
                     new_data.append(line)
 
+        changed_records_count = len(new_data) - new_data_count
+
         _logger.info(
             'Found: %d new records, %d changed records, %d unchanged records.' %
-            (new_data_count, len(new_data) - new_data_count, len(old_data))
+            (new_data_count, changed_records_count, len(old_data) - changed_records_count)
         )
 
         return new_data

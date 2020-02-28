@@ -7,17 +7,23 @@ _logger = logging.getLogger(__name__)
 
 
 def preload_wrapper(loader):
+    
+    def _get_module_xml_id(self, line, id_idx):
+        try:
+            module, xmlid = line[id_idx].split('.', 1)
+        except ValueError:
+            xmlid = line[id_idx]
+            module = self._context.get('module', False)
+        
+        return module, xmlid
+    
     def _split_data(self, fields, data):
         """ Helper to load all data and returns both lists found/not found data """
         new_data = []
         old_data = []
         id_idx = fields.index('id')
         for line in data:
-            try:
-                module, xmlid = line[id_idx].split('.', 1)
-            except ValueError:
-                xmlid = line[id_idx]
-                module = self._context.get('module', False)
+            module, xmlid = _get_module_xml_id(self, line, id_idx)
             already_mapped_id = self.env['ir.model.data']._update_dummy(model=self._name, module=module, xml_id=xmlid)
             if not already_mapped_id:
                 new_data.append(line)
@@ -29,11 +35,7 @@ def preload_wrapper(loader):
         """ Check if there are any changes between this line and the database record """
 
         id_idx = fields.index('id')
-        try:
-            module, xmlid = line[id_idx].split('.', 1)
-        except ValueError:
-            xmlid = line[id_idx]
-            module = self._context.get('module', False)
+        module, xmlid = _get_module_xml_id(self, line, id_idx)
         item = self.env.ref("%s.%s" % (module, xmlid))
 
         if not item or not item.exists():
@@ -91,6 +93,7 @@ def preload_wrapper(loader):
     def _check_preload_compare(self):
         """ Check if we are installing/upgrading and if Model-Module combination is marked for preload """
         if self.env.get('base.preload.compare', None) is None:
+            _logger.debug('Base Preload Compare is not installed')
             return False
 
         allowed_module = self.env['base.preload.compare'].search([

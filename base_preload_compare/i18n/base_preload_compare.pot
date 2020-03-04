@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* base
+#	* base_preload_compare
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-04 11:30+0000\n"
+"PO-Revision-Date: 2020-03-04 11:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_create_uid
+#: ID: f92f881cf5a668383ead77ac21e1fff45cc616a5
+msgid "Created by"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_create_date
+#: ID: ca4160fd86596758e13765bcec08fdeeb063b258
+msgid "Created on"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,summary:base.module_base_preload_compare
+#: ID: 1df93cade9c8f7b18ac85f2a17e028ffa210f324
+msgid "Custom"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_display_name
+#: ID: dfd6bf374442f50cc79b3833c65079889912df23
+msgid "Display Name"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_id
+#: ID: 0e4871023dedc1556f0cfb1e7cde58c900c15b4b
+msgid "ID"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare___last_update
+#: ID: 3b5beb38814592ce49ad8a5f7d181933d005ba9e
+msgid "Last Modified on"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_write_uid
+#: ID: 18748d94bbcfd3399dc3676bddabe3019af70105
+msgid "Last Updated by"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_write_date
+#: ID: 67d005e1e539323f6d791d3a2ddfadde71d0938c
+msgid "Last Updated on"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_model_ids
+#: ID: cb42e978be3cb9b8b0bc7a4a68a09285f84a8e29
+msgid "Models"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_module_id
+#: ID: 12515fce1b8b71b3f586f4d96b8e3286083b85f0
+msgid "Module"
+msgstr ""
+
+#. modules: base, base_preload_compare
+#: model:ir.model.fields,field_description:base_preload_compare.field_base_preload_compare_name
+#: ID: d1e8bc6098d51d598922591984513cce27192f0a
+msgid "Name"
+msgstr ""
+
+#. module: base_preload_compare
+#: model:ir.actions.act_window,name:base_preload_compare.action_view_preload_data_modules
+#: model:ir.ui.menu,name:base_preload_compare.menu_preload_data_modules
+#: ID: 1b26cf8c713200b8694e8e4e333a31ffd3539c6a
+msgid "Preload Data Modules"
+msgstr ""
+
+#. module: base_preload_compare
+#: model:ir.actions.act_window,help:base_preload_compare.action_view_preload_data_modules
+#: ID: 7de657b5252ea9dec95de5afefa4ea44f77d98a9
+msgid "Preload Data Modules &amp; Models"
+msgstr ""
+

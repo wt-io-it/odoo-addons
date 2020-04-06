@@ -15,6 +15,8 @@
         'base',
     ],
     'data': [
+        'security/ir.model.access.csv',
+
         'views/data_preload.xml',
         'data/menu.xml',
     ],

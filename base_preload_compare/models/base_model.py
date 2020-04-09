@@ -5,6 +5,10 @@ from odoo.models import BaseModel
 
 _logger = logging.getLogger(__name__)
 
+RELATED_FIELDS = ['many2one', 'one2many', 'many2many']
+TEXT_FIELDS = ['char', 'text', 'html', 'selection']
+NUMBER_FIELDS = ['integer', 'float']
+DATE_FIELDS = ['date', 'datetime']
 
 def preload_wrapper(loader):
     
@@ -49,45 +53,38 @@ def preload_wrapper(loader):
         db_fields = self._fields
         fields_dict = {}
         for idx, field in enumerate(fields):
-            field_data = fields[idx].split('/')
-            field_name = field_data[0]
-            field_type = None
-
-            if len(field_data) > 1:
-                field_type = field_data[1]
+            field_name = fields[idx].split('/')[0]
 
             fields_dict.update({
-                idx: [field_name, field_type, db_fields.get(field_name).type],
+                idx: [field_name, db_fields.get(field_name).type],
             })
 
         for idx, value in enumerate(line):
-            field_name, field_type, db_field_type = fields_dict.get(idx, '')
+            field_name, db_field_type = fields_dict.get(idx, '')
             item_value = getattr(item, field_name, None)
             if item_value is None:
                 raise ValueError('Model %s has no attribute %s!' % (item._name, field_name))
 
-            if db_field_type == 'float':
+            if db_field_type == 'boolean':
+                value = True if value and value.lower() == 'true' else False
+            elif db_field_type in NUMBER_FIELDS:
                 value = float(value) if value else 0.0
-            elif db_field_type == 'integer':
-                value = int(value) if value else 0
-            elif db_field_type == 'boolean':
-                value = True if value.lower() == 'true' else False
-            elif db_field_type in ['selection', 'char']:
+                if db_field_type == 'integer':
+                    value = int(value) if value else 0
+            elif db_field_type in TEXT_FIELDS + DATE_FIELDS:
                 value = False if not value else value
+            elif db_field_type in RELATED_FIELDS:
+                value = any(
+                    not self.env.ref(temp_id, raise_if_not_found=False) or
+                    self.env.ref(temp_id) not in item_value
+                    for temp_id in value.split(',')
+                ) if value else False
 
-            if not field_type and item_value != value:
-                return True
-            elif (
-                    field_type == 'id' and
-                    value and
-                    any(
-                        not self.env.ref(temp_id, raise_if_not_found=False) or
-                        self.env.ref(temp_id) not in item_value
-                        for temp_id in value.split(',')
-                    )
+            if (
+                (db_field_type not in RELATED_FIELDS and item_value != value) or
+                (db_field_type in RELATED_FIELDS and value)
             ):
                 return True
-
         return False
 
     def _check_preload_compare(self):

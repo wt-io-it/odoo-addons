@@ -96,7 +96,7 @@ def preload_wrapper(loader):
             _logger.debug('Base Preload Compare is not installed')
             return False
 
-        allowed_module = self.env['base.preload.compare'].search([
+        allowed_module = self.sudo().env['base.preload.compare'].search([
             ('module_id.name', '=', self._context.get('module')),
             ('model_ids.model', '=', self._name),
         ])

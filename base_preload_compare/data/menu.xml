@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="action_view_preload_data_modules" model="ir.actions.act_window">
+        <field eval="True" name="auto_search"/>
+        <field eval="False" name="binding_model_id"/>
+        <field name="binding_type">action</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field eval="False" name="filter"/>
+        <field name="help"><![CDATA[
+                        <p>
+                            Preload Data Modules & Models
+                        </p>
+                    ]]></field>
+        <field name="limit">100</field>
+        <field name="name">Preload Data Modules</field>
+        <field name="res_model">base.preload.compare</field>
+        <field name="target">current</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_id" ref="view_manage_preload_data_modules_tree"/>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <record id="menu_preload_data_modules" model="ir.ui.menu">
+        <field name="name">Preload Data Modules</field>
+        <field name="sequence">100</field>
+        <field ref="action_view_preload_data_modules" name="action"/>
+        <field eval="[(4, ref('base.group_system'))]" name="groups_id"/>
+        <field ref="base.next_id_9" name="parent_id"/>
+    </record>
+</odoo>

@@ -67,7 +67,7 @@ class InputConvertWizard(models.TransientModel):
                     date = row['date'][:10]
                     amount = float(row['amount'].replace(',', '.'))
                     amount_currency = 0
-                    if amount_currency:
+                    if row['amount_currency']:
                         amount_currency = float(row['amount_currency'].replace(',', '.'))
                 except Exception as e:
                     raise UserError('It seems that you have chosen a wrong file or a wrong conversion type!\n\n%s' % (e))
@@ -89,7 +89,7 @@ class InputConvertWizard(models.TransientModel):
                     continue
                 min_date = min(dates[key])
                 max_date = max(dates[key])
-                fee_vals = dict(date=max_date, name='Stripe Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
+                fee_vals = dict(id='txn_fees_%s%s' % (min_date.replace('-', ''), max_date.replace('-', '')), date=max_date, name='Stripe Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
                 stripe[key].append(fee_vals)
             
             for currency, lines in stripe.items():

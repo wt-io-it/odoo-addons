@@ -89,7 +89,7 @@ class InputConvertWizard(models.TransientModel):
                     continue
                 min_date = min(dates[key])
                 max_date = max(dates[key])
-                fee_vals = dict(id='txn_fees_%s%s' % (min_date.replace('-', ''), max_date.replace('-', '')), date=max_date, name='Stripe Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
+                fee_vals = dict(id='txn_fees_stripe_%s_%s%s' % (key.lower(), min_date.replace('-', ''), max_date.replace('-', '')), date=max_date, name='Stripe Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=-sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
                 stripe[key].append(fee_vals)
             
             for currency, lines in stripe.items():

@@ -89,8 +89,9 @@ class InputConvertWizard(models.TransientModel):
             for key in paypal.keys():
                 if not dates[key]:
                     continue
-                fee_vals = dict(id='txn_fees_paypal_%s_%s%s' % (key.lower(), min_date.replace('-', ''), max_date.replace('-', '')), date=max_date, name='PayPal Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
-                paypal[key].append(fee_vals)
+                if sum(fees[key]) != 0:
+                    fee_vals = dict(id='txn_fees_paypal_%s_%s%s' % (key.lower(), min_date.replace('-', ''), max_date.replace('-', '')), date=max_date, name='PayPal Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
+                    paypal[key].append(fee_vals)
 
             for currency, lines in paypal.items():
                 if len(lines) == 0:

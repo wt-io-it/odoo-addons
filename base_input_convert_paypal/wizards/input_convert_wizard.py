@@ -58,6 +58,7 @@ class InputConvertWizard(models.TransientModel):
             dates = {}
             fieldnames_new = fieldnames[:]
             fieldnames_new.insert(0, 'id')
+            all_dates = []
             for row in itertools.islice(paypal_dict, 1, None):
                 try:
                     key = row['currency_id']
@@ -78,13 +79,16 @@ class InputConvertWizard(models.TransientModel):
 
                 fees[key].append(fee)
                 dates[key].append(date)
+                all_dates.append(date)
                 paypal[key].append(row)
+
+            # Min/Max date from all dates
+            min_date = min(all_dates)
+            max_date = max(all_dates)
 
             for key in paypal.keys():
                 if not dates[key]:
                     continue
-                min_date = min(dates[key])
-                max_date = max(dates[key])
                 fee_vals = dict(id='txn_fees_paypal_%s_%s%s' % (key.lower(), min_date.replace('-', ''), max_date.replace('-', '')), date=max_date, name='PayPal Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
                 paypal[key].append(fee_vals)
 

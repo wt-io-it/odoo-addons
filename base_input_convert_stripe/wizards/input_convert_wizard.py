@@ -6,6 +6,7 @@ import base64
 import csv
 import copy
 from decimal import Decimal
+from pytz import timezone
 
 PY2=sys.version_info[0] == 2
 if PY2:
@@ -60,11 +61,15 @@ class InputConvertWizard(models.TransientModel):
             }
             fees = copy.deepcopy(stripe)
             dates = copy.deepcopy(stripe)
+            all_dates = []
             for row in itertools.islice(stripe_dict, 1, None):
                 try:
                     key = row['currency_id'].upper()
                     fee = Decimal(row['Fee'].replace(',', '.'))
-                    date = row['date'][:10]
+                    dt = datetime.datetime.strptime(row['date'], '%Y-%m-%d %H:%M')
+                    dt_fmt = ['%Y', '%m', '%d', '%H', '%M']
+                    dt_vals = tuple(map(lambda fmt: int(datetime.datetime.strftime(dt, fmt)), dt_fmt))
+                    date = datetime.datetime(*dt_vals, tzinfo=timezone('UTC')).astimezone(timezone(self.env.user.tz or 'UTC')).strftime('%Y-%m-%d')
                     amount = float(row['amount'].replace(',', '.'))
                     amount_currency = 0
                     if row['amount_currency']:
@@ -82,13 +87,16 @@ class InputConvertWizard(models.TransientModel):
                     key = 'EUR'
                 fees[key].append(fee)
                 dates[key].append(date)
+                all_dates.append(date)
                 stripe[key].append(row)
+
+            # Min/Max date from all dates
+            min_date = min(all_dates)
+            max_date = max(all_dates)
 
             for key in stripe.keys():
                 if not dates[key]:
                     continue
-                min_date = min(dates[key])
-                max_date = max(dates[key])
                 fee_vals = dict(id='txn_fees_stripe_%s_%s%s' % (key.lower(), min_date.replace('-', ''), max_date.replace('-', '')), date=max_date, name='Stripe Gebühren %s - %s (%s)' % (min_date.replace('-', ' '), max_date[-2:], key), amount=-sum(fees[key]), currency_id=key, ref='Automatische Berechnung (Transaktionen)', note='')
                 stripe[key].append(fee_vals)
             

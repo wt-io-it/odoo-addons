@@ -131,6 +131,8 @@ class InputConvertWizard(models.TransientModel):
                 try:
                     key = 'EUR'
                     date = datetime.datetime.strptime(row['date'], '%d.%m.%Y').strftime('%Y-%m-%d')
+                    if not row['amount']:
+                        continue
                     amount = float(row['amount'].replace(',', '.'))
                 except Exception as e:
                     raise UserError('It seems that you have chosen a wrong file or a wrong conversion type!\n\n%s' % (e))

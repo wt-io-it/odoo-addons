@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record
+            id="inpu_convert_wizard_form_view"
+            model="ir.ui.view">
+            <field name="name">Input Convert Wizard</field>
+            <field name="model">input.convert.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Input Conversion Wizard">
+                    <div>
+                        <group>
+                            <group>
+                                <field name="input_file" filename="file_name" attrs="{'readonly': [('output_file_ids', '!=', [])]}" />
+                                <field name="file_name" invisible="1" />
+                                <field name="conversion_type" attrs="{'readonly': [('output_file_ids', '!=', [])]}" />
+                            </group>
+                            <group />
+                        </group>
+                        <field name="output_file_ids" readonly="1" widget="one2many_list">
+                            <tree>
+                                <field name="wizard_id" invisible="1" />
+                                <field name="file_name"  invisible="1" />
+                                <field name="output_file" filename="file_name"  widget="binary" />
+                            </tree>
+                        </field>
+                    </div> 
+                    <footer>
+                        <button name="action_convert_input" class="oe_highlight" type="object" string="Convert" attrs="{'invisible': ['|', '|', ('output_file_ids', '!=', []), ('input_file', '=', False), ('conversion_type', '=', False)]}" />
+                        <button name="action_wizard_new" class="oe_highlight" type="object" string="Start over" attrs="{'invisible': [('output_file_ids', '=', [])]}" />
+                        
+                        <button name="action_wizard_close" type="object" string="Close" class="btn-default" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record
+            id="action_input_convert_wizard"
+            model="ir.actions.act_window">
+            <field name="name">I/O Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="target">new</field>
+            <field name="res_model">input.convert.wizard</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem
+            id="menu_input_convert_wizard"
+            name="I/O Wizard"
+            action="action_input_convert_wizard"
+            web_icon="base_input_convert,static/src/img/icon.png"
+            sequence="10" />
+    </data>
+</odoo>

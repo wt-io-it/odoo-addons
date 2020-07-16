@@ -67,12 +67,13 @@ class InputConvertWizard(models.TransientModel):
                         fees[key] = []
                         dates[key] = []
                     fee = Decimal(row['Gebühr'].replace(',', ''))
-                    date = datetime.datetime.strptime(row['date'], '%m/%d/%Y').strftime('%Y-%m-%d')
+                    date_v = datetime.datetime.strptime(row['date'], '%m/%d/%Y')
+                    date = date_v.strftime('%Y-%m-%d')
                     amount = Decimal(row['amount'].replace(',', ''))
                 except Exception as e:
                     raise UserError('It seems that you have chosen a wrong file or a wrong conversion type!\n\n%s' % (e))
 
-                row['id'] = 'txn_%s' % row['name']
+                row['id'] = 'txn_%s_%s%s%s' % (row['name'], date_v.year, date_v.month, date_v.day)
                 row['date'] = date
                 row['amount'] = amount
                 row['Gebühr'] = fee

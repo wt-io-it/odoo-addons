@@ -73,7 +73,10 @@ class InputConvertWizard(models.TransientModel):
                 except Exception as e:
                     raise UserError('It seems that you have chosen a wrong file or a wrong conversion type!\n\n%s' % (e))
 
-                row['id'] = 'txn_%s_%s%s%s' % (row['name'], date_v.year, date_v.month, date_v.day)
+                direction = 'pos'
+                if amount < 0:
+                    direction = 'neg'
+                row['id'] = 'txn_%s_%s%s%s_%s' % (row['name'], date_v.year, date_v.month, date_v.day, direction)
                 row['date'] = date
                 row['amount'] = amount
                 row['Gebühr'] = fee

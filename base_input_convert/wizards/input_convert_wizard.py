@@ -18,6 +18,7 @@ PY2 = sys.version_info[0] == 2
 
 class InputConvertOutput(models.TransientModel):
     _name = 'input.convert.output'
+    _description = 'Output Files'
     
     wizard_id = fields.Many2one(
         comodel_name='input.convert.wizard',
@@ -33,6 +34,7 @@ class InputConvertOutput(models.TransientModel):
 
 class InputConvertWizard(models.TransientModel):
     _name = 'input.convert.wizard'
+    _description = 'Input Files'
 
     input_file = fields.Binary(
         string='Input File',

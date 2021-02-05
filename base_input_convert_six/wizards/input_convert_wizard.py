@@ -49,11 +49,14 @@ class InputConvertWizard(models.TransientModel):
             if encoding != 'utf-8':
                 # csv module expect utf-8, see http://docs.python.org/2/library/csv.html
                 csv_data = csv_data.decode(encoding).encode('utf-8')
+            # Latest Header:
+            # Datum;Zeit;Partner ID;Partner Name;VP Nr.;Typ;PLZ Ort;Status;Typ;Ihre Referenz;Acquirer Reference;Kartennummer;DCC;Eingelieferte Währung;Transaktions- betrag;Wechselkurs;Händler Währung;Bruttobetrag;Purchase amount;Cashback amount;Purchase with Cashback Payback;Clearing Region;Gebühren;Interchange Beschreibung;Interchange Fee in %;Interchange;DCC Payback;Nettobetrag;Terminalnummer;Brand
             fieldnames = [
                 'date', 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 
                 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 'note', 'DO NOT IMPORT', 
                 'txn_id', 'ref', 'DO NOT IMPORT', 'DO NOT IMPORT', 'amount',
-                'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 
+                'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT',
+                'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT',
                 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 
                 'DO NOT IMPORT', 'DO NOT IMPORT', 'DO NOT IMPORT', 'name'
             ]
